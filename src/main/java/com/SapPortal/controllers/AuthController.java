@@ -17,28 +17,22 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.SapPortal.models.ApplicationForm;
 import com.SapPortal.models.ERole;
 import com.SapPortal.models.Role;
 import com.SapPortal.models.User;
 import com.SapPortal.payload.request.LoginRequest;
 import com.SapPortal.payload.request.SignupRequest;
-import com.SapPortal.payload.response.MessageResponse;
 import com.SapPortal.payload.response.UserInfoResponse;
 import com.SapPortal.repository.RoleRepository;
 import com.SapPortal.repository.UserRepository;
 import com.SapPortal.security.jwt.JwtUtils;
-import com.SapPortal.security.services.ApplicationFromService;
 import com.SapPortal.security.services.UserDetailsImpl;
+import com.SapPortal.payload.response.MessageResponse;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -54,9 +48,6 @@ public class AuthController {
 	PasswordEncoder encoder;
 	@Autowired
 	JwtUtils jwtUtils;
-	
-	@Autowired
-	ApplicationFromService applicationFromService;
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -119,39 +110,4 @@ public class AuthController {
 		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
 				.body(new MessageResponse("You've been signed out!"));
 	}
-	
-	@GetMapping("/getallapplication")  
-	private List<ApplicationForm> getAllApplicationForm()   
-	{  
-	return applicationFromService.getAllApplicationForm();  
-	}  
-	//creating a get mapping that retrieves the detail of a specific book  
-	@GetMapping("/applicationbyid/{StudentId}")  
-	private ApplicationForm getApplicationForm(@PathVariable("StudentId") int StudentId)   
-	{  
-	return applicationFromService.getApplicationFormById(StudentId);  
-	}  
-	//creating a delete mapping that deletes a specified book  
-	@DeleteMapping("/deleteapplication/{StudentId}")  
-	private void deleteBook(@PathVariable("StudentId") int StudentId)   
-	{  
-		applicationFromService.delete(StudentId);  
-	}  
-	//creating post mapping that post the book detail in the database  
-	@PostMapping("/applicationForm")  
-	private String saveBook(@RequestBody ApplicationForm applicationForm)   
-	{  
-		applicationFromService.saveOrUpdate(applicationForm);  
-	return ("Application sucessful taken to looking"+applicationForm.getStudentId());  
-	}  
-	//creating put mapping that updates the book detail   
-	
-	@PutMapping("/updateapplicationForm")  
-	private ApplicationForm update(@RequestBody ApplicationForm applicationForm)   
-	{  
-		applicationFromService.saveOrUpdate(applicationForm);  
-	return applicationForm;  
-	}  
-	
-	
 }
