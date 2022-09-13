@@ -32,6 +32,11 @@ public class ApplicationFromService {
 	{  
 	return applicationFormRepository.findById(StudentId).get();  
 	}  
+//	
+//	public ApplicationForm getApplicationFormByuserId(int userId)   
+//	{  
+//	return applicationFormRepository.findById(userId).get();  
+//	}
 
 	public void saveOrUpdate(ApplicationForm applicationForm)   
 	{  

@@ -3,6 +3,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,16 @@ public class ApplicationForm {
 	private String studentType;
 	private String adhaarCard;
 	private String uploadImage;
+	private int userId;
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	@JoinTable(name = "applicationFrom_User", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "Student_Id"))
 //	public ApplicationForm(int studentId,String email, String name, String collegeEmail, String sapModule, String contactNumber,
 //			String passoutYear, String branch, String specialization, String studentType, String adhaarCard,
 //			String uploadImage) {
