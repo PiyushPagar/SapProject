@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 
 
-export default class Home extends Component {
+export default class Logindone extends Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +16,7 @@ export default class Home extends Component {
     return (
       <div className="container">
         <header className="jumbotron">
-          <h3>lorem</h3>
+          <h3>login sucess</h3>
         </header>
       </div>
     );
