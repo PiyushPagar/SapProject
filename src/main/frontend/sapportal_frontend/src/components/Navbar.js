@@ -5,7 +5,7 @@ export default function Navbar() {
         <nav className="nav">
             <ul>
                 <li>
-                    <a href="/" ClassName="site-title">SRES</a>
+                    <a href="/" className="site-title">SRES</a>
 
                 </li>
                 <li className="big">

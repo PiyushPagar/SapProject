@@ -14,11 +14,8 @@ import Domain from "./components/Domain";
 
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
-<<<<<<< Updated upstream
 import ForgotPassword from "./components/pages/ForgotPassword";
-=======
 import Navbar from "./components/Navbar";
->>>>>>> Stashed changes
 
 class App extends Component {
   constructor(props) {
@@ -66,9 +63,7 @@ class App extends Component {
 
     return (
       <div>
-<<<<<<< Updated upstream
        
-=======
         {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
             Sap Portal
@@ -121,7 +116,6 @@ class App extends Component {
         </nav> */}
         <Navbar />
         
->>>>>>> Stashed changes
 
         <div className="container mt-3">
           <Switch>
