@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-
+import './home.css';
+import './../App.css';
+import Video from './pages/Video.js';
 
 
 export default class Home extends Component {
@@ -14,11 +16,18 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="container">
-        <header className="jumbotron">
-          <h3>lorem</h3>
-        </header>
-      </div>
+      <div>
+         
+                        
+						
+					
+        <div className="row">
+            <div className="col-6">
+                <Video />
+            </div>
+        </div>
+        </div>
+
     );
   }
 }

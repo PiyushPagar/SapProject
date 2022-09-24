@@ -30,3 +30,73 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif
+}
+
+body {
+  margin: 0 auto
+}
+
+.m-5-auto {
+  margin: 5rem auto
+}
+
+.primary-button {
+  margin-top: 5rem;
+  margin-right: 1rem;
+  padding: .6rem;
+  width: 10rem;
+  background: #222;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: all .5s;
+  cursor: pointer;
+  text-transform: capitalize
+}
+
+/***    Landing Page     ***/
+.main-title,
+.main-para {
+  color: #f1f1f1
+}
+
+.main-title {
+  padding-top: 10rem;
+  font-size: 5rem;
+  text-transform: uppercase
+}
+
+.main-para {
+  font-size: 2.5rem;
+  text-Transform: capitalize
+}
+
+#reg_btn span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#reg_btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#reg_btn:hover span {
+padding-right: 25px;
+}
+
+#reg_btn:hover span:after {
+opacity: 1;
+right: 0;
+}
+

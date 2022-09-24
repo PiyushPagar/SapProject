@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
+import {Link} from 'react-router-dom'
 
 import AuthService from "../services/auth.service";
 
@@ -203,6 +204,7 @@ export default class Login extends Component {
                 onChange={this.onChangePassword}
                 validations={[required]}
               />
+              <Link to="/Forgotpassword"><label className="right-label">Forget password?</label></Link>
             </div>
 
             <div className="form-group">
@@ -224,6 +226,7 @@ export default class Login extends Component {
                 </div>
               </div>
             )}
+
             <CheckButton
               style={{ display: "none" }}
               ref={c => {

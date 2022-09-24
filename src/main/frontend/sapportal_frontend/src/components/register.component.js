@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -53,15 +53,21 @@ export default class Register extends Component {
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangeconfirm_Password = this.onChangeconfirm_Password.bind(this);
+
+
+
 
     this.state = {
       username: "",
       email: "",
       password: "",
+      confirm_password: "",
       successful: false,
       message: ""
     };
   }
+  
 
   onChangeUsername(e) {
     this.setState({
@@ -80,6 +86,11 @@ export default class Register extends Component {
       password: e.target.value
     });
   }
+  onChangeconfirm_Password(e) {
+    this.setState({
+      confirm_password: e.target.value
+    });
+  }
 
   handleRegister(e) {
     e.preventDefault();
@@ -90,35 +101,39 @@ export default class Register extends Component {
     });
 
     this.form.validateAll();
+      if (this.checkBtn.context._errors.length === 0) {
+        if(this.password === this.confirm_password){
+        AuthService.register(
+          this.state.username,
+          this.state.email,
+          this.state.password
+        ).then(
+          response => {
+            this.setState({
+              message: response.data.message,
+              successful: true
+            });
+          },
+          error => {
+            const resMessage =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+  
+            this.setState({
+              successful: false,
+              message: resMessage
+            });
+          }
+        );
+      }
+    };
+  };
 
-    if (this.checkBtn.context._errors.length === 0) {
-      AuthService.register(
-        this.state.username,
-        this.state.email,
-        this.state.password
-      ).then(
-        response => {
-          this.setState({
-            message: response.data.message,
-            successful: true
-          });
-        },
-        error => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
-
-          this.setState({
-            successful: false,
-            message: resMessage
-          });
-        }
-      );
-    }
-  }
+    
+  
 
   render() {
     return (
@@ -173,9 +188,20 @@ export default class Register extends Component {
                     validations={[required, vpassword]}
                   />
                 </div>
+                <div className="form-group">
+                  <label htmlFor="confirm_password">Confirm_Password</label>
+                  <Input
+                    type="password"
+                    className="form-control"
+                    name="confirm_password"
+                    value={this.state.confirm_password}
+                    onChange={this.onChangeconfirm_Password}
+                    validations={[required, vpassword]}
+                  />
+                </div>
 
                 <div className="form-group">
-                  <button className="btn btn-primary btn-block">Sign Up</button>
+                  <button className="btn btn-primary btn-block" >Sign Up</button>
                 </div>
               </div>
             )}
