@@ -1,9 +1,12 @@
 package com.SapPortal;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.EventListener;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -16,6 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SapPortalApplication {
 
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SapPortalApplication.class, args);
 	}
@@ -27,5 +31,6 @@ public class SapPortalApplication {
 	          .paths(PathSelectors.any())                          
 	          .build();                                           
 	    }
-
+	 
+	 
 }
