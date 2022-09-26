@@ -3,6 +3,7 @@ import './home.css';
 import './../App.css';
 import Video from './pages/Video.js';
 import Footer from "./Footer";
+import Domain from "./Domain";
 
 
 
@@ -34,6 +35,7 @@ export default class Home extends Component {
         <header className="jumbotron">
          
         </header>
+        <Domain />
         <Footer/>
       </div>
       </div>

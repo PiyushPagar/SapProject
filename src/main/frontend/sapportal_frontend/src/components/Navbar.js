@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Switch, Route, Link } from "react-router-dom";
 
 export default function Navbar() {
     return (
@@ -24,12 +25,18 @@ export default function Navbar() {
                     <a href="/about">Domain4</a>
                 </li> <li className="big">
                     <a href="/about">Domain5</a></li>
-                    <li>
-                    <button className="btn  big" type="submit">Login</button>
-                   </li>
-                   <li>
-                    <button className="btn big" type="submit">Register</button>
-                   </li>
+                    
+                    <li className="big">
+                            <Link to={"/login"} className="big">
+                              Login
+                            </Link>
+                    </li>
+                   
+                    <li className="nav-item">
+                        <Link to={"/register"} className="nav-link">
+                          Sign Up
+                        </Link>
+                      </li>
             </ul>
         
         </nav>

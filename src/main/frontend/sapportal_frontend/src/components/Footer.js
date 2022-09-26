@@ -20,11 +20,7 @@ const Img = styled.img`
 function Footer() {
   return (
     <Conatainer>
-      <div className="f-wrapper">
-    this is sanh
-    
-      </div>
-      <Img className="img1" src="Photo/College.jpg" />
+      
 
     </Conatainer>
     
