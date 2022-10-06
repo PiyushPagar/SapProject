@@ -30,7 +30,6 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-<<<<<<< Updated upstream
 * {
   box-sizing: border-box;
   margin: 0;
@@ -101,7 +100,6 @@ opacity: 1;
 right: 0;
 }
 
-=======
 
 *{
   margin: 0px;
@@ -136,7 +134,7 @@ a{
 .btn{
   background-color: #1b180f;
   color: white;
-  width: 122px;
+  width: 198px;
   margin: 8px;
   padding: 5px;
   border: 2px solid whitesmoke;
@@ -152,4 +150,3 @@ a{
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 3;
 }
->>>>>>> Stashed changes

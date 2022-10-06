@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-<<<<<<< Updated upstream
 import './home.css';
 import './../App.css';
 import Video from './pages/Video.js';
-=======
-import Footer from "./Footer";
+import Footer from "./Body";
+import Body from "./Body";
+import Domain from "./Domain";
 
->>>>>>> Stashed changes
+
 
 
 export default class Home extends Component {
@@ -20,28 +20,26 @@ export default class Home extends Component {
 
 
   render() {
-    return (
-<<<<<<< Updated upstream
-      <div>
-         
-                        
-						
-					
+    return (		
+				<div>	
+        
         <div className="row">
             <div className="col-6">
-                <Video />
+                
             </div>
         </div>
-        </div>
+       
 
-=======
       <div className="container">
         <header className="jumbotron">
          
         </header>
-        <Footer/>
+      
+        <Body />
+        <Domain />
       </div>
->>>>>>> Stashed changes
+      
+      </div>
     );
   }
 }

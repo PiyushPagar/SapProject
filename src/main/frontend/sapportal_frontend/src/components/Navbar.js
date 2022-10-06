@@ -5,7 +5,7 @@ export default function Navbar() {
         <nav className="nav">
             <ul>
                 <li>
-                    <a href="/" ClassName="site-title">SRES</a>
+                    <a href="/" className="site-title">SRES</a>
 
                 </li>
                 <li className="big">
@@ -25,10 +25,12 @@ export default function Navbar() {
                 </li> <li className="big">
                     <a href="/about">Domain5</a></li>
                     <li>
-                    <button className="btn  big" type="submit">Login</button>
+                    <a href="/login">Login</a>
+                    {/* <button className="btn  big" type="submit">Login</button> */}
                    </li>
                    <li>
-                    <button className="btn big" type="submit">Register</button>
+                   <a href="/register">Register</a>
+                    {/* <button className="btn big" type="submit">Register</button> */}
                    </li>
             </ul>
         

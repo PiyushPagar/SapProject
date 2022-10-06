@@ -3,6 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 
 import "./App.css";
 
+
 import AuthService from "./services/auth.service";
 
 import Login from "./components/login.component";
@@ -10,15 +11,14 @@ import Register from "./components/register.component";
 import Home from "./components/home.component";
 import Logindone from "./components/logindone.component";
 import Domain from "./components/Domain";
+import Footer from "./components/pages/Footer";
 
 
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
-<<<<<<< Updated upstream
 import ForgotPassword from "./components/pages/ForgotPassword";
-=======
 import Navbar from "./components/Navbar";
->>>>>>> Stashed changes
+import Body from "./components/Body";
 
 class App extends Component {
   constructor(props) {
@@ -64,64 +64,12 @@ class App extends Component {
   render() {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
-    return (
+    return (<div>
       <div>
-<<<<<<< Updated upstream
        
-=======
-        {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/"} className="navbar-brand">
-            Sap Portal
-          </Link>
-          <div className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                Home
-              </Link>
-            </li>
-
-
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/user"} className="nav-link">
-                  User
-                </Link>
-              </li>
-            )}
-          </div>
-
-          {currentUser ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/logindone"} className="nav-link">
-                  login done
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={this.logOut}>
-                  LogOut
-                </a>
-              </li>
-            </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
-            </div>
-          )}
-        </nav> */}
+       
         <Navbar />
         
->>>>>>> Stashed changes
 
         <div className="container mt-3">
           <Switch>
@@ -133,10 +81,12 @@ class App extends Component {
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
           </Switch>
         </div>
-        <Domain />
-
-        { /*<AuthVerify logOut={this.logOut}/> */ }
-      </div>
+        
+        
+        </div>
+          <Footer />
+        </div>
+       
     );
   }
 }

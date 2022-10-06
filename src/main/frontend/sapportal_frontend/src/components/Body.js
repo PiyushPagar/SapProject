@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Video from "./pages/Video";
 
 
 
@@ -17,11 +18,11 @@ const Img = styled.img`
 `
 
 
-function Footer() {
+function Body() {
   return (
     <Conatainer>
       <div className="f-wrapper">
-    this is sanh
+      <Video />
     
       </div>
       <Img className="img1" src="Photo/College.jpg" />
@@ -34,4 +35,4 @@ function Footer() {
 /* CSS FOR THIS PAGE */
 
 
-export default Footer;
+export default Body;
