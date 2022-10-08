@@ -26,6 +26,7 @@ function Body() {
     
       </div>
       <Img className="img1" src="Photo/College.jpg" />
+      
 
     </Conatainer>
     

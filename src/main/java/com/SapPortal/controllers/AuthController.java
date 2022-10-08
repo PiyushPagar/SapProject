@@ -9,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +18,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,12 +29,14 @@ import com.SapPortal.models.Role;
 import com.SapPortal.models.User;
 import com.SapPortal.payload.request.LoginRequest;
 import com.SapPortal.payload.request.SignupRequest;
+import com.SapPortal.payload.response.MessageResponse;
 import com.SapPortal.payload.response.UserInfoResponse;
 import com.SapPortal.repository.RoleRepository;
 import com.SapPortal.repository.UserRepository;
 import com.SapPortal.security.jwt.JwtUtils;
+import com.SapPortal.security.services.EmailSenderService;
 import com.SapPortal.security.services.UserDetailsImpl;
-import com.SapPortal.payload.response.MessageResponse;
+import com.SapPortal.util.ConstantUtil;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -48,6 +52,8 @@ public class AuthController {
 	PasswordEncoder encoder;
 	@Autowired
 	JwtUtils jwtUtils;
+	@Autowired
+	EmailSenderService emailSenderService;
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -65,10 +71,10 @@ public class AuthController {
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
+			return ResponseEntity.badRequest().body(new MessageResponse(HttpStatus.BAD_REQUEST.value(),"Error: Username is already taken!"));
 		}
 		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
+			return ResponseEntity.badRequest().body(new MessageResponse(HttpStatus.BAD_REQUEST.value(),"Error: Email is already in use!"));
 		}
 		// Create new user's account
 		User user = new User(signUpRequest.getUsername(), signUpRequest.getEmail(),
@@ -101,13 +107,21 @@ public class AuthController {
 		}
 		user.setRoles(roles);
 		userRepository.save(user);
-		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+		return ResponseEntity.ok(new MessageResponse(HttpStatus.OK.value(),"User registered successfully!"));
 	}
 
 	@PostMapping("/signout")
 	public ResponseEntity<?> logoutUser() {
 		ResponseCookie cookie = jwtUtils.getCleanJwtCookie();
 		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
-				.body(new MessageResponse("You've been signed out!"));
+				.body(new MessageResponse(HttpStatus.OK.value(),"You've been signed out!"));
 	}
+	
+	@PostMapping("/forgotpassword/{Email}")
+	public ResponseEntity<?> forgotpassword(@PathVariable("Email") String email) {
+		String response= emailSenderService.sendEmail(email,ConstantUtil.OtpverificationSubject,ConstantUtil.OtpverificationBody);
+		return ResponseEntity.ok().body(new MessageResponse(HttpStatus.OK.value(),response));  
+    }
+	
+	
 }
