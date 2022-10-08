@@ -5,10 +5,11 @@ export default function Navbar() {
     return (
         <nav className="nav">
             <ul>
-                <li>
-                    <a href="/" className="site-title">SRES</a>
-
-                </li>
+                <li className="big">
+                    <Link to={"/"} className="big">
+                      Home
+                    </Link>
+            </li>
                 <li className="big">
                     <a href="/pricig">Domain0</a>
                 </li>

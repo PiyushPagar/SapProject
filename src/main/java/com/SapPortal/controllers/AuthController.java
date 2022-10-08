@@ -1,6 +1,7 @@
 package com.SapPortal.controllers;
 
 import java.util.HashSet;
+
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -32,6 +33,8 @@ import com.SapPortal.payload.request.SignupRequest;
 import com.SapPortal.payload.response.MessageResponse;
 import com.SapPortal.payload.response.UserInfoResponse;
 import com.SapPortal.repository.RoleRepository;
+import com.SapPortal.payload.request.Forgotpassword;
+
 import com.SapPortal.repository.UserRepository;
 import com.SapPortal.security.jwt.JwtUtils;
 import com.SapPortal.security.services.EmailSenderService;
@@ -123,5 +126,13 @@ public class AuthController {
 		return ResponseEntity.ok().body(new MessageResponse(HttpStatus.OK.value(),response));  
     }
 	
+	
+	@PostMapping("/forgotpassword/setnewpassword")
+	public ResponseEntity<?> forgotpassword(@RequestBody Forgotpassword forgotpassword) {
+		String password= encoder.encode(forgotpassword.getPassword());
+		userRepository.updatepasswordwithemail(forgotpassword.getEmail(),password);
+		return ResponseEntity.ok(new MessageResponse(HttpStatus.OK.value(),"new password set sucessfully"));
+
+    }
 	
 }
