@@ -26,25 +26,20 @@ export default function Navbar() {
                     <a href="/about">Domain4</a>
                 </li> <li className="big">
                     <a href="/about">Domain5</a></li>
-                    
-                    <li className="big">
-                            <Link to={"/login"} className="big">
-                              Login
-                            </Link>
-                    </li>
-                   
-                    <li className="nav-item">
-                        <Link to={"/register"} className="nav-link">
-                          Sign Up
-                        </Link>
-                      </li>
+                    <li>
+                    <a href="/login">Login</a>
+                    {/* <button className="btn  big" type="submit">Login</button> */}
+                   </li>
+                   <li>
+                   <a href="/register">Register</a>
+                    {/* <button className="btn big" type="submit">Register</button> */}
+                   </li>
             </ul>
         
         </nav>
-        
-
-        
-     
-     
     )
 }
+
+
+
+
