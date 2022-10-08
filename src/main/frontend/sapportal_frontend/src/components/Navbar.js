@@ -35,10 +35,9 @@ export default function Navbar() {
             </ul>
         
         </nav>
-        
-
-        
-     
-     
     )
 }
+
+
+
+
