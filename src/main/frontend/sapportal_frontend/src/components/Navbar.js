@@ -10,21 +10,21 @@ export default function Navbar() {
 
                 </li>
                 <li className="big">
-                    <a href="/pricig">Domain0</a>
+                    <a href="#come-here">Domain0</a>
                 </li>
                
                 <li className="big">
-                    <a href="/about">Domain1</a>
+                    <a href="#come-here">Domain1</a>
                 </li>
                 <li className="big">
-                    <a href="/about">Domain2</a>
+                    <a href="#come-here">Domain2</a>
                 </li>
                 <li className="big">
-                    <a href="/about">Domain3</a>
+                    <a href="#come-here">Domain3</a>
                 </li> <li className="big">
-                    <a href="/about">Domain4</a>
+                    <a href="#come-here">Domain4</a>
                 </li> <li className="big">
-                    <a href="/about">Domain5</a></li>
+                    <a href="#come-here">Domain5</a></li>
                     <li>
                     <a href="/login">Login</a>
                     {/* <button className="btn  big" type="submit">Login</button> */}

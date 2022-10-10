@@ -4,6 +4,8 @@ import './../App.css';
 import Video from './pages/Video.js';
 import Body from "./Body";
 import Domain from "./Domain";
+import Placment from "./pages/Placment";
+import NewBody from "./pages/NewBody";
 
 
 
@@ -38,10 +40,13 @@ export default class Home extends Component {
          
         </header>
       
-        <Body />
+        {/* <Body /> */}
+        <NewBody/>
+        <hr />
         <Domain />
+        <hr />
       </div>
-      
+      <Placment/>
       </div>
     );
   }
