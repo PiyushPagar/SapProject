@@ -12,7 +12,6 @@ import Home from "./components/home.component";
 import Logindone from "./components/logindone.component";
 import Domain from "./components/Domain";
 import Footer from "./components/pages/Footer";
-import AcademicCard from "./components/pages/AcademicCard";
 
 
 // import AuthVerify from "./common/auth-verify";
@@ -70,7 +69,7 @@ class App extends Component {
       <div>
        
        
-        <Navbar />
+        {/* <Navbar /> */}
         
 
         <div className="container mt-3">
@@ -85,9 +84,12 @@ class App extends Component {
           </Switch>
         </div>
         
+<<<<<<< Updated upstream
         {/* <AcademicCard /> */}
+=======
+>>>>>>> Stashed changes
         </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
        
     );

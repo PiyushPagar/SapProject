@@ -6,7 +6,7 @@ export default function Navbar() {
         <nav className="nav">
             <ul>
                 <li>
-                    <a href="/" className="site-title">SRES</a>
+                <Img className="Big" src="Photo/Logo.png" />
 
                 </li>
                 <li className="big">
