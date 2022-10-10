@@ -5,7 +5,6 @@ import "./Footer.css"
 export default  function Footer()  {
   return (
     <div>
-      <section>Footer </section>
 <footer class="footer-distributed">
 
 			<div class="footer-left">

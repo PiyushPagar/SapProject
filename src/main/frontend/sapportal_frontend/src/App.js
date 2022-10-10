@@ -20,6 +20,7 @@ import EventBus from "./common/EventBus";
 import ForgotPassword from "./components/pages/ForgotPassword";
 import Navbar from "./components/Navbar";
 import Body from "./components/Body";
+import Seemore from "./components/pages/Seemore";
 
 class App extends Component {
   constructor(props) {
@@ -79,11 +80,12 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/logindone" component={Logindone} />
             <Route exact path="/logindone" component={Logindone} />
+            <Route exact path="/seemore" component={Seemore} />
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
           </Switch>
         </div>
         
-        <AcademicCard />
+        {/* <AcademicCard /> */}
         </div>
           <Footer />
         </div>
