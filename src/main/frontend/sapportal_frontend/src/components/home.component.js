@@ -6,6 +6,8 @@ import Body from "./Body";
 import Domain from "./Domain";
 import Placment from "./pages/Placment";
 import NewBody from "./pages/NewBody";
+import Navbar from "./Navbar";
+import Footer from "./pages/Footer";
 
 
 
@@ -27,6 +29,7 @@ export default class Home extends Component {
 
     return (
       <div>
+        <Navbar/>
         
         <div className="row">
             <div className="col-6">
@@ -42,11 +45,12 @@ export default class Home extends Component {
       
         {/* <Body /> */}
         <NewBody/>
-        <hr />
+        <hr data-aos="fade-right" data-aos-delay="300" data-aos-offset="120"/>
         <Domain />
-        <hr />
+        <hr data-aos="fade-right" data-aos-delay="300" data-aos-offset="120"/>
       </div>
       <Placment/>
+      <Footer/>
       </div>
     );
   }

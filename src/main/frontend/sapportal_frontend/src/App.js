@@ -13,6 +13,7 @@ import Logindone from "./components/logindone.component";
 import Domain from "./components/Domain";
 import Footer from "./components/pages/Footer";
 import AcademicCard from "./components/pages/AcademicCard";
+import Application from "./components/Application"
 
 
 // import AuthVerify from "./common/auth-verify";
@@ -70,7 +71,6 @@ class App extends Component {
       <div>
        
        
-        <Navbar />
         
 
         <div className="container mt-3">
@@ -79,15 +79,14 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/logindone" component={Logindone} />
-            <Route exact path="/logindone" component={Logindone} />
             <Route exact path="/seemore" component={Seemore} />
+            <Route exact path="/application" component={Application} />
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
           </Switch>
         </div>
         
         {/* <AcademicCard /> */}
         </div>
-          <Footer />
         </div>
        
     );

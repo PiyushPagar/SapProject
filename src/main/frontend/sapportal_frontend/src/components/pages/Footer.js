@@ -5,11 +5,11 @@ import "./Footer.css"
 export default  function Footer()  {
   return (
     <div>
-<footer class="footer-distributed">
+<footer class="footer-distributed" data-aos="fade-up" data-aos-delay="300" data-aos-offset="50">
 
 			<div class="footer-left">
 
-				<h3>Company<span>logo</span></h3>
+				<h3>Sanjivani<span>SAP</span></h3>
 
 				<p class="footer-links">
 					<a href="#" class="link-1">Home</a>

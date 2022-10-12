@@ -7,7 +7,6 @@ label {
   max-width: 350px !important;
   padding: 40px 40px;
 }
-
 .card {
   background-color: #f7f7f7;
   padding: 20px 25px 30px;
@@ -114,6 +113,7 @@ ul{
   align-items: center;
   background-color: rgb(0, 0, 0);
   height: 60px;
+  justify-content: space-between;
 }
 .nav{
   position: sticky;
@@ -153,4 +153,27 @@ a{
   top: 60px;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 3;
+}
+.left-nav{
+  display: flex;
+}
+.right-nav{
+  display: flex;
+}
+
+.nav-input{
+  margin-right: 40px;
+}
+.form-control{
+  margin-top: 40px;
+}
+form{
+  display: block;
+
+}
+.center{
+  text-align: center;
+}
+.center span{
+  color:teal
 }
