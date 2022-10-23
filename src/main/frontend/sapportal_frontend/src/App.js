@@ -22,6 +22,9 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import Navbar from "./components/Navbar";
 import Body from "./components/Body";
 import Seemore from "./components/pages/Seemore";
+// const app = require("express");
+// const cors = require("cors")
+// app.use(cors());
 
 class App extends Component {
   constructor(props) {

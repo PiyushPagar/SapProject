@@ -48,3 +48,12 @@ transform: scale(1.04);
     cursor: pointer;
     /* text-decoration: underline; */
 }
+
+.center-spinner{
+    text-align: center;
+    min-height: 50vh;
+    margin: auto;
+    width: 100%;
+    /* position: relative; */
+    /* top: 20px; */
+}
