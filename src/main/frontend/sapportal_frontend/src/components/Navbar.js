@@ -8,7 +8,7 @@ export default function Navbar() {
         <div className="left-nav">
           <li>
             <a href="/" className="site-title">
-              SRES
+              Sanjivani<span className="color-change">SAP</span>
             </a>
           </li>
           <li className="big">
