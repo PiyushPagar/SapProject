@@ -143,9 +143,6 @@ a{
   padding: 5px;
   border: 2px solid whitesmoke;
 }
-.img1{
-/* max-height: calc("100%" - "60px"); */
-}
 .f-wrapper{
   width: 100%;
   height: calc(100vh - 60px);

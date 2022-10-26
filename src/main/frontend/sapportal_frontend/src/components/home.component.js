@@ -6,6 +6,11 @@ import Body from "./Body";
 import Domain from "./Domain";
 import Placment from "./pages/Placment";
 import NewBody from "./pages/NewBody";
+import Navbar from "./Navbar";
+import Footer from "./pages/Footer";
+import AcademicCard from "./pages/AcademicCard";
+
+
 
 
 
@@ -27,7 +32,7 @@ export default class Home extends Component {
 
     return (
       <div>
-        
+        <Navbar/>
         <div className="row">
             <div className="col-6">
                 
@@ -47,6 +52,9 @@ export default class Home extends Component {
         <hr />
       </div>
       <Placment/>
+      <AcademicCard />
+
+      <Footer/>
       </div>
     );
   }

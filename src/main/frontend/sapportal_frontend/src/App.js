@@ -12,7 +12,6 @@ import Home from "./components/home.component";
 import Logindone from "./components/logindone.component";
 import Domain from "./components/Domain";
 import Footer from "./components/pages/Footer";
-import AcademicCard from "./components/pages/AcademicCard";
 
 
 // import AuthVerify from "./common/auth-verify";
@@ -66,13 +65,8 @@ class App extends Component {
   render() {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
-    return (<div>
-      <div>
-       
-       
-        <Navbar />
-        
-
+    return (
+      
         <div className="container mt-3">
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
@@ -84,12 +78,7 @@ class App extends Component {
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
           </Switch>
         </div>
-        
-        {/* <AcademicCard /> */}
-        </div>
-          <Footer />
-        </div>
-       
+  
     );
   }
 }

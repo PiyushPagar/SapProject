@@ -18,7 +18,7 @@ public class Notifications {
 	
 	private String notificationName;
 
-	private String notificationheading;
+	private String notificationmodule;
 
 	private String notificationLink;
 	
@@ -50,12 +50,12 @@ public class Notifications {
 		this.notificationName = notificationName;
 	}
 
-	public String getNotificationheading() {
-		return notificationheading;
+	public String getNotificationmodule() {
+		return notificationmodule;
 	}
 
-	public void setNotificationheading(String notificationheading) {
-		this.notificationheading = notificationheading;
+	public void setNotificationmodule(String notificationmodule) {
+		this.notificationmodule = notificationmodule;
 	}
 
 	public String getNotificationLink() {
@@ -83,12 +83,12 @@ public class Notifications {
 	}
 
 	public Notifications(int notificationId, String createdDateTime, String notificationName,
-			String notificationheading, String notificationLink, String notificationImportantdates, String file) {
+			String notificationmodule, String notificationLink, String notificationImportantdates, String file) {
 		super();
 		this.notificationId = notificationId;
 		this.createdDateTime = createdDateTime;
 		this.notificationName = notificationName;
-		this.notificationheading = notificationheading;
+		this.notificationmodule = notificationmodule;
 		this.notificationLink = notificationLink;
 		this.notificationImportantdates = notificationImportantdates;
 		this.file = file;
