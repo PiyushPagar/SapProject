@@ -207,7 +207,7 @@ export default class Login extends Component {
                 placeholder="Enter Your Password"
 
               />
-              <Link to="/Forgotpassword"><label className="right-label">Forget password?</label></Link>
+              <Link to="/Forgotpassword"><label className="right-label" style={{color : 'black'}}>Forget password?</label></Link>
             </div>
 
             <div className="form-group">
@@ -220,6 +220,9 @@ export default class Login extends Component {
                 )}
                 <span>Login</span>
               </button>
+            </div>
+            <div >
+            <Link to="/home"><label className="right-label" style={{color : 'black'}}>Back to home</label></Link>
             </div>
 
             {this.state.message && (
