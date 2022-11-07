@@ -9,7 +9,6 @@ import AuthService from "./services/auth.service";
 import Login from "./components/login.component";
 import Register from "./components/register.component";
 import Home from "./components/home.component";
-import Logindone from "./components/logindone.component";
 import Domain from "./components/Domain";
 import Footer from "./components/pages/Footer";
 import AcademicCard from "./components/pages/AcademicCard";
@@ -22,6 +21,7 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import Navbar from "./components/Navbar";
 import Body from "./components/Body";
 import Seemore from "./components/pages/Seemore";
+import Logindone from "./components/pages/dashboard/logindone.component";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());

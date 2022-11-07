@@ -203,8 +203,9 @@ export default class Register extends Component {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group and-align">
                   <button className="btn btn-primary btn-block" >Sign Up</button>
+                <a href="/">back to home</a>
                 </div>
               </div>
             )}
