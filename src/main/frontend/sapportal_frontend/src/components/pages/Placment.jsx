@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Placement.css";
+import AOS from 'aos';
+// import 'aos/dist/aos.css';
 
 const Placment = () => {
+
   return (
     <div>
       <h1 className="center-p">Placement</h1>
       <div className="main-Placement">
-        <div data-aos="fade-right" data-aos-delay="100">
+        <div data-aos="fade-right"  data-aos-delay="100">
           <div className="con-p">
             <img src="images/pimg.jpeg" className="my-pic" alt="" />
             <h2>Sonar Pratik</h2>

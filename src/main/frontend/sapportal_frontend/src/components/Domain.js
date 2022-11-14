@@ -1,13 +1,20 @@
 import React from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 // import styled from 'styled-components';
 import "./Domain.css"
 function Domain() {
+    AOS.init({
+        duration:5000,
+        offset:300,
+        once: true
+      });
     return (
         <section className="services" id="services">
         <div className="content">
             <div className="title"><span id='come-here'>Domain</span></div>
             <div className="boxes">
-                <div className="box" data-aos="fade-down-right" data-aos-delay="100" >
+                <div className="box" data-aos="fade-down-right" data-aos-duration="2000" data-aos-delay="1000" >
                     <div className="icon">
                         <i className="fas fa-desktop"></i>
                     </div>
@@ -45,16 +52,17 @@ function Domain() {
                     <div className="topic">Domain5</div>
                     <p>I have learn SQl and i know the basic of SQL</p>
                 </div>
-                <div className="box" data-aos="fade-down-right" data-aos-delay="500" data-aos-offset="120" >
+                <div className="box" data-aos="fade-down-right"    data-aos-delay="500" data-aos-offset="120" >
                     <div className="icon">
                         <i className="fas fa-tablet-alt"></i>
                     </div>
-                    <div className="topic">Domain6</div>
+                    <div className="topic"  >Domain6</div>
                     <p>As I have learned Core Java I know some of the basics of Android Development. Using Core Java and
                         some of the XML I have made some android applications too.</p>
                 </div>
             </div>
         </div>
+       
         </section>
                 )
 }
