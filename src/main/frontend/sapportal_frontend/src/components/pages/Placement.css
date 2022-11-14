@@ -16,6 +16,7 @@
     /* align-content: ce; */
 
 }
+
 .con-p{
     background-color:  pink;
     
@@ -46,4 +47,13 @@ transform: scale(1.04);
     font-weight: bolder;
     cursor: pointer;
     /* text-decoration: underline; */
+}
+
+.center-spinner{
+    text-align: center;
+    min-height: 50vh;
+    margin: auto;
+    width: 100%;
+    /* position: relative; */
+    /* top: 20px; */
 }

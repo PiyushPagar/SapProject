@@ -1,0 +1,14 @@
+.ld-con a{
+/* color: black; */
+text-align: center;
+cursor: pointer;
+font-size: 3rem;
+}
+.ld-con{
+    background-color: teal;
+    height: 20vh;
+    width:30vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

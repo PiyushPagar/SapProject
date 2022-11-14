@@ -7,7 +7,7 @@ function Domain() {
         <div className="content">
             <div className="title"><span id='come-here'>Domain</span></div>
             <div className="boxes">
-                <div className="box">
+                <div className="box" data-aos="fade-down-right" data-aos-delay="100" >
                     <div className="icon">
                         <i className="fas fa-desktop"></i>
                     </div>
@@ -15,14 +15,14 @@ function Domain() {
                     <p>I'm fond of creating responsive web pages, I have created more than 10 web pages. Currently, I'm
                         working with React JS.</p>
                 </div>
-                <div className="box">
+                <div className="box" data-aos="fade-down-right" data-aos-delay="300">
                     <div className="icon">
                         <i className="fas fa-brush"></i>
                     </div>
                     <div className="topic">Domain2</div>
                     <p>I have learned C and C++ at their basic level. As compared to C I have good hands-on C++.</p>
                 </div>
-                <div className="box">
+                <div className="box" data-aos="fade-down-right" data-aos-delay="500">
                     <div className="icon">
                         <i className="fas fa-chart-line"></i>
                     </div>
@@ -30,7 +30,7 @@ function Domain() {
                     <p>In my third semester, I had the subject Core java which was under the choice-based subject, I
                         have completed Core Java and also have made 2-5 Minor and Major projects using Java.</p>
                 </div>
-                <div className="box">
+                <div className="box" data-aos="fade-down-right" data-aos-delay="100" data-aos-offset="120" >
                     <div className="icon">
                         <i className="fab fa-wordpress"></i>
                     </div>
@@ -38,14 +38,14 @@ function Domain() {
                     <p>I'm a member of two of our college communities for two years, so I have good practice on my
                         communication skills & presentations skills.</p>
                 </div>
-                <div className="box">
+                <div className="box" data-aos="fade-down-right" data-aos-delay="300" data-aos-offset="120" >
                     <div className="icon">
                         <i className="fas fa-cloud"></i>
                     </div>
                     <div className="topic">Domain5</div>
                     <p>I have learn SQl and i know the basic of SQL</p>
                 </div>
-                <div className="box">
+                <div className="box" data-aos="fade-down-right" data-aos-delay="500" data-aos-offset="120" >
                     <div className="icon">
                         <i className="fas fa-tablet-alt"></i>
                     </div>

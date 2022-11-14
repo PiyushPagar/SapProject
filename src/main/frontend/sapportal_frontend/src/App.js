@@ -12,6 +12,8 @@ import Home from "./components/home.component";
 import Logindone from "./components/logindone.component";
 import Domain from "./components/Domain";
 import Footer from "./components/pages/Footer";
+import AcademicCard from "./components/pages/AcademicCard";
+import Application from "./components/Application"
 
 
 // import AuthVerify from "./common/auth-verify";
@@ -20,6 +22,9 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import Navbar from "./components/Navbar";
 import Body from "./components/Body";
 import Seemore from "./components/pages/Seemore";
+// const app = require("express");
+// const cors = require("cors")
+// app.use(cors());
 
 class App extends Component {
   constructor(props) {
@@ -65,20 +70,28 @@ class App extends Component {
   render() {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
-    return (
-      
+    return (<div>
+      <div>
+       
+       
+        
+
         <div className="container mt-3">
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/logindone" component={Logindone} />
-            <Route exact path="/logindone" component={Logindone} />
             <Route exact path="/seemore" component={Seemore} />
+            <Route exact path="/application" component={Application} />
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
           </Switch>
         </div>
-  
+        
+        {/* <AcademicCard /> */}
+        </div>
+        </div>
+       
     );
   }
 }

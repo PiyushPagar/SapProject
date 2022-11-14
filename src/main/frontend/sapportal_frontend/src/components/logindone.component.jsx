@@ -1,23 +1,28 @@
 import React, { Component } from "react";
+import Navbarforapp from "./pages/Navbarforapp";
 
+import "./done.css"
+import Footer from "./pages/Footer";
 
 
 export default class Logindone extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      content: ""
-    };
-  }
 
 
   render() {
     return (
-      <div className="container">
-        <header className="jumbotron">
-          <h3>login sucess</h3>
-        </header>
+      <div>
+ <Navbarforapp/>
+ <div className="ld-con">
+      <a href="/application">Application</a>
+ </div>
+ <div className="ld-con">
+      <a href="/application">Empty</a>
+ </div>
+ <div className="ld-con">
+      <a href="/application">Empty</a>
+ </div>
+ <Footer/>
       </div>
     );
   }

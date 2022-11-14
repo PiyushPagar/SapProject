@@ -5,7 +5,7 @@ import CheckButton from "react-validation/build/button";
 import {Link} from 'react-router-dom'
 
 import AuthService from "../services/auth.service";
-
+import "../../src/root.css"
 const required = value => {
   if (!value) {
     return (
@@ -183,7 +183,7 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              {/* <label htmlFor="username">Username</label> */}
               <Input
                 type="text"
                 className="form-control"
@@ -191,11 +191,12 @@ export default class Login extends Component {
                 value={this.state.username}
                 onChange={this.onChangeUsername}
                 validations={[required]}
+                placeholder="Enter Your Username"
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              {/* <label htmlFor="password"></label> */}
               <Input
                 type="password"
                 className="form-control"
@@ -203,8 +204,10 @@ export default class Login extends Component {
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 validations={[required]}
+                placeholder="Enter Your Password"
+
               />
-              <Link to="/Forgotpassword"><label className="right-label">Forget password?</label></Link>
+              <Link to="/Forgotpassword"><label className="right-label" style={{color : 'black'}}>Forget password?</label></Link>
             </div>
 
             <div className="form-group">
@@ -217,6 +220,9 @@ export default class Login extends Component {
                 )}
                 <span>Login</span>
               </button>
+            </div>
+            <div >
+            <Link to="/home"><label className="right-label" style={{color : 'black'}}>Back to home</label></Link>
             </div>
 
             {this.state.message && (

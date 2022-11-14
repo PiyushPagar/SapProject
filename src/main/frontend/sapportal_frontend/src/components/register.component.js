@@ -154,7 +154,6 @@ export default class Register extends Component {
             {!this.state.successful && (
               <div>
                 <div className="form-group">
-                  <label htmlFor="username">Username</label>
                   <Input
                     type="text"
                     className="form-control"
@@ -162,11 +161,12 @@ export default class Register extends Component {
                     value={this.state.username}
                     onChange={this.onChangeUsername}
                     validations={[required, vusername]}
+                    placeholder="Enter Your Username"
+
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
                   <Input
                     type="text"
                     className="form-control"
@@ -174,11 +174,12 @@ export default class Register extends Component {
                     value={this.state.email}
                     onChange={this.onChangeEmail}
                     validations={[required, email]}
+                    placeholder="Enter Your Email"
+
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="password">Password</label>
                   <Input
                     type="password"
                     className="form-control"
@@ -186,17 +187,19 @@ export default class Register extends Component {
                     value={this.state.password}
                     onChange={this.onChangePassword}
                     validations={[required, vpassword]}
+                    placeholder="Enter Your Password"
+
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="confirm_password">Confirm_Password</label>
                   <Input
                     type="password"
-                    className="form-control"
+                    className="form-control mb-40"
                     name="confirm_password"
                     value={this.state.confirm_password}
                     onChange={this.onChangeconfirm_Password}
                     validations={[required, vpassword]}
+                    placeholder="Re-enter Your Password"
                   />
                 </div>
 
