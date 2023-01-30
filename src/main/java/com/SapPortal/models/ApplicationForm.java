@@ -25,7 +25,17 @@ public class ApplicationForm {
 	private String studentType;
 	private String adhaarCard;
 	private String uploadImage;
+	private String applicationFromStatus;
 	private int userId;
+	private Boolean isQueryInApplication;
+	public Boolean getIsQueryInApplication() {
+		return isQueryInApplication;
+	}
+
+	public void setIsQueryInApplication(Boolean isQueryInApplication) {
+		this.isQueryInApplication = isQueryInApplication;
+	}
+
 	public int getUserId() {
 		return userId;
 	}
@@ -34,29 +44,14 @@ public class ApplicationForm {
 		this.userId = userId;
 	}
 
-	@JoinTable(name = "applicationFrom_User", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "Student_Id"))
-//	public ApplicationForm(int studentId,String email, String name, String collegeEmail, String sapModule, String contactNumber,
-//			String passoutYear, String branch, String specialization, String studentType, String adhaarCard,
-//			String uploadImage) {
-//		super();
-//		StudentId = studentId;
-//		this.email = email;
-//		this.name = name;
-//		this.collegeEmail = collegeEmail;
-//		this.sapModule = sapModule;
-//		this.contactNumber = contactNumber;
-//		this.passoutYear = passoutYear;
-//		this.branch = branch;
-//		this.specialization = specialization;
-//		this.studentType = studentType;
-//		this.adhaarCard = adhaarCard;
-//		this.uploadImage = uploadImage;
-//	}
-//	
-//	public ApplicationForm() {
-//		super();
-//		// TODO Auto-generated constructor stub
-//	}
+
+	public String getApplicationFromStatus() {
+		return applicationFromStatus;
+	}
+
+	public void setApplicationFromStatus(String applicationFromStatus) {
+		this.applicationFromStatus = applicationFromStatus;
+	}
 
 	public int getStudentId() {
 		return StudentId;

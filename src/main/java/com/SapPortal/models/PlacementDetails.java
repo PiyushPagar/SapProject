@@ -21,12 +21,11 @@ public class PlacementDetails {
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Long id;
 		private String placementpackage;
-		private String image;
+		private String imageUrl;
 		private String name;
 		private String companyname;
 		private String module;
-		
-		
+		private String placementYear;
 		public Long getId() {
 			return id;
 		}
@@ -39,11 +38,11 @@ public class PlacementDetails {
 		public void setPlacementpackage(String placementpackage) {
 			this.placementpackage = placementpackage;
 		}
-		public String getImage() {
-			return image;
+		public String getImageUrl() {
+			return imageUrl;
 		}
-		public void setImage(String image) {
-			this.image = image;
+		public void setImageUrl(String imageUrl) {
+			this.imageUrl = imageUrl;
 		}
 		public String getName() {
 			return name;
@@ -63,7 +62,22 @@ public class PlacementDetails {
 		public void setModule(String module) {
 			this.module = module;
 		}
+		public String getPlacementYear() {
+			return placementYear;
+		}
+		public void setPlacementYear(String placementYear) {
+			this.placementYear = placementYear;
+		}
+		@Override
+		public String toString() {
+			return "PlacementDetails [id=" + id + ", placementpackage=" + placementpackage + ", imageUrl=" + imageUrl
+					+ ", name=" + name + ", companyname=" + companyname + ", module=" + module + ", placementYear="
+					+ placementYear + "]";
+		}
 		
+		
+		
+
 	
 		
 

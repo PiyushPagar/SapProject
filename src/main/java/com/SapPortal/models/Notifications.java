@@ -13,17 +13,19 @@ public class Notifications {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int notificationId;
-	
+
 	private String createdDateTime;
-	
+
 	private String notificationName;
+
+	private String notificationData;
 
 	private String notificationmodule;
 
 	private String notificationLink;
-	
+
 	private String notificationImportantdates;
-	
+
 	private String file;
 
 	public int getNotificationId() {
@@ -82,8 +84,16 @@ public class Notifications {
 		this.file = file;
 	}
 
-	public Notifications(int notificationId, String createdDateTime, String notificationName,
-			String notificationmodule, String notificationLink, String notificationImportantdates, String file) {
+	public String getNotificationData() {
+		return notificationData;
+	}
+
+	public void setNotificationData(String notificationData) {
+		this.notificationData = notificationData;
+	}
+
+	public Notifications(int notificationId, String createdDateTime, String notificationName, String notificationmodule,
+			String notificationLink, String notificationImportantdates, String file) {
 		super();
 		this.notificationId = notificationId;
 		this.createdDateTime = createdDateTime;
@@ -99,10 +109,4 @@ public class Notifications {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-
-
-	
-	
 }

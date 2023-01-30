@@ -50,14 +50,12 @@ public class ApplicationFromController {
 		applicationFromService.delete(StudentId);
 	}
 
-//creating post mapping that post the book detail in the database  
 	@PostMapping("/applicationForm")
 	private int saveBook(@RequestBody ApplicationForm applicationForm) {
 		applicationFromService.saveOrUpdate(applicationForm);
 		return applicationForm.getStudentId();
 	}
 
-//creating put mapping that updates the book detail   
 	@PutMapping("/applicationFormupdate")
 	private ApplicationForm update(@RequestBody ApplicationForm applicationForm) {
 		applicationFromService.saveOrUpdate(applicationForm);
