@@ -5,7 +5,7 @@ import CheckButton from "react-validation/build/button";
 import {Link} from 'react-router-dom'
 
 import AuthService from "./../../services/auth.service";
-import "./../../root.css"
+/*import "./../../root.css"*/
 import "./Forget.css"
 const required = value => {
   if (!value) {
