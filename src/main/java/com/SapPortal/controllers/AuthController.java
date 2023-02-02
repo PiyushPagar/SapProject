@@ -28,13 +28,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.SapPortal.models.ERole;
 import com.SapPortal.models.Role;
 import com.SapPortal.models.User;
+import com.SapPortal.payload.request.Forgotpassword;
 import com.SapPortal.payload.request.LoginRequest;
 import com.SapPortal.payload.request.SignupRequest;
 import com.SapPortal.payload.response.MessageResponse;
 import com.SapPortal.payload.response.UserInfoResponse;
 import com.SapPortal.repository.RoleRepository;
-import com.SapPortal.payload.request.Forgotpassword;
-
 import com.SapPortal.repository.UserRepository;
 import com.SapPortal.security.jwt.JwtUtils;
 import com.SapPortal.security.services.EmailSenderService;

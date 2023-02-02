@@ -206,7 +206,7 @@ export default class Register extends Component {
               </div>
             )}
 
-            {this.state.message && (
+            <!-- {this.state.message && (
               <div className="form-group">
                 <div
                   className={
@@ -218,10 +218,10 @@ export default class Register extends Component {
                 >
                   {this.state.message}
                 </div>
-              </div>
+              </div> -->
             )}
             <CheckButton
-              style={{ display: "none" }}
+              style="display: none;"
               ref={c => {
                 this.checkBtn = c;
               }}
