@@ -9,7 +9,7 @@ form {
 
 form label {
     float: left;
-    font-size: 1rem;
+    font-size: .9rem;
     margin: 0;
     padding: 0
 }
@@ -20,10 +20,10 @@ form label {
 }
 
 input {
-    width: 25rem;
+    width: 15rem;
     padding: .3rem;
     border-radius: 5px;
-    outline: black;
+    outline: none;
     border: none
 }
 
