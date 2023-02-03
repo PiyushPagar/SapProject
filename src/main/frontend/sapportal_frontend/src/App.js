@@ -18,7 +18,7 @@ import Application from "./components/Application"
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
 import ForgotPassword from "./components/pages/ForgotPassword";
-import Navbar from "./components/Navbar";
+import verify from "./components/pages/Verify-Change/verify";
 import Body from "./components/Body";
 import Seemore from "./components/pages/Seemore";
 import Logindone from "./components/pages/dashboard/logindone.component";
@@ -85,6 +85,7 @@ class App extends Component {
             <Route exact path="/seemore" component={Seemore} />
             <Route exact path="/application" component={Application} />
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
+            <Route exact path="/verify" component={verify} />
           </Switch>
         </div>
         
