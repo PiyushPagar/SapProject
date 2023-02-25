@@ -33,6 +33,22 @@ class AuthService {
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('user'));;
   }
+
+  getNotification(){
+    return axios.get(API_URL + "/getALLNotifications");
 }
+}
+// export const getNotifications = async () = >{
+//   try {
+//     const {data} =await axios.get(API_URL + "/getALLNotifications",{
+//       headers :{
+//         "x-access-token":localStorage.getItem("token")
+//       }
+//     })
+//     return data;
+//   } catch (error) {
+//     return error;
+//   }}
 
 export default new AuthService();
+
