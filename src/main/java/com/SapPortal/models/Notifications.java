@@ -1,5 +1,6 @@
 package com.SapPortal.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,103 +11,112 @@ import javax.persistence.Table;
 @Table(name = "Notifiation_Table")
 public class Notifications {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int notificationId;
-
+	private Long id;
+	@Column(name = "code")
+	private String code;
+	@Column(name = "name")
+	private String name;
+	@Column(name = "title")
+	private String title;
+	@Column(name = "body")
+	private String body;
+	@Column(name = "status")
+	private String status;
+	@Column(name = "createdDateTime")
 	private String createdDateTime;
-
-	private String notificationName;
-
-	private String notificationData;
-
+	@Column(name = "notificationmodule")
 	private String notificationmodule;
-
-	private String notificationLink;
-
-	private String notificationImportantdates;
-
+	@Column(name = "file")
 	private String file;
-
-	public int getNotificationId() {
-		return notificationId;
-	}
-
-	public void setNotificationId(int notificationId) {
-		this.notificationId = notificationId;
-	}
-
-	public String getCreatedDateTime() {
-		return createdDateTime;
-	}
-
-	public void setCreatedDateTime(String createdDateTime) {
-		this.createdDateTime = createdDateTime;
-	}
-
-	public String getNotificationName() {
-		return notificationName;
-	}
-
-	public void setNotificationName(String notificationName) {
-		this.notificationName = notificationName;
-	}
-
-	public String getNotificationmodule() {
-		return notificationmodule;
-	}
-
-	public void setNotificationmodule(String notificationmodule) {
-		this.notificationmodule = notificationmodule;
-	}
-
-	public String getNotificationLink() {
-		return notificationLink;
-	}
-
-	public void setNotificationLink(String notificationLink) {
-		this.notificationLink = notificationLink;
-	}
-
-	public String getNotificationImportantdates() {
-		return notificationImportantdates;
-	}
-
-	public void setNotificationImportantdates(String notificationImportantdates) {
-		this.notificationImportantdates = notificationImportantdates;
-	}
-
-	public String getFile() {
-		return file;
-	}
-
-	public void setFile(String file) {
-		this.file = file;
-	}
-
-	public String getNotificationData() {
-		return notificationData;
-	}
-
-	public void setNotificationData(String notificationData) {
-		this.notificationData = notificationData;
-	}
-
-	public Notifications(int notificationId, String createdDateTime, String notificationName, String notificationmodule,
-			String notificationLink, String notificationImportantdates, String file) {
+	@Column(name = "user_id")
+	private Long userId;
+	
+	
+	
+	
+	public Notifications(Long id, String code, String name, String title, String body, String status,
+			String createdDateTime, String notificationmodule, String file, Long userId) {
 		super();
-		this.notificationId = notificationId;
+		this.id = id;
+		this.code = code;
+		this.name = name;
+		this.title = title;
+		this.body = body;
+		this.status = status;
 		this.createdDateTime = createdDateTime;
-		this.notificationName = notificationName;
 		this.notificationmodule = notificationmodule;
-		this.notificationLink = notificationLink;
-		this.notificationImportantdates = notificationImportantdates;
 		this.file = file;
+		this.userId = userId;
 	}
-
 	public Notifications() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getBody() {
+		return body;
+	}
+	public void setBody(String body) {
+		this.body = body;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getCreatedDateTime() {
+		return createdDateTime;
+	}
+	public void setCreatedDateTime(String createdDateTime) {
+		this.createdDateTime = createdDateTime;
+	}
+	public String getNotificationmodule() {
+		return notificationmodule;
+	}
+	public void setNotificationmodule(String notificationmodule) {
+		this.notificationmodule = notificationmodule;
+	}
+	public String getFile() {
+		return file;
+	}
+	public void setFile(String file) {
+		this.file = file;
+	}
+
+	
 }
