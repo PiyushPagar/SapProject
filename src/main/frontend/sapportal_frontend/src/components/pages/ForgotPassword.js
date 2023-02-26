@@ -19,6 +19,7 @@ import "./Forget.css";
 //         </form>
 //   </div>
 //)
+//const [otp,setOtp] = useState('')
 class ForgotPassword extends Component {
   state = {
     email: '',
@@ -29,11 +30,14 @@ class ForgotPassword extends Component {
 handleSubmit = event => {
     event.preventDefault();
     const mail = this.state.email
+    
     console.log(mail)
-    axios.post(`https://localhost:9190/api/auth/forgotpassword/${mail}`)
+    axios.post(`http://localhost:9190/api/auth/forgotpassword/${mail}`)
       .then(res=>{
-        console.log(res);
-        console.log(res.data);
+        console.log(res.data.message.slice(33));
+        sessionStorage.setItem('otp',res.data.message.slice(33))
+        //setOtp(res.data.message.slice(33));
+        //console.log(res.data);
         window.location = "/verify" //This line of code will redirect you once the submission is succeed
       }).catch(err=>{
         console.log(err);
@@ -46,7 +50,7 @@ handleChange = event =>{
   }
 render() {
     return (
-      <div className='container'>
+      <div className='container' style={{display:'flex',alignContent:'center'}}>
         <form >
           <label> Email
             <input type = "email" value = {this.state.email} name = "Email" onChange = {(e)=>this.handleChange(e)}/>
