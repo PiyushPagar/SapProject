@@ -18,10 +18,11 @@ import Application from "./components/Application"
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
 import ForgotPassword from "./components/pages/ForgotPassword";
-import verify from "./components/pages/Verify-Change/verify";
+import Verify from "./components/pages/Verify-Change/verify";
 import Body from "./components/Body";
 import Seemore from "./components/pages/Seemore";
 import Logindone from "./components/pages/dashboard/logindone.component";
+import Changepassword from "./components/pages/Verify-Change/Changepassword";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());
@@ -85,7 +86,8 @@ class App extends Component {
             <Route exact path="/seemore" component={Seemore} />
             <Route exact path="/application" component={Application} />
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
-            <Route exact path="/verify" component={verify} />
+            <Route exact path="/verify" component={Verify} />
+            <Route exact path="/changepassword" component={Changepassword} />
           </Switch>
         </div>
         

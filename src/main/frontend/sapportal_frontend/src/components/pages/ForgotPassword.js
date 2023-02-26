@@ -30,6 +30,7 @@ class ForgotPassword extends Component {
 handleSubmit = event => {
     event.preventDefault();
     const mail = this.state.email
+    sessionStorage.setItem('EMAIL',mail)
     
     console.log(mail)
     axios.post(`http://localhost:9190/api/auth/forgotpassword/${mail}`)
