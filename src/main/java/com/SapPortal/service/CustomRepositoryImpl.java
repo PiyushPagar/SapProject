@@ -1,81 +1,116 @@
 package com.SapPortal.service;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.criteria.Predicate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+import com.SapPortal.models.ApplicationForm;
+import com.SapPortal.repository.ApplicationFormRepository;
 import com.SapPortal.repository.CustomRepository;
 
 
 @Repository
-public  class CustomRepositoryImpl implements CustomRepository {
+public  class CustomRepositoryImpl implements CustomRepository{
+	
+	@Autowired
+	ApplicationFormRepository applicationFormRepository;
 	
 	@Override
-	public Page<> findProductByFilter(Integer pagenum, Integer pagesize,String productName, Long offerId, Long productId,
-			Long categoryId,Long maxPrice,Long minPrice,Boolean ispopular, String status,String sorting,Boolean isAsc, Pageable page,Long price) {
-		Page<> pager = productRepository.findAll((root, criteriaQuery, criteriaBuilder) -> {
+	public Page<ApplicationForm > findApplicationFormByFilter(Integer pagenum, Integer pagesize,Integer StudentId,String email
+			,String name,
+			String collegeEmail,String sapModule, String contactNumber,String passoutYear,String branch,String specialization,
+			String studentType,String adhaarCard,String applicationFromStatus, Long userId,Boolean isQueryInApplication,Pageable pageable) {
+		    Page<ApplicationForm> pager = applicationFormRepository.findAll((root, criteriaQuery, criteriaBuilder) -> {
             List<Predicate> predicatesList = new ArrayList<>();
-            if (status != null && !status.equals("")) {
+            if (StudentId != null && !StudentId.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
                                 criteriaBuilder.equal(
-                                        root.get("status"), status )));
+                                        root.get("StudentId"), StudentId )));
             }
-            if (productName != null && !productName.equals("")) {
+            if (email != null && !email.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
                                 criteriaBuilder.like(
-                                        root.get("name"),"%"+productName+"%")));
+                                        root.get("email"),"%"+email+"%")));
             }
-            if (offerId != null ) {
+            if (name != null && !name.equals("") ) {
                 predicatesList.add(
                         criteriaBuilder.and(
                                 criteriaBuilder.equal(
-                                        root.get("offer"), offerId)));
+                                        root.get("name"), "%"+name+"%")));
             }
-            if (productId != null ) {
+            if (collegeEmail != null && !collegeEmail.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
                                 criteriaBuilder.equal(
-                                        root.get("id"), productId)));
+                                        root.get("collegeEmail"),  "%"+collegeEmail+"%")));
             }
-            if (categoryId != null ) {
+            if (sapModule != null  && !sapModule.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
                                 criteriaBuilder.equal(
-                                        root.get("category"), categoryId)));
+                                        root.get("sapModule"), sapModule)));
             }
-            if (price != null ) {
+            if (contactNumber != null  && !contactNumber.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
                                 criteriaBuilder.equal(
-                                        root.get("price"), price)));
+                                        root.get("contactNumber"), "%"+contactNumber+"%")));
             }
-            if ( maxPrice != null && minPrice != null ) {
-                predicatesList.add(
-                        criteriaBuilder.and(
-                                criteriaBuilder.between(
-                                        root.get("price"), minPrice, maxPrice)));
-            }
-            if (ispopular != null ) {
+            if (passoutYear != null && !passoutYear.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
                                 criteriaBuilder.equal(
-                                        root.get("ispopular"), ispopular)));
+                                        root.get("passoutYear"),  passoutYear)));
             }
-            if (sorting != null && !sorting.isEmpty()) {
-            	if(isAsc==false) {
-            		  criteriaQuery.orderBy(criteriaBuilder.asc(root.get(sorting)));  
-            	}else {
-                criteriaQuery.orderBy(criteriaBuilder.desc(root.get(sorting)));   
-            	}
-
+            if (branch != null && !branch.equals("")) {
+                predicatesList.add(
+                        criteriaBuilder.and(
+                                criteriaBuilder.equal(
+                                        root.get("branch"),  branch)));
             }
+            if (specialization != null && !specialization.equals("")) {
+                predicatesList.add(
+                        criteriaBuilder.and(
+                                criteriaBuilder.equal(
+                                        root.get("specialization"),  "%"+specialization+"%")));
+            }
+            if (adhaarCard != null && !adhaarCard.equals("")) {
+                predicatesList.add(
+                        criteriaBuilder.and(
+                                criteriaBuilder.equal(
+                                        root.get("adhaarCard"),  "%"+adhaarCard+"%")));
+            }
+            if (applicationFromStatus != null && !applicationFromStatus.equals("")) {
+                predicatesList.add(
+                        criteriaBuilder.and(
+                                criteriaBuilder.equal(
+                                        root.get("applicationFromStatus"),  applicationFromStatus)));
+            }
+            if (isQueryInApplication != null && !isQueryInApplication.equals("")) {
+                predicatesList.add(
+                        criteriaBuilder.and(
+                                criteriaBuilder.equal(
+                                        root.get("isQueryInApplication"), isQueryInApplication)));
+            }
+            if (userId != null && !userId.equals("")) {
+                predicatesList.add(
+                        criteriaBuilder.and(
+                                criteriaBuilder.equal(
+                                        root.get("userId"),  userId)));
+            }
+            
             return criteriaBuilder.and(
                     predicatesList.toArray(new Predicate[predicatesList.size()]));
-        }, page);
+        }, pageable);
     return pager;	
 	}
+	
+	
+   
 }

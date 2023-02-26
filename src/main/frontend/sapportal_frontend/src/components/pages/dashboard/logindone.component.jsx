@@ -25,11 +25,15 @@ export default class Logindone extends Component {
         </div>
         <div className="ld-right">
           <div className="lr-color">
-            <h2 className=" lr-pd ld-center">Welcome xyz</h2>
+            <h2 className=" lr-pd ld-center">Welcome Student</h2>
           </div>
-          <div className="lr-btn">
+          <div className="lr">
+          <div className="btn btn-outline-white">
             <a href="/">Logout</a>
           </div>
+          <div className="btn btn-outline-white">
+              <span className="material-symbols-outlined" >notifications</span>
+          </div></div>
           <div className="lr-wrapper"></div>
         </div>
       </div>
