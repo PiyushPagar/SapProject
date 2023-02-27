@@ -64,3 +64,8 @@
 .ld-left-item{
     border-bottom: 2px solid white;
 }
+.rounded-btn{
+    border-radius: 100%;
+    width : fit-content;
+    cursor: pointer;
+}

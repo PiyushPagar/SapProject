@@ -37,8 +37,6 @@ handleSubmit = event => {
       .then(res=>{
         console.log(res.data.message.slice(33));
         sessionStorage.setItem('otp',res.data.message.slice(33))
-        //setOtp(res.data.message.slice(33));
-        //console.log(res.data);
         window.location = "/verify" //This line of code will redirect you once the submission is succeed
       }).catch(err=>{
         console.log(err);

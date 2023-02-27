@@ -26,11 +26,11 @@ export default class Logindone extends Component {
         <div className="ld-right">
           <div className="lr-color" style={{display :'flex', justifyContent : 'center'}}>
             <h2 className=" lr-pd ld-center">Welcome Student</h2>
-            <div className="lr" style={{display :'flex',justifyContent : 'center', marginLeft : '120px'}}>
-          <div className="btn btn-outline-white btn-rounded" style={{display :'flex',justifyContent : 'center',marginTop:'5px',marginBottom:'5px'}}>
+            <div className="lr" style={{display :'flex',justifyContent : 'center',alignItems:'center', marginLeft : '120px'}}>
+          <div className="btn btn-outline-white btn-rounded " style={{display :'flex',justifyContent : 'center',cursor: 'pointer', height:'35px'}}>
             <a href="/">Logout</a>
           </div>
-          <div className="btn btn-outline-white btn-rounded">
+          <div className="btn btn-outline-white rounded-btn" style={{display :'flex',justifyContent : 'center', height:'35px'}}>
               <span className="material-symbols-outlined" >notifications</span>
           </div>
           </div>
