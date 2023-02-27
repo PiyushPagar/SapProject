@@ -1,9 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 const Changepassword = () => {
-  const history = useHistory();
   const [pass, setpass] = useState("");
   const [passn, setpassn] = useState("");
   const Setpassword = async () => {

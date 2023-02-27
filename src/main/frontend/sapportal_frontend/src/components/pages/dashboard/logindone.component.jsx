@@ -4,6 +4,7 @@ import "./done.css";
 
 export default class Logindone extends Component {
   render() {
+    console.log(sessionStorage.getItem('rest'))
     return (
       <div className="ld-main">
         <div className="ld-left">

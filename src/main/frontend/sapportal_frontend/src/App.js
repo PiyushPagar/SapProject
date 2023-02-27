@@ -23,6 +23,8 @@ import Body from "./components/Body";
 import Seemore from "./components/pages/Seemore";
 import Logindone from "./components/pages/dashboard/logindone.component";
 import Changepassword from "./components/pages/Verify-Change/Changepassword";
+import AdminLogin from "./components/pages/dashboard/adminpages/AdminLogin/AdminLogin";
+import Addnotification from "./components/pages/dashboard/adminpages/Notifications/AddNotification/AddNotification";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());
@@ -88,6 +90,8 @@ class App extends Component {
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
             <Route exact path="/verify" component={Verify} />
             <Route exact path="/changepassword" component={Changepassword} />
+            <Route exact path="/adminlogin" component={AdminLogin}/>
+            <Route exact path="/addnotice" component={Addnotification}/>
           </Switch>
         </div>
         
