@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 //import { useHistory } from 'react-router-dom';
-const Addnotification = () => {
+const UpdateNotification = () => {
   //const history = useHistory();
   const [nme, setnme] = useState("");
   const [id, setid] = useState(0);
@@ -14,10 +14,10 @@ const Addnotification = () => {
   const [stat, setstat] = useState("");
   const [title, settitle] = useState("");
   const [uid, setuid] = useState(0);
-  const Setnotice = async () => {
+  const updatenotice = async () => {
     if(nme !== "" && nm !== "" && bd !== ""&& cd !== ""&& cdtm !== ""&& file !== ""&& stat !== ""&& title !== ""&& uid !== 0 && id !== 0){
       await axios
-        .post("http://localhost:9190/addNotification", {
+        .post(`http://localhost:9190/updateNotification/${id}`, {
             body : bd,
             code : cd,
             createdDateTime : cdtm,
@@ -30,17 +30,16 @@ const Addnotification = () => {
             userId: uid,
         })
         .then((res) => {
-          alert("Notification added")
+          alert("Notification updated")
           window.location.href = "/adminlogin"
-          //history.push('/adminlogin')
         })
         .catch((err) => {
           console.log(err);
         });
-      }
-      else {
-        alert("Please fill all the details")
-      }
+    }
+    else {
+      alert("Please fill all the details")
+    }
     } 
   const handlename = async (e) => {
     setnme(e.target.value);
@@ -81,12 +80,12 @@ const Addnotification = () => {
     >
       
       <form>
-      <h1>Enter the Notification details</h1><br />
+      <h1>Enter the details to update</h1><br />
         <label>
           {" "}
           Enter id
           <input
-            type="long"
+            type="integer"
             value={id}
             name="Id"
             onChange={(e) => handleid(e)}
@@ -192,15 +191,16 @@ const Addnotification = () => {
           />
         </label>
         <br />
+        
       </form>
     </div>
-    <button type="submit" onClick={() => Setnotice()} className ="btn btn-outline-white"
-    style={{ display: "flex", justifyContent: "center", margin : "auto", cursor:"pointer"}}>
+    <button type="submit" onClick={() => updatenotice()} className ="btn btn-outline-white"
+    style={{ display: "flex", justifyContent: "center", margin : "auto"}}>
           {" "}
-          Add notification{" "}
+          Update notification{" "}
         </button>
     </div>
   );
 };
 
-export default Addnotification;
+export default UpdateNotification;

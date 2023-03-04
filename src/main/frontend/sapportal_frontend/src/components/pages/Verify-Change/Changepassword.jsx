@@ -17,7 +17,9 @@ const Changepassword = () => {
         })
         .then((res) => {
           sessionStorage.removeItem("EMAIL");
-          window.location = "/login";
+          alert("New password set succesfully")
+          window.location.href = "/login"
+          //window.location = "/login";
         })
         .catch((err) => {
           console.log(err);
@@ -34,11 +36,12 @@ const Changepassword = () => {
   };
 
   return (
+    <div>
     <div
       className="container"
-      style={{ display: "flex", alignContent: "center" }}
+      style={{ display: "flex", alignContent: "center", justifyContent:"center" }}
     >
-      <form>
+      <form style={{ display: "flex", alignContent: "center" }}>
         <label>
           {" "}
           Set New Password
@@ -61,11 +64,13 @@ const Changepassword = () => {
           />
         </label>
         <br />
-        <button type="submit" onClick={() => Setpassword()}>
+        <button type="submit" onClick={() => Setpassword() } >
           {" "}
           Change Password{" "}
         </button>
       </form>
+      
+    </div>
     </div>
   );
 };

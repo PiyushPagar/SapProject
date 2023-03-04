@@ -22,27 +22,34 @@ const Notificationmodal = (props) => {
       unmountOnExit
       timeout={{ enter: 0, exit: 300 }}
     >
-      <div className="modal" onClick={props.onClose}>
+      <div className="modal" onClick={props.onClose}
+      style={{ display: "flex", alignContent:"center", justifyContent:"center"}}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           {/* <div className="modal-header">
                 <h4 className="modal-title">{props.title}</h4>
               </div> */}
           <div className="modal-body" id="divItem">
             <a className="btn btn-rounded btn-link"
-            style={{cursor: 'pointer'}} href="/addnotice">
+            style={{cursor: 'pointer', display: "flex", alignContent:"center", justifyContent:"center"}} href="/addnotice">
               Add Notification
             </a>
           </div>
           <br />
-          <div className="modal-body">
-            <p>Notification panel</p>
+          <div className="modal-body" id="divItem">
+            <a className="btn btn-rounded btn-link"
+            style={{cursor: 'pointer',display: "flex", alignContent:"center", justifyContent:"center"}} href="/updatenotice">
+              Update Notification
+            </a>
           </div>
           <br />
-          <div className="modal-body">
-            <p>Notification panel</p>
+          <div className="modal-body" id="divItem">
+            <a className="btn btn-rounded btn-link"
+            style={{cursor: 'pointer',display: "flex", alignContent:"center", justifyContent:"center"}} href="/deletenotice">
+             Delete Notification
+            </a>
           </div>
           <div className="modal-footer">
-            <button onClick={props.onClose} className="button">
+            <button onClick={props.onClose} className="button btn-rounded">
               Close
             </button>
           </div>
