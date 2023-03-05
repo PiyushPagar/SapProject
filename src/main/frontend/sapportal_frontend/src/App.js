@@ -26,6 +26,8 @@ import Logindone from "./components/pages/dashboard/logindone.component";
 import Changepassword from "./components/pages/Verify-Change/Changepassword";
 import AdminLogin from "./components/pages/dashboard/adminpages/AdminLogin/AdminLogin";
 import Addnotification from "./components/pages/dashboard/adminpages/Notifications/AddNotification/AddNotification";
+import UpdateNotification from "./components/pages/dashboard/adminpages/Notifications/UpdateNotification/UpdateNotification";
+import DeleteNotification from "./components/pages/dashboard/adminpages/Notifications/DeleteNotification/DeleteNotification";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());
@@ -93,6 +95,8 @@ class App extends Component {
             <Route exact path="/changepassword" component={Changepassword} />
             <Route exact path="/adminlogin" component={AdminLogin}/>
             <Route exact path="/addnotice" component={Addnotification}/>
+            <Route exact path="/updatenotice" component={UpdateNotification}/>
+            <Route exact path="/deletenotice" component={DeleteNotification}/>
           </Switch>
         </div>
         
