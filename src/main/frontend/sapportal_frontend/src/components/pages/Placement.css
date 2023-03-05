@@ -33,7 +33,7 @@
 }
 .con-p:hover{
     cursor: pointer;
-    transition: all .5s ease;
+    transition: all .1s ease;
 transform: scale(1.04);
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {  } from "react"; //Component - removed
 import { useState } from "react";
 import Notificationmodal from "../Notifications/NotificationModal";
 import "./adminlogin.css";
