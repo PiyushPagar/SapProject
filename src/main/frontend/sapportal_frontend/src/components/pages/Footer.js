@@ -3,6 +3,7 @@ import "./Footer.css"
 
 
 export default  function Footer()  {
+	const newLocal = <a href="#" class="link-1">Home</a>
   return (
     <div>
 <footer className="footer-distributed" data-aos="fade-up" data-aos-delay="300" data-aos-offset="50">
@@ -12,7 +13,7 @@ export default  function Footer()  {
 				<h3>Sanjivani<span>SAP</span></h3>
 
 				<p className="footer-links">
-					<a href="#" class="link-1">Home</a>
+					{newLocal}
 					
 					<a href="#">Blog</a>
 				

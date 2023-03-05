@@ -13,7 +13,7 @@ const [loading , setLoading] =useState(false);
     const res = await fetch('https://ecombackend.sonarpratik.repl.co/api/product');
     setLoading(true)
     setUsers(await res.json());
-    const rrrr=res.json();
+    // const rrrr=res.json();
     console.log(await users.body)
 setTimeout(() => {
   setLoading(false)
@@ -30,7 +30,7 @@ setTimeout(() => {
     useEffect(() => {
         getUsers();
         
-    }, []);
+    }, [getUsers]);
 
   return (
     <div>

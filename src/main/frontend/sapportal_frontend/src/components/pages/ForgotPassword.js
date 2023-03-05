@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';   //, useState -removed
 import axios from "axios"; 
 import "./Forget.css";
 // const ForgotPassword =() => {
