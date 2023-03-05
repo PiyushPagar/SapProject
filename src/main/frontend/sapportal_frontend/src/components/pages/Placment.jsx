@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Placement.css";
 import AOS from 'aos';
 // import 'aos/dist/aos.css';

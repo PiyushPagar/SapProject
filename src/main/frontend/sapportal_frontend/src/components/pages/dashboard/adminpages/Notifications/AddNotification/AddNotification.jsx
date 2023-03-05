@@ -185,7 +185,7 @@ const Addnotification = () => {
           {" "}
           Enter User Id
           <input
-            type="integer"
+            type="long"
             value={uid}
             name="User Id"
             onChange={(e) => handleuid(e)}
