@@ -1,0 +1,78 @@
+import axios from "axios";
+import React from "react";
+import { useState } from "react";
+const Changepassword = () => {
+  const [pass, setpass] = useState("");
+  const [passn, setpassn] = useState("");
+  const Setpassword = async () => {
+    console.log(sessionStorage.getItem("EMAIL"))
+    if (pass === passn) {
+      await axios
+        .post("http://localhost:9190/api/auth/forgotpassword/setnewpassword", {
+            //forgotpassword :{
+            email: sessionStorage.getItem("EMAIL"),
+            password: passn,
+          //}
+          
+        })
+        .then((res) => {
+          sessionStorage.removeItem("EMAIL");
+          alert("New password set succesfully")
+          window.location.href = "/login"
+          //window.location = "/login";
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      alert("Passwords do not match. Re-Enter");
+    }
+  };
+  const handlepassnew = async (e) => {
+    setpassn(e.target.value);
+  };
+  const handlepassword = async (event) => {
+    setpass(event.target.value);
+  };
+
+  return (
+    <div>
+    <div
+      className="container"
+      style={{ display: "flex", alignContent: "center", justifyContent:"center" }}
+    >
+      <form style={{ display: "flex", alignContent: "center" }}>
+        <label>
+          {" "}
+          Set New Password
+          <input
+            type="password"
+            value={pass}
+            name="Password"
+            onChange={(e) => handlepassword(e)}
+          />
+        </label>
+        <br />
+        <label>
+          {" "}
+          Confirm New Password
+          <input
+            type="password"
+            value={passn}
+            name="Password"
+            onChange={(e) => handlepassnew(e)}
+          />
+        </label>
+        <br />
+        <button type="submit" onClick={() => Setpassword() } >
+          {" "}
+          Change Password{" "}
+        </button>
+      </form>
+      
+    </div>
+    </div>
+  );
+};
+
+export default Changepassword;

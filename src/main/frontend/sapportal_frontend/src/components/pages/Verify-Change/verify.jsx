@@ -1,50 +1,61 @@
-
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 /*import './App.css';*/
-class verify extends React.Component {
-   
-    // Constructor 
-    constructor(props) {
-        super(props);
-   
-        this.state = {
-            items: [],
-            DataisLoaded: false
-        };
+const Verify = () => {
+  console.log(sessionStorage.getItem("otp"));
+  const [OTP, setOTP] = useState("");
+  const history = useHistory();
+  const Verifyotp = () => {
+    if (sessionStorage.getItem("otp") === OTP) {
+      console.log("run");
+      history.push("/changepassword");
+      sessionStorage.removeItem("otp");
+    } else {
+      alert("OTP does not match");
     }
-   
-    // ComponentDidMount is used to
-    // execute the code 
-    componentDidMount() {
-        fetch(
-"https://jsonplaceholder.typicode.com/users")
-            .then((res) => res.json())
-            .then((json) => {
-                this.setState({
-                    items: json,
-                    DataisLoaded: true
-                });
-            })
-    }
-    render() {
-        const { DataisLoaded, items } = this.state;
-        if (!DataisLoaded) return <div>
-            <h1> Pleses wait some time.... </h1> </div> ;
-   
-        return (
-        <div className = "App">
-            <h1> Fetch data from an api in react </h1>  {
-                items.map((item) => ( 
-                <ol key = { item.id } >
-                    User_Name: { item.username }, 
-                    Full_Name: { item.name }, 
-                    User_Email: { item.email } 
-                    </ol>
-                ))
-            }
-        </div>
-    );
-}
-}
-   
-export default verify;
+  };
+  const handleChange = async (event) => {
+    console.log(event.target.value);
+    setOTP(event.target.value);
+  };
+
+  return (
+    <div>
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          alignContent: "center",
+          justifyContent: "center",
+        }}
+      >
+        <form>
+          <label>
+            {" "}
+            Enter OTP
+            <input
+              type="string"
+              value={OTP}
+              name="OTP"
+              onChange={(e) => handleChange(e)}
+            />
+          </label>
+        </form>
+      </div>
+      <button
+        type="submit"
+        onClick={Verifyotp}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "auto",
+          cursor: "pointer",
+        }}
+      >
+        Verify OTP{" "}
+      </button>
+    </div>
+  );
+};
+
+export default Verify;

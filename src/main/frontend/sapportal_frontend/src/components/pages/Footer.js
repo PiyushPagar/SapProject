@@ -3,6 +3,7 @@ import "./Footer.css"
 
 
 export default  function Footer()  {
+	const newLocal = <a href="#" class="link-1">Home</a>
   return (
     <div>
 <footer className="footer-distributed" data-aos="fade-up" data-aos-delay="300" data-aos-offset="50">
@@ -12,11 +13,11 @@ export default  function Footer()  {
 				<h3>Sanjivani<span>SAP</span></h3>
 
 				<p className="footer-links">
-					<a href="#" class="link-1">Home</a>
+					{newLocal}
 					
-					<a href="#">Blog</a>
+					{/* <a href="#">Blog</a>
 				
-					<a href="#">Pricing</a>
+					<a href="#">Pricing</a> */}
 				
 					<a href="#">About</a>
 					
@@ -25,19 +26,19 @@ export default  function Footer()  {
 					<a href="#">Contact</a>
 				</p>
 
-				<p className="footer-company-name">Company Name © 2015</p>
+				<p className="footer-company-name">Sanjivani College of Engineering,<br/>Kopargaon.</p>
 			</div>
 
 			<div className="footer-center">
 
 				<div>
 					<i className="fa fa-map-marker"></i>
-					<p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+					<p><span>Station Rd, opposite to Sanjivani Factory,</span> <span> Singnapur,  Kopargaon,</span> Maharashtra 423603</p>
 				</div>
 
 				<div>
 					<i className="fa fa-phone"></i>
-					<p>+1.555.555.5555</p>
+					<p>+91 9130191301</p>
 				</div>
 
 				<div>
@@ -50,7 +51,7 @@ export default  function Footer()  {
 			<div className="footer-right">
 
 				<p className="footer-company-about">
-					<span>About the company</span>
+					<span>About the College</span>
 					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
 				</p>
 
