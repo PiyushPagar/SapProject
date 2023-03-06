@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ import com.SapPortal.models.Status;
 import com.SapPortal.repository.PlacementDetailsRepository;
 import com.SapPortal.security.services.FileService;
 
-
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class PlacementDetailsController {
 
