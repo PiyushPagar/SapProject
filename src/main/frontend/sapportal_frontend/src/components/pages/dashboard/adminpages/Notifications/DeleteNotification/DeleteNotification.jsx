@@ -39,14 +39,14 @@ const DeleteNotification = () => {
         </form>
       </div>
       <button
-          type="submit"
-          onClick={() => Deletenotice()}
-          className="btn btn-outline-white"
-          style={{ display: "flex", justifyContent: "center", margin: "auto" }}
-        >
-          {" "}
-          Delete notification{" "}
-        </button>
+        type="submit"
+        onClick={() => Deletenotice()}
+        className="btn btn-outline-white"
+        style={{ display: "flex", justifyContent: "center", margin: "auto" }}
+      >
+        {" "}
+        Delete notification{" "}
+      </button>
     </div>
   );
 };

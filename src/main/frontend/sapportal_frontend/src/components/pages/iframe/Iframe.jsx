@@ -15,13 +15,8 @@ const Iframe = () => {
       <div className="v-right">
         <h1 className="v-h1">Description</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
-          quisquam esse perferendis sit, accusantium, quibusdam exercitationem
-          tenetur reiciendis officia eum nam cupiditate vero nisi aperiam magni!
-          Error sunt sapiente dolorum, illum, aspernatur quae maiores veniam
-          quas est blanditiis distinctio minima? Autem saepe id asperiores
-          eligendi ratione. In at ullam est commodi laborum! Natus, laborum sed!
-          Magnam.
+          This is an introductory video by Dr.A.B.Pawar, Dean Acacdemics, Sanjivani College of Engineering, Kopargaon.
+          This video will give you an idea about SAP.
         </p>
       </div>
     </div>

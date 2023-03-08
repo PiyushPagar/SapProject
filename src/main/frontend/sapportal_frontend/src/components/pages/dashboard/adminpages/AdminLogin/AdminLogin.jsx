@@ -1,10 +1,12 @@
 import React, {  } from "react"; //Component - removed
 import { useState } from "react";
+import Applicationmodal from "../ApplicationForms/ApplicationModal";
 import Notificationmodal from "../Notifications/NotificationModal";
 import "./adminlogin.css";
 
 export default function AdminLogin() {
   const [show, setShow] = useState(false);
+  const [show2, setshow2] = useState(false);
   return (<div>
     <div className="ld-main">
       <div className="ld-left">
@@ -26,6 +28,7 @@ export default function AdminLogin() {
           <div
             className="ld-d-item "
             style={{ display: "flex", justifyContent: "center" }}
+            onClick={() => setshow2(true)}
           >
           Application Forms
           </div>
@@ -71,6 +74,8 @@ export default function AdminLogin() {
       </div></div>
       <Notificationmodal title="My Modal" onClose={() => setShow(false)} show={show}>
             </Notificationmodal>
+      <Applicationmodal title="My Modal" onClose={() => setshow2(false)} show={show2}>
+            </Applicationmodal>
     </div>
-  );
+  )
 }

@@ -220,6 +220,7 @@ export default class Login extends Component {
               <button
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}
+                style={{cursor : "pointer"}}
               >
                 {this.state.loading && (
                   <span className="spinner-border spinner-border-sm"></span>
