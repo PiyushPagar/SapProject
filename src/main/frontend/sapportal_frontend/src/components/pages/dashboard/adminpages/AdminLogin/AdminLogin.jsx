@@ -24,11 +24,7 @@ export default function AdminLogin() {
           }}
         >
           <div
-            className="ld-d-item "
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-          Application Forms
-          </div>
+            className="ld-d-item "> Application Forms</div>
           <div className="ld-d-item ">Home</div>
           <div className="ld-d-item ">Payment</div>
           <div className="ld-d-item ">Course Details</div>

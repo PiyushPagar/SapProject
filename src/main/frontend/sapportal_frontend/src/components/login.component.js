@@ -57,7 +57,8 @@ export default class Login extends Component {
       AuthService.login(this.state.username, this.state.password).then(
         () => {
           if(sessionStorage.getItem('role') === 'ROLE_USER'){
-            this.props.history.push("/logindone");
+
+            this.props.history.push("/Application");
             window.location.reload();
           }
           else if (sessionStorage.getItem('role') === 'ROLE_ADMIN') {

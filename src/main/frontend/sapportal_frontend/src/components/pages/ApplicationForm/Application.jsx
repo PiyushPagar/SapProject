@@ -7,6 +7,9 @@ import Axios from 'axios';
 
 
 
+    
+
+
 const Application = () => {
 
 
@@ -35,9 +38,12 @@ const Application = () => {
         attributes.specialization !== "" &&
         attributes.studentType !== "" ){
 
+            
         Axios.post("http://localhost:9191/api/applicationForm" ,attributes )
         .then(response =>{
             console.log(response);
+            window.location.href="/logindone"
+           
         })
         .catch((error) =>{
                 console.log(error)
