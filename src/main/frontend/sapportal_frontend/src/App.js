@@ -28,6 +28,10 @@ import AdminLogin from "./components/pages/dashboard/adminpages/AdminLogin/Admin
 import Addnotification from "./components/pages/dashboard/adminpages/Notifications/AddNotification/AddNotification";
 import UpdateNotification from "./components/pages/dashboard/adminpages/Notifications/UpdateNotification/UpdateNotification";
 import DeleteNotification from "./components/pages/dashboard/adminpages/Notifications/DeleteNotification/DeleteNotification";
+import DeleteFormbyId from "./components/pages/dashboard/adminpages/ApplicationForms/DeleteForm";
+import SearchbyStudentId from "./components/pages/dashboard/adminpages/ApplicationForms/SearchForm/SearchbyStudentId";
+import GetbyFilter from "./components/pages/dashboard/adminpages/ApplicationForms/GetByFilter/GetbyFilter";
+import SearchbyUserId from "./components/pages/dashboard/adminpages/ApplicationForms/SearchForm/SearchbyUserId";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());
@@ -97,6 +101,10 @@ class App extends Component {
             <Route exact path="/addnotice" component={Addnotification}/>
             <Route exact path="/updatenotice" component={UpdateNotification}/>
             <Route exact path="/deletenotice" component={DeleteNotification}/>
+            <Route exact path="/deleteform" component={DeleteFormbyId}/>
+            <Route exact path="/searchformbyid" component={SearchbyStudentId} />
+            <Route exact path="/searchformbyuid" component={SearchbyUserId} />
+            <Route exact path="/searchbyfilter" component={GetbyFilter} />
           </Switch>
         </div>
         

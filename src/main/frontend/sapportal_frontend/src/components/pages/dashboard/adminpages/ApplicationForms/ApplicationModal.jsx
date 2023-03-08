@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
-import "./Modal.css";
-const Notificationmodal = (props) => {
+import "../Notifications/Modal.css";
+const Applicationmodal = (props) => {
   const closeOnEscapeKeyDown = (e) => {
     if ((e.charCode || e.keyCode) === 27) {
       props.onClose();
@@ -33,7 +33,7 @@ const Notificationmodal = (props) => {
       >
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
-            <h4 className="modal-title">Choose your activity</h4>
+            <h2 className="modal-title">Choose your activity</h2>
           </div>
           <div className="modal-body" id="divItem">
             <a
@@ -44,9 +44,50 @@ const Notificationmodal = (props) => {
                 alignContent: "center",
                 justifyContent: "center",
               }}
-              href="/addnotice"
+              href="/adminlogin"
             >
-              Add Notification
+              Verify Form
+            </a>
+          </div>
+          <br />
+          <div className="modal-body" id="divItem">
+            <h3>Search Form By</h3>
+            <br />
+            <a
+              className="btn btn-rounded btn-link"
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                alignContent: "center",
+                justifyContent: "center",
+              }}
+              href="/searchformbyid"
+            >
+              Student Id
+            </a>
+            <a
+              className="btn btn-rounded btn-link"
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                alignContent: "center",
+                justifyContent: "center",
+              }}
+              href="/searchform"
+            >
+              User Id
+            </a>
+            <a
+              className="btn btn-rounded btn-link"
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                alignContent: "center",
+                justifyContent: "center",
+              }}
+              href="/searchformbyfilter"
+            >
+              Other
             </a>
           </div>
           <br />
@@ -59,30 +100,12 @@ const Notificationmodal = (props) => {
                 alignContent: "center",
                 justifyContent: "center",
               }}
-              href="/updatenotice"
+              href="/deleteform"
             >
-              Update Notification
+              Delete Form
             </a>
           </div>
-          <br />
-          <div className="modal-body" id="divItem">
-            <a
-              className="btn btn-rounded btn-link"
-              style={{
-                cursor: "pointer",
-                display: "flex",
-                alignContent: "center",
-                justifyContent: "center",
-              }}
-              href="/deletenotice"
-            >
-              Delete Notification
-            </a>
-          </div>
-          <div
-            className="modal-footer"
-            style={{ display: "flex", justifyContent: "center" }}
-          >
+          <div className="modal-footer">
             <button onClick={props.onClose} className="button btn-rounded">
               <i className="fa fa-window-close" aria-hidden="true">
                 {" "}
@@ -97,4 +120,4 @@ const Notificationmodal = (props) => {
   );
 };
 
-export default Notificationmodal;
+export default Applicationmodal;
