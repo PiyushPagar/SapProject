@@ -22,7 +22,8 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import Verify from "./components/pages/Verify-Change/verify";
 // import Body from "./components/Body";
 import Seemore from "./components/pages/Seemore";
-import Logindone from "./components/pages/dashboard/logindone.component";
+<!-- import Logindone from "./components/pages/dashboard/logindone.component"; -->
+import Logindone from "./component/pages/dashboard/"
 import Changepassword from "./components/pages/Verify-Change/Changepassword";
 import AdminLogin from "./components/pages/dashboard/adminpages/AdminLogin/AdminLogin";
 import Addnotification from "./components/pages/dashboard/adminpages/Notifications/AddNotification/AddNotification";
