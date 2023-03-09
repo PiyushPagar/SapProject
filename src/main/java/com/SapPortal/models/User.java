@@ -8,15 +8,15 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
-		@UniqueConstraint(columnNames = "email") })
+@Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "email") })
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotBlank
 	@Size(max = 20)
-	private String username;
+	@Column(name = "name", nullable = false, length = 60)
+	private String name;
 	@NotBlank
 	@Size(max = 50)
 	@Email
@@ -31,8 +31,8 @@ public class User {
 	public User() {
 	}
 
-	public User(String username, String email, String password) {
-		this.username = username;
+	public User(String name, String email, String password) {
+		this.name = name;
 		this.email = email;
 		this.password = password;
 	}
@@ -45,12 +45,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
