@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, {  } from "react"; //Component - removed
 import { useState } from "react";
 import Applicationmodal from "../ApplicationForms/ApplicationModal";
@@ -7,6 +8,13 @@ import "./adminlogin.css";
 export default function AdminLogin() {
   const [show, setShow] = useState(false);
   const [show2, setshow2] = useState(false);
+  const Onlogout = () => {
+    axios.post("http://localhost:9190/api/auth/signout")
+    .then((res)=> {
+      localStorage.removeItem('token');
+      localStorage.removeItem("user");
+    })
+  }
   return (<div>
     <div className="ld-main">
       <div className="ld-left">
@@ -26,12 +34,13 @@ export default function AdminLogin() {
           }}
         >
           <div
-            className="ld-d-item "
+            className="ld-d-item dropdown-toggle" //data-toggle = "dropdown"
             style={{ display: "flex", justifyContent: "center" }}
             onClick={() => setshow2(true)}
           >
           Application Forms
           </div>
+          
           <div className="ld-d-item ">Home</div>
           <div className="ld-d-item ">Payment</div>
           <div className="ld-d-item ">Course Details</div>
@@ -65,7 +74,7 @@ export default function AdminLogin() {
                 height: "35px",
               }}
             >
-              <a href="/">Logout</a>
+              <a href="/" onClick={Onlogout}>Logout</a>
             </div>
           </div>
         </div>
@@ -74,6 +83,12 @@ export default function AdminLogin() {
       </div></div>
       <Notificationmodal title="My Modal" onClose={() => setShow(false)} show={show}>
             </Notificationmodal>
+           {/* <div className="dropdown-menu">
+                        <div className="dropdown-item">Master</div>
+                        <div className="dropdown-item">Mr</div>
+                        <div className="dropdown-item">Miss</div>
+                        <div className="dropdown-item">Mrs</div>
+                    </div> */}
       <Applicationmodal title="My Modal" onClose={() => setshow2(false)} show={show2}>
             </Applicationmodal>
     </div>

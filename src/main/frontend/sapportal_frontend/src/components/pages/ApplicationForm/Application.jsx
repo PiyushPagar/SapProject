@@ -10,22 +10,6 @@ import Axios from "axios";
 const Application = () => {
   const submitHandler = (event) => {
     event.preventDefault();
-
-    var attributes = {
-      adhaarCard: event.target.adhaarCard.value,
-      branch: event.target.branch.value,
-      collegeEmail: event.target.collegeEmail.value,
-      contactNumber: event.target.contactNumber.value,
-      email: event.target.email.value,
-      name: event.target.name.value,
-      passoutYear: event.target.passoutYear.value,
-      sapModule: event.target.sapModule.value,
-      specialization: event.target.specialization.value,
-      studentType: event.target.studentType.value,
-    };
-
-    const submitHandler = (event)=>{
-        event.preventDefault();
         
         var attributes ={ adhaarCard : event.target.adhaarCard.value,
             branch : event.target.branch.value,
@@ -50,7 +34,7 @@ const Application = () => {
         attributes.studentType !== "" ){
 
             
-        Axios.post("http://localhost:9191/api/applicationForm" ,attributes )
+        Axios.post("http://localhost:9190/api/applicationForm" ,attributes )
         .then(response =>{
             console.log(response);
             window.location.href="/logindone"
@@ -62,7 +46,7 @@ const Application = () => {
     } else {
       alert("Invalid");
     }
-  };}
+  };
 
   return (
     <div>
