@@ -13,7 +13,7 @@ class AuthService {
         if (response.data.accessToken) {
           localStorage.setItem("user", JSON.stringify(response.data));
         }
-        sessionStorage.setItem('role',response.data.roles)
+        localStorage.setItem('role',response.data.roles)
         localStorage.setItem('token',response.data.token)
         
         return response.data;

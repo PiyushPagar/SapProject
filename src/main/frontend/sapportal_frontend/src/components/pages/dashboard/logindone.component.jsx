@@ -9,6 +9,7 @@ export default class Logindone extends Component {
       axios.post("http://localhost:9190/api/auth/signout")
       .then((res)=> {
         localStorage.removeItem('token');
+        localStorage.removeItem('role');
         localStorage.removeItem("user");
       })
     }
