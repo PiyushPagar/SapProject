@@ -28,6 +28,12 @@ import AdminLogin from "./components/pages/dashboard/adminpages/AdminLogin/Admin
 import Addnotification from "./components/pages/dashboard/adminpages/Notifications/AddNotification/AddNotification";
 import UpdateNotification from "./components/pages/dashboard/adminpages/Notifications/UpdateNotification/UpdateNotification";
 import DeleteNotification from "./components/pages/dashboard/adminpages/Notifications/DeleteNotification/DeleteNotification";
+import DeleteFormbyId from "./components/pages/dashboard/adminpages/ApplicationForms/DeleteForm";
+import SearchbyStudentId from "./components/pages/dashboard/adminpages/ApplicationForms/SearchForm/SearchbyStudentId";
+import GetbyFilter from "./components/pages/dashboard/adminpages/ApplicationForms/GetByFilter/GetbyFilter";
+import SearchbyUserId from "./components/pages/dashboard/adminpages/ApplicationForms/SearchForm/SearchbyUserId";
+import withAuth from "./services/WithAuth";
+import Navigatebar from "./components/pages/Navbar+Sidebar/Navbar";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());
@@ -87,16 +93,21 @@ class App extends Component {
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/logindone" component={Logindone} />
+            <Route exact path="/logindone" component={withAuth(Logindone)} />
             <Route exact path="/seemore" component={Seemore} />
             <Route exact path="/application" component={Application} />
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
             <Route exact path="/verify" component={Verify} />
             <Route exact path="/changepassword" component={Changepassword} />
-            <Route exact path="/adminlogin" component={AdminLogin}/>
-            <Route exact path="/addnotice" component={Addnotification}/>
-            <Route exact path="/updatenotice" component={UpdateNotification}/>
-            <Route exact path="/deletenotice" component={DeleteNotification}/>
+            <Route exact path="/adminlogin" component={withAuth(AdminLogin)}/>
+            <Route exact path="/addnotice" component={withAuth(Addnotification)}/>
+            <Route exact path="/updatenotice" component={withAuth(UpdateNotification)}/>
+            <Route exact path="/deletenotice" component={withAuth(DeleteNotification)}/>
+            <Route exact path="/deleteform" component={withAuth(DeleteFormbyId)}/>
+            <Route exact path="/searchformbyid" component={withAuth(SearchbyStudentId)} />
+            <Route exact path="/searchformbyuid" component={withAuth(SearchbyUserId)} />
+            <Route exact path="/searchbyfilter" component={withAuth(GetbyFilter)} />
+            <Route exact path="/nav" component={Navigatebar} />
           </Switch>
         </div>
         

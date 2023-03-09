@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table(name = "Notifiation_Table")
 public class Notifications {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -33,36 +32,6 @@ public class Notifications {
 	private String file;
 	@Column(name = "user_id")
 	private Long userId;
-	
-	
-	
-	
-	public Notifications(Long id, String code, String name, String title, String body, String status,
-			String createdDateTime, String notificationmodule, String file, Long userId) {
-		super();
-		this.id = id;
-		this.code = code;
-		this.name = name;
-		this.title = title;
-		this.body = body;
-		this.status = status;
-		this.createdDateTime = createdDateTime;
-		this.notificationmodule = notificationmodule;
-		this.file = file;
-		this.userId = userId;
-	}
-	public Notifications() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Long getUserId() {
-		return userId;
-	}
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	
 	public Long getId() {
 		return id;
 	}
@@ -117,6 +86,17 @@ public class Notifications {
 	public void setFile(String file) {
 		this.file = file;
 	}
-
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	public Notifications() {
+		super();
+	}
 	
+	
+	
+
 }

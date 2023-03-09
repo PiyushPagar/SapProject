@@ -56,11 +56,12 @@ export default class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.login(this.state.username, this.state.password).then(
         () => {
-          if(sessionStorage.getItem('role') === 'ROLE_USER'){
+          if(localStorage.getItem('role') === 'ROLE_USER'){
+            
             this.props.history.push("/logindone");
             window.location.reload();
           }
-          else if (sessionStorage.getItem('role') === 'ROLE_ADMIN') {
+          else if (localStorage.getItem('role') === 'ROLE_ADMIN') {
             this.props.history.push("/adminlogin");
             window.location.reload();
           }
@@ -220,6 +221,7 @@ export default class Login extends Component {
               <button
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}
+                style={{cursor : "pointer"}}
               >
                 {this.state.loading && (
                   <span className="spinner-border spinner-border-sm"></span>
