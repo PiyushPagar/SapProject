@@ -49,7 +49,7 @@ const Placment = () => {
       </div>
       <p className="center-p">
         {" "}
-        <a href="/seemore">see more</a>
+        <a href="/seemore" >see more</a>
       </p>
     </div>
   );
