@@ -15,6 +15,7 @@ class AuthService {
         }
         localStorage.setItem('role',response.data.roles)
         localStorage.setItem('token',response.data.token)
+        localStorage.setItem('username',response.data.username)
         
         return response.data;
       });

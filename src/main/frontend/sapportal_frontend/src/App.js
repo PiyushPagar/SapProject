@@ -33,7 +33,8 @@ import SearchbyStudentId from "./components/pages/dashboard/adminpages/Applicati
 import GetbyFilter from "./components/pages/dashboard/adminpages/ApplicationForms/GetByFilter/GetbyFilter";
 import SearchbyUserId from "./components/pages/dashboard/adminpages/ApplicationForms/SearchForm/SearchbyUserId";
 import withAuth from "./services/WithAuth";
-import Navigatebar from "./components/pages/Navbar+Sidebar/Navbar";
+import Navigatebar from "./components/pages/Navbar+Sidebar/Navbar2";
+import VerifyForm from "./components/pages/dashboard/adminpages/ApplicationForms/VerifyForm/Verify";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());
@@ -108,6 +109,7 @@ class App extends Component {
             <Route exact path="/searchformbyuid" component={withAuth(SearchbyUserId)} />
             <Route exact path="/searchbyfilter" component={withAuth(GetbyFilter)} />
             <Route exact path="/nav" component={Navigatebar} />
+            <Route exact path="/VerifyForm" component={VerifyForm}/>
           </Switch>
         </div>
         
