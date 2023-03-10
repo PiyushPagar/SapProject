@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import React, {  } from "react"; 
 
 export default function Navbar() {
   return (
@@ -13,7 +12,7 @@ export default function Navbar() {
                 </h2>
             </a>
           </li>
-          <li className="big">
+          {/* <li className="big">
             <a href="#come-here">Domain0</a>
           </li>
           <li className="big">
@@ -30,8 +29,8 @@ export default function Navbar() {
           </li>{" "}
           <li className="big">
             <a href="#come-here">Domain5</a>
-          </li>
-        </div>
+          </li>*/}
+        </div> 
 
         <div className="right-nav">
           <li>

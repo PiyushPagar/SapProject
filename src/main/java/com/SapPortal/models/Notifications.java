@@ -1,5 +1,6 @@
 package com.SapPortal.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,97 +13,90 @@ public class Notifications {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int notificationId;
-	
+	private Long id;
+	@Column(name = "code")
+	private String code;
+	@Column(name = "name")
+	private String name;
+	@Column(name = "title")
+	private String title;
+	@Column(name = "body")
+	private String body;
+	@Column(name = "status")
+	private String status;
+	@Column(name = "createdDateTime")
 	private String createdDateTime;
-	
-	private String notificationName;
-
-	private String notificationheading;
-
-	private String notificationLink;
-	
-	private String notificationImportantdates;
-	
+	@Column(name = "notificationmodule")
+	private String notificationmodule;
+	@Column(name = "file")
 	private String file;
-
-	public int getNotificationId() {
-		return notificationId;
+	@Column(name = "user_id")
+	private Long userId;
+	public Long getId() {
+		return id;
 	}
-
-	public void setNotificationId(int notificationId) {
-		this.notificationId = notificationId;
+	public void setId(Long id) {
+		this.id = id;
 	}
-
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getBody() {
+		return body;
+	}
+	public void setBody(String body) {
+		this.body = body;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getCreatedDateTime() {
 		return createdDateTime;
 	}
-
 	public void setCreatedDateTime(String createdDateTime) {
 		this.createdDateTime = createdDateTime;
 	}
-
-	public String getNotificationName() {
-		return notificationName;
+	public String getNotificationmodule() {
+		return notificationmodule;
 	}
-
-	public void setNotificationName(String notificationName) {
-		this.notificationName = notificationName;
+	public void setNotificationmodule(String notificationmodule) {
+		this.notificationmodule = notificationmodule;
 	}
-
-	public String getNotificationheading() {
-		return notificationheading;
-	}
-
-	public void setNotificationheading(String notificationheading) {
-		this.notificationheading = notificationheading;
-	}
-
-	public String getNotificationLink() {
-		return notificationLink;
-	}
-
-	public void setNotificationLink(String notificationLink) {
-		this.notificationLink = notificationLink;
-	}
-
-	public String getNotificationImportantdates() {
-		return notificationImportantdates;
-	}
-
-	public void setNotificationImportantdates(String notificationImportantdates) {
-		this.notificationImportantdates = notificationImportantdates;
-	}
-
 	public String getFile() {
 		return file;
 	}
-
 	public void setFile(String file) {
 		this.file = file;
 	}
-
-	public Notifications(int notificationId, String createdDateTime, String notificationName,
-			String notificationheading, String notificationLink, String notificationImportantdates, String file) {
-		super();
-		this.notificationId = notificationId;
-		this.createdDateTime = createdDateTime;
-		this.notificationName = notificationName;
-		this.notificationheading = notificationheading;
-		this.notificationLink = notificationLink;
-		this.notificationImportantdates = notificationImportantdates;
-		this.file = file;
+	public Long getUserId() {
+		return userId;
 	}
-
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 	public Notifications() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-
-
-
-
 	
 	
+	
+
 }

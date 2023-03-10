@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react"; //, useState - removed
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -102,7 +102,7 @@ export default class Register extends Component {
 
     this.form.validateAll();
       if (this.checkBtn.context._errors.length === 0) {
-        if(this.password === this.confirm_password){
+        if(this.state.password === this.state.confirm_password){
         AuthService.register(
           this.state.username,
           this.state.email,
@@ -128,6 +128,9 @@ export default class Register extends Component {
             });
           }
         );
+      }
+      else{
+        alert("Password and Confirm Password do not match")
       }
     };
   };
@@ -204,13 +207,14 @@ export default class Register extends Component {
                 </div>
 
                 <div className="form-group and-align">
-                  <button className="btn btn-primary btn-block" >Sign Up</button>
+                  <button className="btn btn-primary btn-block" style={{cursor : "pointer"}}>Sign Up</button>
                 <a href="/">back to home</a>
                 </div>
               </div>
             )}
 
             {this.state.message && (
+              <div>
               <div className="form-group">
                 <div
                   className={
@@ -222,6 +226,8 @@ export default class Register extends Component {
                 >
                   {this.state.message}
                 </div>
+              </div><br /><br /><br />
+              <a className="btn btn-primary btn-block" style={{cursor : "pointer"}} href="/login"> Go to login</a>
               </div>
             )}
             <CheckButton

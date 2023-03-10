@@ -45,7 +45,7 @@
     top: 30px;
     right: 30px;
     background-color: #262934;
-    padding: 7px 60px;
+    margin: 10px;
     cursor: pointer;
     border-radius: 14px;
 }
@@ -63,4 +63,9 @@
 }
 .ld-left-item{
     border-bottom: 2px solid white;
+}
+.rounded-btn{
+    border-radius: 100%;
+    width : fit-content;
+    cursor: pointer;
 }

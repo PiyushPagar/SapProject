@@ -1,7 +1,7 @@
 import React from "react";
 import "./NewBody.css";
-import { useTransition, animated } from "react-spring";
-import { useState, useEffect } from "react";
+// import { useTransition, animated } from "react-spring";
+// import { useState, useEffect } from "react";
 const NewBody = () => {
   // const [isVis, setIsVis] = useState(true);
 

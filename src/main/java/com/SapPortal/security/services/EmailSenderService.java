@@ -23,7 +23,7 @@ public class EmailSenderService {
 		message.setSubject(subject);
 		mailSender.send(message);
 		System.out.println("Otp Send Successful"+randompin);
-		return "Otp Send Successfully and Otp is "+randompin;
+		return ""+randompin;
 	
 	}
 

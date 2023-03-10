@@ -1,34 +1,76 @@
-import React ,{useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from "react"; //, useState -removed
+import axios from "axios";
+import "./Forget.css";
+// const ForgotPassword =() => {
 
-import './Forget.css'
+// }
+// const [email,setemail] = useState('');
+// const handleChange = (ele) => {
+//   console.log(ele);
 
-function ForgotPassword() {
-    const [data,setData]=useState(null)
-    function getData(val)
-    {
-      console.warn(val.target.value)
-      setData(val.target.value)
-      
-    }
+// }
+// return (
+//   <div>
+//     <form style={{display : 'flex', justifyContent: 'right', marginRight : '80px', marginBottom:'10px'}}>
+//           <input type="email" placeholder="Enter your Email"
+//                   onChange={(e)=> setemail(e.target.value)}
+//           />
+//         </form>
+//   </div>
+//)
+//const [otp,setOtp] = useState('')
+class ForgotPassword extends Component {
+  state = {
+    email: "",
+  };
+
+  /* This is where the magic happens
+   */
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const mail = this.state.email;
+    sessionStorage.setItem("EMAIL", mail);
+
+    console.log(mail);
+    axios
+      .post(`http://localhost:9190/api/auth/forgotpassword/${mail}`)
+      .then((res) => {
+        console.log(res.data.message);
+        sessionStorage.setItem("otp", res.data.message);
+        window.location = "/verify"; //This line of code will redirect you once the submission is succeed
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  handleChange = (event) => {
+    console.log(event.target.value);
+    this.setState({ email: event.target.value });
+  };
+  render() {
     return (
-    <div className="text-center m-5-auto container" id='Forget'>
-            <h2>Reset your password</h2>
-            <h5>Enter your email address and we will send you a new password</h5>
-            <form action="/login">
-                <p>
-                    <label id="reset_pass_lbl">Email address</label><br/>
-                    <input type="email" name="email" required onChange={getData}/>
-                </p>
-                <p>
-                    <button id="sub_btn" type=''>Send password reset email</button>
-                </p>
-            </form>
-            <footer>
-                <p>First time? <Link to="/register">Create an account</Link>.</p>
-                <p><Link to="/">Back to Homepage</Link>.</p>
-            </footer>
-        </div>
-        )
+      <div
+        className="container"
+        style={{ display: "flex", alignContent: "center" }}
+      >
+        <form>
+          <label>
+            {" "}
+            Email
+            <input
+              type="email"
+              value={this.state.email}
+              name="Email"
+              onChange={(e) => this.handleChange(e)}
+            />
+          </label>
+          <button type="submit" onClick={(e) => this.handleSubmit(e)}>
+            {" "}
+            Send OTP{" "}
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
 export default ForgotPassword;

@@ -1,72 +1,91 @@
-import React from 'react'
-import "./Footer.css"
+import React from "react";
+import "./Footer.css";
 
-
-export default  function Footer()  {
+export default function Footer() {
+  const newLocal = (
+    <a href="/" class="link-1">
+      Home
+    </a>
+  );
   return (
     <div>
-<footer className="footer-distributed" data-aos="fade-up" data-aos-delay="300" data-aos-offset="50">
+      <footer
+        className="footer-distributed"
+        data-aos="fade-up"
+        data-aos-delay="300"
+        data-aos-offset="50"
+      >
+        <div class="footer-left">
+          <h3>
+            Sanjivani<span>SAP</span>
+          </h3>
 
-			<div class="footer-left">
+          <p className="footer-links">
+            {newLocal}
 
-				<h3>Sanjivani<span>SAP</span></h3>
-
-				<p className="footer-links">
-					<a href="#" class="link-1">Home</a>
-					
-					<a href="#">Blog</a>
+            {/* <a href="#">Blog</a>
 				
-					<a href="#">Pricing</a>
-				
-					<a href="#">About</a>
-					
-					<a href="#">Faq</a>
-					
-					<a href="#">Contact</a>
-				</p>
+					<a href="#">Pricing</a> */}
 
-				<p className="footer-company-name">Company Name © 2015</p>
-			</div>
+            <a href="#">About</a>
 
-			<div className="footer-center">
+            <a href="#">Faq</a>
 
-				<div>
-					<i className="fa fa-map-marker"></i>
-					<p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
-				</div>
+            <a href="#">Contact</a>
+          </p>
 
-				<div>
-					<i className="fa fa-phone"></i>
-					<p>+1.555.555.5555</p>
-				</div>
+          <p className="footer-company-name">
+            Sanjivani College of Engineering,
+            <br />
+            Kopargaon.
+          </p>
+        </div>
 
-				<div>
-					<i className="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">support@company.com</a></p>
-				</div>
+        <div className="footer-center">
+          <div>
+            <i className="fa fa-map-marker"></i>
+            <p>
+              <span>Station Rd, opposite to Sanjivani Factory,</span>{" "}
+              <span> Singnapur, Kopargaon,</span> Maharashtra 423603
+            </p>
+          </div>
 
-			</div>
+          <div>
+            <i className="fa fa-phone"></i>
+            <p>+91 9130191301</p>
+          </div>
 
-			<div className="footer-right">
+          <div>
+            <i className="fa fa-envelope"></i>
+            <p>
+              <a href="mailto:support@company.com">support@company.com</a>
+            </p>
+          </div>
+        </div>
 
-				<p className="footer-company-about">
-					<span>About the company</span>
-					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
-				</p>
+        <div className="footer-right">
+          <p className="footer-company-about">
+            <span>About the College</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
+            euismod convallis velit, eu auctor lacus vehicula sit amet.
+          </p>
 
-				<div className="footer-icons">
-
-					<a href="#"><i className="fa fa-facebook"></i></a>
-					<a href="#"><i className="fa fa-twitter"></i></a>
-					<a href="#"><i className="fa fa-linkedin"></i></a>
-					<a href="#"><i className="fa fa-github"></i></a>
-
-				</div>
-
-			</div>
-
-		</footer>
+          <div className="footer-icons">
+            <a href="#">
+              <i className="fa fa-facebook"></i>
+            </a>
+            <a href="#">
+              <i className="fa fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i className="fa fa-linkedin"></i>
+            </a>
+            <a href="#">
+              <i className="fa fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
-

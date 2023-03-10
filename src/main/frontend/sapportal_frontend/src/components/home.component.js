@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import './home.css';
 import './../App.css';
-import Video from './pages/Video.js';
-import Body from "./Body";
+// import Video from './pages/Video.js';
+// import Body from "./Body";
 import Domain from "./Domain";
 import Placment from "./pages/Placment";
 import NewBody from "./pages/NewBody";
 import Navbar from "./Navbar";
 import Footer from "./pages/Footer";
-import AcademicCard from "./pages/AcademicCard";
+// import AcademicCard from "./pages/AcademicCard";
 import Iframe from "./pages/iframe/Iframe";
-
-
-
-
-
 
 export default class Home extends Component {
   constructor(props) {
