@@ -2,6 +2,7 @@ package com.SapPortal.repository;
 
 import java.util.List;
 
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -18,6 +19,7 @@ public interface ApplicationFormRepository extends CrudRepository<ApplicationFor
 
 	
 	<T> Page<ApplicationForm> findAll(Specification<T> example, Pageable page);
+	ApplicationForm findApplicationFormByUserId(long id);
 
 
 }
