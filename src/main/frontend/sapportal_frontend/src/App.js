@@ -22,9 +22,9 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import Verify from "./components/pages/Verify-Change/verify";
 // import Body from "./components/Body";
 import Seemore from "./components/pages/Seemore";
-<!-- import Logindone from "./components/pages/dashboard/logindone.component"; -->
-import Logindone from "./component/pages/dashboard/"
-import Changepassword from "./components/pages/Verify-Change/Changepassword";
+//  import Logindone from "./components/pages/dashboard/logindone.component"; 
+// import Logindone from "./component/pages/dashboard/"
+// import Changepassword from "./components/pages/Verify-Change/Changepassword";
 import AdminLogin from "./components/pages/dashboard/adminpages/AdminLogin/AdminLogin";
 import Addnotification from "./components/pages/dashboard/adminpages/Notifications/AddNotification/AddNotification";
 import UpdateNotification from "./components/pages/dashboard/adminpages/Notifications/UpdateNotification/UpdateNotification";
@@ -34,8 +34,8 @@ import SearchbyStudentId from "./components/pages/dashboard/adminpages/Applicati
 import GetbyFilter from "./components/pages/dashboard/adminpages/ApplicationForms/GetByFilter/GetbyFilter";
 import SearchbyUserId from "./components/pages/dashboard/adminpages/ApplicationForms/SearchForm/SearchbyUserId";
 import withAuth from "./services/WithAuth";
-import Navigatebar from "./components/pages/Navbar+Sidebar/Navbar2";
-import VerifyForm from "./components/pages/dashboard/adminpages/ApplicationForms/VerifyForm/Verify";
+import Navigatebar from "./components/pages/Navbar+Sidebar/Navbar";
+import NewNav from "./newSidebar/NewNav";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());
@@ -95,12 +95,12 @@ class App extends Component {
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/logindone" component={withAuth(Logindone)} />
+            {/* <Route exact path="/logindone" component={Logindone} /> */}
             <Route exact path="/seemore" component={Seemore} />
             <Route exact path="/application" component={Application} />
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
             <Route exact path="/verify" component={Verify} />
-            <Route exact path="/changepassword" component={Changepassword} />
+            {/* <Route exact path="/changepassword" component={Changepassword} /> */}
             <Route exact path="/adminlogin" component={withAuth(AdminLogin)}/>
             <Route exact path="/addnotice" component={withAuth(Addnotification)}/>
             <Route exact path="/updatenotice" component={withAuth(UpdateNotification)}/>
@@ -110,7 +110,8 @@ class App extends Component {
             <Route exact path="/searchformbyuid" component={withAuth(SearchbyUserId)} />
             <Route exact path="/searchbyfilter" component={withAuth(GetbyFilter)} />
             <Route exact path="/nav" component={Navigatebar} />
-            <Route exact path="/VerifyForm" component={VerifyForm}/>
+            <Route exact path="/newnav" component={NewNav} />
+
           </Switch>
         </div>
         
