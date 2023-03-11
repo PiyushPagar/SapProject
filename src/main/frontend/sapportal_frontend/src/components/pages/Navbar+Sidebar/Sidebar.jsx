@@ -1,97 +1,70 @@
-// import React from 'react';
-// import './Sidebar.css';
-// import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
-// import { useState } from 'react';
 
-// const [showstd, setshowstd] = useState(false)
-// if(localStorage.getItem('role') === "ROLE_USER"){
-//     setshowstd(true)
-// }
-// const [showad, setshowad] = useState(false)
-// if(localStorage.getItem('role') === "ROLE_ADMIN"){
-//     setshowad(true)
-// }
-// class Sidebar extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { isNavOpen: true };
-//     this.toggleNav = this.toggleNav.bind(this);
-//   }
-
-//   toggleNav() {
-//     this.setState({ isNavOpen: !this.state.isNavOpen });
-//   }
-
-//   render() {
-//     return (
-//       <div className={`vertical-navbar ${this.state.isNavOpen ? 'open' : 'closed'}`}>
-//         <div className="toggle" onClick={this.toggleNav}>
-//           {this.state.isNavOpen ? <FaAngleLeft /> : <FaAngleRight />}
-//         </div>
-//         {this.state.isNavOpen ? (
-//           <ul>
-//             <li><a href="#">Home</a></li>
-//             <li><a href="#">About</a></li>
-//             <li><a href="#">Contact</a></li>
-//             {showstd &&
-//             <li><a href="#">User</a></li>
-//             }
-//             {showad &&
-//             <li><a href="#">Admin</a></li>}
-//           </ul>
-//         ) : null}
-//       </div>
-//     );
-//   }
-// }
-
-// export default Sidebar;
-//------------------------------------------------------
-
-import React from "react";
+import React, { useState } from "react";
 import "./Sidebar.css";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isNavOpen: true };
+    this.state = { 
+      isNavOpen: true,
+      showDropdown: false,
+    };
     this.toggleNav = this.toggleNav.bind(this);
+    this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
   toggleNav() {
     this.setState({ isNavOpen: !this.state.isNavOpen });
   }
+  
+
+  toggleDropdown() {
+    this.setState({showDropdown: !this.state.showDropdown});
+  };
 
   render() {
     return (
       <div
         className={`vertical-navbar ${
           this.state.isNavOpen ? "open" : "closed"
-        }`}
+        } navbar ${this.state.showDropdown ? "navbar-expanded" : ""}`}
       >
-        <div className="toggle" onClick={this.toggleNav}>
+        <div className="toggle" onClick={this.toggleNav} style={{marginLeft:"2px"}}>
           {this.state.isNavOpen ? <FaAngleLeft /> : <FaAngleRight />}
-        </div>
+        </div><br />
         {this.state.isNavOpen ? (
           <ul>
-            <li>
-              <a
-                className="btn btn-rounded btn-link" id="nav-a"
+            <li className="dropdown">
+              <button
+                className="btn btn-rounded btn-link dropbtn " //id="nav-a" 
+                onClick={this.toggleDropdown} 
                 style={{
                   cursor: "pointer",
                   display: "flex",
                   alignContent: "center",
                   justifyContent: "center",
                 }}
-                href="#"
-              >
-                Home
-              </a>
+                
+              >ApplicationForms</button>
+                <ul className="dropdown-menu">
+            <li>
+              <a href="#">Option 1</a>
             </li>
-            <br />
             <li>
-              <a
+              <a href="#">Option 2</a>
+            </li>
+            <li>
+              <a href="#">Option 3</a>
+            </li>
+          </ul>
+              
+              
+            </li>
+            <br /><br />
+            <li>
+              <button
                 className="btn btn-rounded btn-link" id="nav-a"
                 style={{
                   cursor: "pointer",
@@ -99,14 +72,14 @@ class Sidebar extends React.Component {
                   alignContent: "center",
                   justifyContent: "center",
                 }}
-                href="#"
+                
               >
                 About
-              </a>
+              </button>
             </li>
             <br />
             <li>
-              <a
+              <button
                 className="btn btn-rounded btn-link" id="nav-a"
                 style={{
                   cursor: "pointer",
@@ -117,7 +90,7 @@ class Sidebar extends React.Component {
                 href="#"
               >
                 Contact
-              </a>
+              </button>
             </li>
             <br />
           </ul>
