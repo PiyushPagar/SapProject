@@ -3,6 +3,7 @@ package com.SapPortal.controllers;
 import java.util.Collections;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.SapPortal.dto.ApplicationformStatusDto;
 import com.SapPortal.dto.PagesDto;
 import com.SapPortal.models.ApplicationForm;
+import com.SapPortal.payload.response.MessageResponse;
 import com.SapPortal.repository.ApplicationFormRepository;
 import com.SapPortal.security.services.ApplicationFromService;
 
@@ -36,16 +39,29 @@ public class ApplicationFromController {
 
 	@Autowired
 	ApplicationFromService applicationFromService;
-	 @RequestMapping(value = "/getDetailsByUserid/{UserId}", method = RequestMethod.GET)
-	    @ResponseBody
-	    public List<ApplicationForm> getOtasbyClient(@RequestParam(name = "UserId") Integer UserId) {
-	    	List<ApplicationForm> otas = Collections.emptyList();
-	    	otas = applicationFormRepository.findByUseridLike(UserId);
-	        return otas;
-	    }
+
+	@RequestMapping(value = "/getDetailsByUserid/{UserId}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<ApplicationForm> getOtasbyClient(@RequestParam(name = "UserId") Integer UserId) {
+		List<ApplicationForm> otas = Collections.emptyList();
+		otas = applicationFormRepository.findByUseridLike(UserId);
+		return otas;
+	}
+
 	@GetMapping("/getapplicationform")
 	private List<ApplicationForm> getAllApplicationForm() {
 		return applicationFromService.getAllApplicationForm();
+	}
+
+	@RequestMapping(value = "/getapplicationformStatus/{UserId}", method = RequestMethod.GET)
+	@ResponseBody
+	public ApplicationformStatusDto getapplicationformStatus(@RequestParam(name = "UserId") Integer UserId) {
+		ApplicationformStatusDto applicationformStatusDto= new ApplicationformStatusDto();
+		ApplicationForm applicationForm = applicationFormRepository.findApplicationFormByUserId(UserId);
+		applicationformStatusDto.setApplicationformId(applicationForm.getId());
+		applicationformStatusDto.setApplicationformStatus(applicationForm.getApplicationFromStatus());
+		applicationformStatusDto.setUserId(applicationForm.getUserId());
+		return applicationformStatusDto;
 	}
 
 	@GetMapping("/getapplicationformbyid/{StudentId}")
@@ -61,17 +77,26 @@ public class ApplicationFromController {
 	@PostMapping("/applicationForm")
 	private int saveBook(@RequestBody ApplicationForm applicationForm) {
 		applicationFromService.saveOrUpdate(applicationForm);
-		return applicationForm.getStudentId();
+		return applicationForm.getId();
 	}
 
-	@PutMapping("/applicationFormupdate")
-	private ApplicationForm update(@RequestBody ApplicationForm applicationForm) {
-		applicationFromService.saveOrUpdate(applicationForm);
-		return applicationForm;
-	}
+//	@PutMapping("/applicationFormupdateStatus")
+//	private ApplicationForm updateApplicationStatus(@RequestBody ApplicationForm applicationForm) {
+//		applicationFromService.saveOrUpdate(applicationForm);
+//		return applicationForm;
+//	}
 	
-	@RequestMapping(value="/fetchlistofApplicationFormbyfilter",method = RequestMethod.GET)
-    public ResponseEntity<PagesDto<ApplicationForm>> fetchproductsByCategory(@RequestParam(value = "pagenum", required = false) Integer pagenum,
+	@PutMapping("/applicationFormStatusUpdate/{ApplicationId}/{Status}")
+	private ResponseEntity<?> updateApplicationStatus(@PathVariable("ApplicationId") int ApplicationId,@PathVariable("Status") String Status) {
+		ApplicationForm applicationForm =applicationFormRepository.findById(ApplicationId).get();
+		applicationForm.setApplicationFromStatus(Status);
+		applicationFromService.saveOrUpdate(applicationForm);
+		return ResponseEntity.ok(new MessageResponse(HttpStatus.OK.value(),"Status Update SuccessFully!"));
+	}
+
+	@RequestMapping(value = "/fetchlistofApplicationFormbyfilter", method = RequestMethod.GET)
+	public ResponseEntity<PagesDto<ApplicationForm>> fetchproductsByCategory(
+			@RequestParam(value = "pagenum", required = false) Integer pagenum,
 			@RequestParam(value = "pagesize", required = false) Integer pagesize,
 			@RequestParam(value = "email", required = false) String email,
 			@RequestParam(value = "StudentId", required = false) Integer StudentId,
@@ -86,12 +111,11 @@ public class ApplicationFromController {
 			@RequestParam(value = "adhaarCard", required = false) String adhaarCard,
 			@RequestParam(value = "uploadImage", required = false) Boolean uploadImage,
 			@RequestParam(value = "applicationFromStatus", required = false) String applicationFromStatus,
-			@RequestParam(value = "userId", required = false) Long user_id,
-			HttpServletRequest request){
-    	    PagesDto<ApplicationForm> pages=   applicationFromService.listOfApplicationFormFilter(pagenum,pagesize, email, StudentId,  name, collegeEmail,sapModule, contactNumber,
-    	    		passoutYear, branch, specialization, studentType,adhaarCard,uploadImage,applicationFromStatus,user_id);
-    	     return new ResponseEntity<>(pages,HttpStatus.OK);
-    }
-	
-	
+			@RequestParam(value = "userId", required = false) Long user_id, HttpServletRequest request) {
+		PagesDto<ApplicationForm> pages = applicationFromService.listOfApplicationFormFilter(pagenum, pagesize, email,
+				StudentId, name, collegeEmail, sapModule, contactNumber, passoutYear, branch, specialization,
+				studentType, adhaarCard, uploadImage, applicationFromStatus, user_id);
+		return new ResponseEntity<>(pages, HttpStatus.OK);
+	}
+
 }

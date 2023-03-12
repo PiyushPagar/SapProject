@@ -14,13 +14,38 @@ public class SignupRequest {
     @Email
     private String email;
     
-    private Set<String> role;
+    @NotBlank
+    @Size(max = 50)
+    private String status;
+    
+    
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	private Set<String> role;
     
     @NotBlank
     @Size(min = 6, max = 40)
     private String password;
+    
+    @NotBlank
+    @Size(max = 50)
+    private String mobileNumber;
   
-    public String getName() {
+    public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public String getName() {
         return name;
     }
  
@@ -51,4 +76,6 @@ public class SignupRequest {
     public void setRole(Set<String> role) {
       this.role = role;
     }
+
+	
 }
