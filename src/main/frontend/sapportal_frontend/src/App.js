@@ -22,8 +22,8 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import Verify from "./components/pages/Verify-Change/verify";
 // import Body from "./components/Body";
 import Seemore from "./components/pages/Seemore";
-<!-- import Logindone from "./components/pages/dashboard/logindone.component"; -->
-import Logindone from "./component/pages/dashboard/"
+import Logindone from "./components/pages/dashboard/Studentdashboard/logindone.component"; 
+//import Logindone from "./component/pages/dashboard/"
 import Changepassword from "./components/pages/Verify-Change/Changepassword";
 import AdminLogin from "./components/pages/dashboard/adminpages/AdminLogin/AdminLogin";
 import Addnotification from "./components/pages/dashboard/adminpages/Notifications/AddNotification/AddNotification";
@@ -35,7 +35,7 @@ import GetbyFilter from "./components/pages/dashboard/adminpages/ApplicationForm
 import SearchbyUserId from "./components/pages/dashboard/adminpages/ApplicationForms/SearchForm/SearchbyUserId";
 import withAuth from "./services/WithAuth";
 import Navigatebar from "./components/pages/Navbar+Sidebar/Navbar2";
-import VerifyForm from "./components/pages/dashboard/adminpages/ApplicationForms/VerifyForm/Verify";
+import VerifyForm from "./components/pages/dashboard/adminpages/ApplicationForms/VerifyForm/Verifyform";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());
