@@ -20,20 +20,20 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.handleLogin = this.handleLogin.bind(this);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
 
     this.state = {
-      username: "",
+      email: "",
       password: "",
       loading: false,
       message: ""
     };
   }
 
-  onChangeUsername(e) {
+  onChangeEmail(e) {
     this.setState({
-      username: e.target.value
+      email: e.target.value
     });
   }
 
@@ -54,10 +54,10 @@ export default class Login extends Component {
     this.form.validateAll();
 
     if (this.checkBtn.context._errors.length === 0) {
-      AuthService.login(this.state.username, this.state.password).then(
+      AuthService.login(this.state.email, this.state.password).then(
         () => {
-          if(localStorage.getItem('role') === 'ROLE_USER'){
-            this.props.history.push("/logindone");
+          if(localStorage.getItem('role') === 'ROLE_STUDENT'){
+            this.props.history.push("/newnav");
             window.location.reload();
           }
           else if (localStorage.getItem('role') === 'ROLE_ADMIN'|| localStorage.getItem('role') === 'ROLE_ADMIN_SUPER') {
@@ -108,11 +108,11 @@ export default class Login extends Component {
               <Input
                 type="text"
                 className="form-control"
-                name="username"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
+                name="email"
+                value={this.state.email}
+                onChange={this.onChangeEmail}
                 validations={[required]}
-                placeholder="Enter Your Username"
+                placeholder="Enter Registered Email"
               />
             </div>
 
