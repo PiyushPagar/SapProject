@@ -1,8 +1,15 @@
 import React,{useEffect,useState} from 'react';
 import "./NewNav.css"
+import cross from "./cross.webp";
+import menu from "./menu.webp";
+import Table from './table/Table';
+import { Link, Route } from "react-router-dom";
+import Create from './table/Create';
+import PostPlace from './table/PostPlace';
+import Alluser from './table/Alluser';
 
 
-const NewNav = () => {
+const NewNav = (props) => {
     const a= "super";
     const b="true";
 const [nag, setnag] = useState();
@@ -24,7 +31,6 @@ const [nag, setnag] = useState();
         
           setnag(data1[0].name);
           
-          
        
     
           if (data.status !== 200) {
@@ -35,9 +41,31 @@ const [nag, setnag] = useState();
           console.log(err);
         }
       };
+
+      const [op, setOp] = useState("left-nav");
+      const [right, setRight] = useState("right-nav");
+      const [picimg, setPicimg] = useState(cross);
+    
+
+
+      const dothis=()=>{
+        if(op==="left-nav"){
+          setOp("new-left-nav")
+          setPicimg(menu)
+        }else{
+          setOp("left-nav")
+          setPicimg(cross)
+
+        }
+        if(right==="right-nav"){
+          setRight("new-right-nav")
+        }else{
+          setRight("right-nav")
+        }
+      }
       useEffect(() => {
        
-        callAboutPage();
+        // callAboutPage();
       },[]);
 
 
@@ -61,7 +89,8 @@ const [nag, setnag] = useState();
             </button>
           </div>
           <div className='compo-down'>
-            <div className="left-nav">
+            <div className={op}     >
+            <img className='cross-img' onClick={dothis} src={picimg} width="10px" height="10px" alt="" />
                 {a=="admin"?<p>Admin</p>:<p>{
                 a=="super"?<p>Super</p>:<p>User</p>}</p>}
                 <div className='left-content'>Appid</div>
@@ -69,7 +98,20 @@ const [nag, setnag] = useState();
                 <div className='left-content'>Course</div>
                 
 
-                {/* label for="cars">Choose a car:</label> */}
+                <div  className='left-content '>
+
+<Link className='t-color' to="/newnav/create">Create Admin</Link>
+</div>
+                <div  className='left-content '>
+                <Link className='t-color' to="/newnav">Verify User</Link>
+</div>
+                <div  className='left-content '>
+                <Link className='t-color' to="/newnav/place">PlaceMENt</Link>
+</div>
+                <div  className='left-content '>
+                <Link className='t-color' to="/newnav/all">See All Admin</Link>
+</div>
+
 
                 {a=="admin"?<div className='left-drop'>
 
@@ -117,22 +159,40 @@ const [nag, setnag] = useState();
    </select>
    <select className='left-content new-nav-drop' name="cars" id="cars">
      <option value="volvo">Admin</option>
-     <option value="saab">Create Admin</option>
+     <option  value="saab">
+    Create Admin
+     </option>
      <option value="saab">Delete Admin</option>
      
    </select>
+  
+
+
                    </div>:<p></p>
   } 
     
     
     </p>}
             </div>
-            <div className="right-nav">right</div>
+
+            
+            <div className={right}>
+              
+              {a=="user"?<p>nothing</p>:
+              // <Table path="/newnav" />
+              <Route exact path="/newnav" component={Table} />
+              
+}
+              <Route exact path="/newnav/create" component={Create} />
+              <Route exact path="/newnav/place" component={PostPlace} />
+              <Route exact path="/newnav/all" component={Alluser} />
+
+            </div>
           </div>
 
            
           </div>
-          {/* :<div>Not Verfied</div>} */}
+     
         </div>
     );
 }
