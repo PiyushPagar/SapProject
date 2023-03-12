@@ -1,7 +1,18 @@
+import axios from "axios";
 import React from "react";
 // import { Switch, Route, Link } from "react-router-dom";
 
 export default function Navbarforapp() {
+  const User = localStorage.getItem('username')
+  const Onlogout = () => {
+    axios.post("http://localhost:9190/api/auth/signout")
+    .then((res)=> {
+      localStorage.removeItem('token');
+      localStorage.removeItem('role');
+      localStorage.removeItem("user");
+      localStorage.removeItem("username");
+    })
+  }
   return (
     <nav
       className="nav"
@@ -17,10 +28,13 @@ export default function Navbarforapp() {
             </a>
           </li>
         </div>
+        <div className="center-nav">
+          <h4 style={{color:"white"}}>Welcome {User}</h4>
+        </div>
         <div className="right-nav">
           <li>
-            <a href="/" className="site-title">
-              SRES
+            <a href="/" onClick={Onlogout}>
+              Logout
             </a>
           </li>
           <li>

@@ -110,7 +110,7 @@ class App extends Component {
             <Route exact path="/searchformbyuid" component={withAuth(SearchbyUserId)} />
             <Route exact path="/searchbyfilter" component={withAuth(GetbyFilter)} />
             <Route exact path="/nav" component={Navigatebar} />
-            <Route exact path="/newnav" component={NewNav} />
+            <Route  path="/newnav" component={NewNav} />
 
           </Switch>
         </div>
