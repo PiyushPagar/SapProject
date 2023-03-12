@@ -13,7 +13,7 @@ public class ApplicationForm {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int StudentId;
+	private int Id;
 	private String email;
 	private String name;
 	private String collegeEmail;
@@ -53,13 +53,15 @@ public class ApplicationForm {
 		this.applicationFromStatus = applicationFromStatus;
 	}
 
-	public int getStudentId() {
-		return StudentId;
+	
+	public int getId() {
+		return Id;
 	}
 
-	public void setStudentId(int studentId) {
-		StudentId = studentId;
+	public void setId(int id) {
+		Id = id;
 	}
+
 	public String getEmail() {
 		return email;
 	}

@@ -30,7 +30,7 @@ public  class CustomRepositoryImpl implements CustomRepository{
                 predicatesList.add(
                         criteriaBuilder.and(
                                 criteriaBuilder.equal(
-                                        root.get("StudentId"), StudentId )));
+                                        root.get("id"), StudentId )));
             }
             if (email != null && !email.equals("")) {
                 predicatesList.add(

@@ -89,7 +89,7 @@ public class ApplicationFromService {
 		applicationFormNew.setPassoutYear(applicationForm.getPassoutYear());
 		applicationFormNew.setSapModule(applicationForm.getSapModule());
 		applicationFormNew.setSpecialization(applicationForm.getSpecialization());
-		applicationFormNew.setStudentId(applicationForm.getStudentId());
+		applicationFormNew.setId(applicationForm.getId());
 		applicationFormNew.setStudentType(applicationForm.getStudentType());
 		applicationFormNew.setUploadImage(applicationForm.getUploadImage());
 		applicationFormNew.setUserId(applicationForm.getUserId());
