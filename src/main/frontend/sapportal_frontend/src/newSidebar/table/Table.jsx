@@ -158,5 +158,4 @@ const Table = (right,a) => {
        </>
        );
     }
-
 export default Table;
