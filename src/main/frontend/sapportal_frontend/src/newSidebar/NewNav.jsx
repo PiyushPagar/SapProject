@@ -7,11 +7,21 @@ import { Link, Route } from "react-router-dom";
 import Create from './table/Create';
 import PostPlace from './table/PostPlace';
 import Alluser from './table/Alluser';
+import axios from 'axios';
 
 
 const NewNav = (props) => {
-    const a= "super";
+    const a= "user";
     const b="true";
+    const Onlogout = () => {
+      axios.post("http://localhost:9190/api/auth/signout")
+      .then((res)=> {
+        localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        localStorage.removeItem("user");
+        window.location.href = "/home"
+      })
+    }
 const [nag, setnag] = useState();
 
     const callAboutPage = async () => {
@@ -71,7 +81,7 @@ const [nag, setnag] = useState();
 
     return (
         <div>
-            {/* {nag=="Sachin"? */}
+            {/* {nag==="Sachin"? */}
             <div>
 
            
@@ -84,15 +94,15 @@ const [nag, setnag] = useState();
             Welcome To {a}
 
             </h2>
-            <button>
+            <button onClick={()=>Onlogout()}>
                 LogOut
             </button>
           </div>
           <div className='compo-down'>
             <div className={op}     >
             <img className='cross-img' onClick={dothis} src={picimg} width="10px" height="10px" alt="" />
-                {a=="admin"?<p>Admin</p>:<p>{
-                a=="super"?<p>Super</p>:<p>User</p>}</p>}
+                {a==="admin"?<p>Admin</p>:<p>{
+                a==="super"?<p>Super</p>:<p>User</p>}</p>}
                 <div className='left-content'>Appid</div>
                 <div className='left-content'>Payment</div>
                 <div className='left-content'>Course</div>
@@ -113,7 +123,7 @@ const [nag, setnag] = useState();
 </div>
 
 
-                {a=="admin"?<div className='left-drop'>
+                {a==="admin"?<div className='left-drop'>
 
 
 <select className='left-content new-nav-drop' name="cars" id="cars">
@@ -136,7 +146,7 @@ const [nag, setnag] = useState();
                 </div>
 
   :<p>
-   {a=="super"?
+   {a==="super"?
    <div className='left-drop'>
 
 
@@ -178,7 +188,7 @@ const [nag, setnag] = useState();
             
             <div className={right}>
               
-              {a=="user"?<p>nothing</p>:
+              {a==="user"?<p>nothing</p>:
               // <Table path="/newnav" />
               <Route exact path="/newnav" component={Table} />
               
