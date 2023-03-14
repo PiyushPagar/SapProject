@@ -5,13 +5,10 @@ const Changepassword = () => {
   const [pass, setpass] = useState("");
   const [passn, setpassn] = useState("");
   const Setpassword = async () => {
-    //console.log(sessionStorage.getItem("EMAIL"));
     if (pass === passn) {
       await axios.post("http://localhost:9190/api/auth/forgotpassword/setnewpassword", {
-          //forgotpassword :{
           email: sessionStorage.getItem("EMAIL"),
           password: passn,
-          //}
         })
         .then((res) => {
           alert("New password set succesfully");
@@ -66,12 +63,19 @@ const Changepassword = () => {
             />
           </label>
           <br />
-          <button type="submit" onClick={Setpassword} style={{cursor : "pointer"}}>
+          
+        </form>
+      </div>
+      <button type="submit" onClick={() => Setpassword()} 
+          style={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "auto",
+          cursor: "pointer",
+        }}>
             {" "}
             Change Password{" "}
           </button>
-        </form>
-      </div>
     </div>
   );
 };

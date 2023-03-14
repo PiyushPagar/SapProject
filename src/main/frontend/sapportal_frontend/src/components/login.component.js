@@ -56,14 +56,16 @@ export default class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.login(this.state.email, this.state.password).then(
         () => {
-          if(localStorage.getItem('role') === 'ROLE_STUDENT'){
-            this.props.history.push("/newnav");
+          this.props.history.push("/newnav");
             window.location.reload();
-          }
-          else if (localStorage.getItem('role') === 'ROLE_ADMIN'|| localStorage.getItem('role') === 'ROLE_ADMIN_SUPER') {
-            this.props.history.push("/adminlogin");
-            window.location.reload();
-          }
+          // if(localStorage.getItem('role') === 'ROLE_STUDENT'){
+          //   this.props.history.push("/newnav");
+          //   window.location.reload();
+          // }
+          // else if (localStorage.getItem('role') === 'ROLE_ADMIN'|| localStorage.getItem('role') === 'ROLE_ADMIN_SUPER') {
+          //   this.props.history.push("/newnav");
+          //   window.location.reload();
+          // }
         },
         error => {
           const resMessage =
