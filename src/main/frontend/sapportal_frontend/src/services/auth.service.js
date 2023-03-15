@@ -16,6 +16,7 @@ class AuthService {
         localStorage.setItem('role',response.data.roles)
         localStorage.setItem('token',response.data.token)
         localStorage.setItem('username',response.data.username)
+        //localStorage.setItem('username',response.data.username)
         
         return response.data;
       });
@@ -26,11 +27,13 @@ class AuthService {
     localStorage.removeItem("token");
   }
 
-  register(username, email, password) {
+  register(name, email, mobileNumber, password, status) {
     return axios.post(API_URL + "signup", {
-      username,
+      name,
       email,
-      password
+      mobileNumber,
+      password,
+      status
     });
   }
 

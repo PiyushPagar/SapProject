@@ -3,7 +3,7 @@ import "./Footer.css";
 
 export default function Footer() {
   const newLocal = (
-    <a href="/" class="link-1">
+    <a href="/" className="link-1">
       Home
     </a>
   );
