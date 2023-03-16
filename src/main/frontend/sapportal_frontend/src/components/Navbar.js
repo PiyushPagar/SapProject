@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav className="nav" data-aos="fade-down" data-aos-delay="300" data-aos-offset="00">
       <ul>
-        <div className="left-nav">
+        <div className="left-nav" style={{backgroundColor:"black"}}>
           <li>
             <a href="/" className="site-title">
               <h2>
@@ -32,7 +32,7 @@ export default function Navbar() {
           </li>*/}
         </div> 
 
-        <div className="right-nav">
+        <div className="right-nav" style={{marginLeft : "800px"}}>
           <li>
             <a href="/login">Login</a>
           </li>

@@ -3,7 +3,6 @@ import styled from "styled-components/macro";
 export const ModalWrapper = styled.div`
     padding: 30px;
     width: 100%;
-    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -16,7 +15,6 @@ export const ModalWrapper = styled.div`
 
 export const ModalContainer = styled.div`
 height: auto;
-max-height: 100%;
 overflow-y: auto;
 position: relative;
 max-width: 600px;

@@ -8,11 +8,11 @@ import Create from "./table/Create";
 import PostPlace from "./table/PostPlace";
 import Alluser from "./table/Alluser";
 import axios from "axios";
-import VerifyForm from "../components/pages/dashboard/adminpages/ApplicationForms/VerifyForm/Verifyform";
+import VerifyForm from "./Verifyform";
 
 const NewNav = (props) => {
-  const a = localStorage.getItem('role');
-  const b = "true";
+  const a = "ROLE_SUPER"  //localStorage.getItem('role');
+  //const b = "true";
   const Onlogout = () => {
     axios.post("http://localhost:9190/api/auth/signout").then((res) => {
       localStorage.removeItem("token");
@@ -22,42 +22,43 @@ const NewNav = (props) => {
       window.location.href = "/home";
     });
   };
-  const [ver_form,setver_form] = useState(false)
-  const handleSelect = (e) => {
-    if(e.target.value === "ver_form"){
-      setver_form(true);
-    }
-  }
-  const [nag, setnag] = useState();
+  const [SelectedOption,setSelectedOption] = useState("")
+  console.log(SelectedOption)
+  // const handleSelect = () => {
+  //   console.log("ssssd")
+    
+  //     // window.location.href = "/newnav/verifyform"
+  // }
+  // const [nag, setnag] = useState();
 
-  const callAboutPage = async () => {
-    try {
-      const response = await fetch("/time", {
-        mode: "no-cors",
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      const data = response;
-      const data1 = await response.json();
-      console.log();
+  // const callAboutPage = async () => {
+  //   try {
+  //     const response = await fetch("/time", {
+  //       mode: "no-cors",
+  //       method: "GET",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //       },
+  //       credentials: "include",
+  //     });
+  //     const data = response;
+  //     const data1 = await response.json();
+  //     console.log();
 
-      setnag(data1[0].name);
+  //     setnag(data1[0].name);
 
-      if (data.status !== 200) {
-        const error = new Error(response.error);
-        throw error;
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     if (data.status !== 200) {
+  //       const error = new Error(response.error);
+  //       throw error;
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const [op, setOp] = useState("left-nav");
-  const [right, setRight] = useState("right-nav");
+  const [right, setRight] = useState("right-nav98");
   const [picimg, setPicimg] = useState(cross);
 
   const dothis = () => {
@@ -68,10 +69,10 @@ const NewNav = (props) => {
       setOp("left-nav");
       setPicimg(cross);
     }
-    if (right === "right-nav") {
-      setRight("new-right-nav");
+    if (right === "right-nav98") {
+      setRight("new-right-nav98");
     } else {
-      setRight("right-nav");
+      setRight("right-nav98");
     }
   };
   useEffect(() => {
@@ -87,7 +88,7 @@ const NewNav = (props) => {
             Sanjivani
             <span className="color-teal">SAP</span>{" "}
           </h2>
-          <h2>Welcome {localStorage.getItem('role').slice(5)}</h2>
+          <h2>Welcome </h2>
           <button onClick={() => Onlogout()}>LogOut</button>
         </div>
         <div className="compo-down">
@@ -103,7 +104,7 @@ const NewNav = (props) => {
             {a === "ROLE_ADMIN" ? (
               <p>Admin</p>
             ) : (
-              <p>{a === "ROLE_SUPER" ? <p>Super</p> : <p>User</p>}</p>
+              <span>{a === "ROLE_SUPER" ? <p>Super</p> : <p>User</p>}</span>
             )}
             {/*<div className="left-content">Appid</div>*/}
             <div className="left-content">Payment</div>
@@ -115,10 +116,12 @@ const NewNav = (props) => {
                   className="left-content new-nav-drop"
                   name="cars"
                   id="cars"
-                  onChange={handleSelect}
+                  value={SelectedOption}
+                  onChange={ (e) => setSelectedOption(e.target.value)}
+                 
                 >
                   <option value="App_form">App. Form</option>
-                  <option value="ver_form">Verify Form</option>
+                  <option value="ver_form" >Verify Form</option>
                   <option value="ser_form">Search form</option>
                   <option value="del_form">Delete Form</option>
                 </select>
@@ -142,7 +145,7 @@ const NewNav = (props) => {
                 </select>
               </div>
             ) : (
-              <p>
+              <div>
                 {a === "ROLE_SUPER" ? (
                   <>
                     <div >
@@ -210,10 +213,12 @@ const NewNav = (props) => {
                 ) : (
                   <p></p>
                 )}
-              </p>
+              </div>
             )}
           </div>
-
+          {SelectedOption === "ver_form"? (<>
+              <Route exact path="/newnav/verifyform" component={VerifyForm} />
+              </>):null}
           <div className={right}>
             {a === "ROLE_STUDENT" ? (
               <p>nothing</p>
@@ -225,11 +230,8 @@ const NewNav = (props) => {
             <Route exact path="/newnav/create" component={Create} />
             <Route exact path="/newnav/place" component={PostPlace} />
             <Route exact path="/newnav/all" component={Alluser} />
-            {ver_form && <>
-                <Route exact path="/newnav/verifyform" component={VerifyForm} />
-              </>}
+            
           </div>
-          
         </div>
       </div>
     </div>

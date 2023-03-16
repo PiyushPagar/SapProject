@@ -1,125 +1,8 @@
-// import React ,{ useEffect, useState} from "react";
-// import axios from "axios";
-// export default function VerifyForm() {
-//     const [data, setData] = useState([]);
-//     //const [show, setShow] = useState(false);
-//     //const [Sid,setSid] = useState(0);
-//     //const [stat,setstat] = useState("")
-//     const onClicked = () => {
-//         return (
-//             <div>
-
-//             </div>
-//         )
-//     }
-//     const onVerify = () => {
-//         return (
-//             <div>
-
-//             </div>
-//         )
-//     }
-
-//     useEffect(() => {
-//         (async () => {
-//           try {
-//             const { data } = await axios.get("http://localhost:9190/api/fetchlistofApplicationFormbyfilter",{
-//                 params: {
-//                     pagesize : 20,
-//                     pagenum : 0,
-//                     applicationFromStatus : "active"
-//                 }
-//             });
-//             setData(data.records);
-//             //setSid(data.records.student_id);
-//             console.log(data);
-//           } catch (error) {
-//             console.log("Error");
-//           }
-//         })();
-//       }, []);
-
-//     return (
-//         <div style={{display : "flex", justifyContent :"center"}}>
-            
-//             <table border={5} style={{height : "50%", width : "80%"}}>
-//                 <thead>
-//                     <tr>
-//                     <th>Name</th>
-//                     <th>Adhar Number</th>
-//                     <th>Contact Number</th>
-//                     <th>Branch</th>
-//                     <th>SAP Module</th>
-//                     <th>Email</th>
-//                     <th>Specialization</th>
-//                     <th>Student Type</th>
-//                     <th>College Email</th>
-//                     <th>Passout Year</th>
-//                     <th>Image</th>
-//                     <th>Form Status</th>
-//                     <th>Action</th>
-//                     </tr>
-//                 </thead>
-                
-//                 <tbody>
-//                 {data.map((ele) => {
-//                     return (
-//                         <tr>
-//                             <td style={{ width: "120px", padding: "5px" }}>
-//                             {ele.name}
-//                             </td>
-//                             <td style={{ width: "120px", padding: "5px" }}>
-//                             {ele.adhaarCard}
-//                             </td>
-//                             <td style={{ width: "120px", padding: "5px" }}>
-//                             {ele.contactNumber}
-//                             </td>
-//                             <td style={{ width: "120px", padding: "5px" }}>
-//                             {ele.branch}
-//                             </td>
-//                             <td style={{ width: "100px", padding: "5px" }}>
-//                             {ele.sapModule}
-//                             </td>
-//                             <td style={{ width: "150px", padding: "5px" }}>
-//                             {ele.email}
-//                             </td>
-//                             <td style={{ width: "120px", padding: "5px" }}>
-//                             {ele.specialization}
-//                             </td>
-//                             <td style={{ width: "120px", padding: "5px" }}>
-//                             {ele.studentType}
-//                             </td>
-//                             <td style={{ width: "150px", padding: "5px" }}>
-//                             {ele.collegeEmail}
-//                             </td>
-//                             <td style={{ width: "100px", padding: "5px" }}>
-//                             {ele.passoutYear}
-//                             </td>
-//                             <td style={{ width: "120px", padding: "5px" }}>
-//                             {ele.uploadImage}
-//                             </td>
-//                             <td style={{ width: "100px", padding: "5px" }}>
-//                             {ele.applicationFromStatus}
-//                             </td>
-//                             <td style={{ width: "100px", padding: "5px", }}>
-//                              <button onClick={()=> onVerify()}><i class="fas fa-edit"></i></button>{"   "} 
-//                             <button onClick={()=> onClicked()}><i class="fa fa-trash" aria-hidden="true"></i></button>
-//                             </td>
-//                         </tr>
-//                     );
-//                     })}
-                
-//                 </tbody>
-               
-//         </table> 
-//         </div>
-//     )
-
-// }
-//--------------------------------------------------------------------------------
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Modal from "../../../Modal";
+import Modal from "../components/pages/dashboard/Modal";
+//import "./NewNav.css"
+import "./hari.css"
 
 
 const VerifyForm = () => {
@@ -187,6 +70,7 @@ const VerifyForm = () => {
   return (
     <>
       <div className="table-nav">
+        jhgdcjhedegceddgc
         <input
           className="table-search"
           type="text"

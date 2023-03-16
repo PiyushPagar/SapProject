@@ -47,7 +47,7 @@ margin-right: 30px;
 .left-content{
     font-size: 1.3rem;
     margin-top: 7px;
-
+    height: auto;
     /* padding: 10px 30px; */
     width: 70%;
     text-align: center;
@@ -82,7 +82,7 @@ margin-right: 30px;
    z-index: 2;
     flex: 1;  
 }
-.right-nav{
+.right-nav98{
     flex: 4;
     position: relative;
     left: 0px;
@@ -92,7 +92,7 @@ margin-right: 30px;
     justify-content: center;
 
 }
-.new-right-nav{
+.new-right-nav98{
     margin: 0;
 
     transition: all 0.4s ease;
@@ -109,9 +109,11 @@ margin-right: 30px;
 .new-nav-drop{
     background: none;
     border: none;
+    height : auto;
 }
 .left-drop{
     margin-left: 50px;
+    height: auto;
 }
 .cross-img{
     position: absolute;
@@ -175,10 +177,10 @@ border: none!important;
     justify-content: center;
     align-items: center;
 }
-.create-con{
+/*.create-con{
     /* display: flex; */
-    /* flex-direction: column; */
-}
+    /* flex-direction: column; 
+}*/
 .t-white{
 color: rgb(0, 0, 0);
 text-align: center;
