@@ -15,7 +15,7 @@ export default function Footer() {
         data-aos-delay="300"
         data-aos-offset="50"
       >
-        <div class="footer-left">
+        <div className="footer-left">
           <h3>
             Sanjivani<span>SAP</span>
           </h3>

@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, {  } from "react"; //Component - removed
 import { useState } from "react";
-import Applicationmodal from "../ApplicationForms/ApplicationModal";
+
 import Notificationmodal from "../Notifications/NotificationModal";
 import "./adminlogin.css";
 
 export default function AdminLogin() {
   const [show, setShow] = useState(false);
-  const [show2, setshow2] = useState(false);
+  
   const Onlogout = () => {
     axios.post("http://localhost:9190/api/auth/signout")
     .then((res)=> {
@@ -34,9 +34,8 @@ export default function AdminLogin() {
           }}
         >
           <div
-            className="ld-d-item dropdown-toggle" //data-toggle = "dropdown"
+            
             style={{ display: "flex", justifyContent: "center" }}
-            onClick={() => setshow2(true)}
           >
           Application Forms
           </div>
@@ -89,8 +88,6 @@ export default function AdminLogin() {
                         <div className="dropdown-item">Miss</div>
                         <div className="dropdown-item">Mrs</div>
                     </div> */}
-      <Applicationmodal title="My Modal" onClose={() => setshow2(false)} show={show2}>
-            </Applicationmodal>
     </div>
   )
 }

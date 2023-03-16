@@ -4,9 +4,9 @@ const PostPlace = () => {
     return (
         <div className='create-box'>
             <div className="create-con">
-<h1 className='t-white'>POST PLACE</h1>
+<h1 className='t-white'>POST PLACEMENT</h1>
 
-<form action="/action_page.php">
+<form>
   <input type="file" id="myFile" name="filename"/>
   <input type="submit"/>
 </form>
