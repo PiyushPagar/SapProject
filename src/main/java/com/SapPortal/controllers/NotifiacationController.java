@@ -1,11 +1,16 @@
 package com.SapPortal.controllers;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -13,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.SapPortal.models.Notifications;
 import com.SapPortal.repository.NotificationsRepository;
-
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -26,6 +31,7 @@ public class NotifiacationController {
 
 	@PostMapping("/addNotification")
 	public ResponseEntity<Notifications> saveNotification(@Validated @RequestBody Notifications notificationData) {
+		LocalDate date = java.time.LocalDate.now();
 		Notifications notification = new Notifications();
 		notification.setCode(notificationData.getCode());
 		notification.setName(notificationData.getName());
@@ -35,7 +41,7 @@ public class NotifiacationController {
 		notification.setUserId(notificationData.getUserId());
 		notification.setFile(notificationData.getFile());
 		notification.setNotificationmodule(notificationData.getNotificationmodule());
-		notification.setCreatedDateTime(new Date(0).toString());
+		notification.setCreatedDateTime(date.toString());
 		return new ResponseEntity<Notifications>(notificationsRepository.save(notification), HttpStatus.OK);
 	}
 
@@ -66,6 +72,12 @@ public class NotifiacationController {
 			return new ResponseEntity<>("notificationData Not found for this notificationDataId",
 					HttpStatus.FAILED_DEPENDENCY);
 		}
+	}
+
+	@GetMapping("/getNotification")
+	public ResponseEntity<List<Notifications>> getNotification() {
+		List<Notifications> notificationList = (List<Notifications>) notificationsRepository.findAll();
+		return new ResponseEntity<List<Notifications>>(notificationList, HttpStatus.OK);
 	}
 
 }
