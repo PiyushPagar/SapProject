@@ -26,11 +26,20 @@ const email = value => {
   }
 };
 
-const vusername = value => {
+const vname = value => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
         The username must be between 3 and 20 characters.
+      </div>
+    );
+  }
+};
+const vnumber = value => {
+  if (value.length !== 10 ) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        Enter Mobile Number without +91
       </div>
     );
   }
@@ -50,34 +59,43 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangename = this.onChangename.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangeMobile = this.onChangeMobile.bind(this);
     this.onChangeconfirm_Password = this.onChangeconfirm_Password.bind(this);
 
 
-
+    
 
     this.state = {
-      username: "",
+      name: "",
       email: "",
+      mobile:"",
       password: "",
       confirm_password: "",
+      status:"inactive",
       successful: false,
       message: ""
     };
   }
   
 
-  onChangeUsername(e) {
+  onChangename(e) {
     this.setState({
-      username: e.target.value
+      name: e.target.value
     });
   }
 
   onChangeEmail(e) {
     this.setState({
       email: e.target.value
+    });
+  }
+
+  onChangeMobile(e) {
+    this.setState({
+      mobile: e.target.value
     });
   }
 
@@ -104,9 +122,11 @@ export default class Register extends Component {
       if (this.checkBtn.context._errors.length === 0) {
         if(this.state.password === this.state.confirm_password){
         AuthService.register(
-          this.state.username,
+          this.state.name,
           this.state.email,
-          this.state.password
+          this.state.mobile,
+          this.state.password,
+          this.state.status
         ).then(
           response => {
             this.setState({
@@ -160,11 +180,11 @@ export default class Register extends Component {
                   <Input
                     type="text"
                     className="form-control"
-                    name="username"
-                    value={this.state.username}
-                    onChange={this.onChangeUsername}
-                    validations={[required, vusername]}
-                    placeholder="Enter Your Username"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.onChangename}
+                    validations={[required, vname]}
+                    placeholder="Enter Your Name"
 
                   />
                 </div>
@@ -178,6 +198,19 @@ export default class Register extends Component {
                     onChange={this.onChangeEmail}
                     validations={[required, email]}
                     placeholder="Enter Your Email"
+
+                  />
+                </div>
+
+                <div className="form-group">
+                  <Input
+                    type="password"
+                    className="form-control"
+                    name="number"
+                    value={this.state.mobile}
+                    onChange={this.onChangeMobile}
+                    validations={[required, vnumber]}
+                    placeholder="Enter Your Mobile Number"
 
                   />
                 </div>

@@ -49,9 +49,14 @@ class ForgotPassword extends Component {
   };
   render() {
     return (
+      <div>
       <div
         className="container"
-        style={{ display: "flex", alignContent: "center" }}
+        style={{
+          display: "flex",
+          alignContent: "center",
+          justifyContent: "center",
+        }}
       >
         <form>
           <label>
@@ -64,11 +69,19 @@ class ForgotPassword extends Component {
               onChange={(e) => this.handleChange(e)}
             />
           </label>
-          <button type="submit" onClick={(e) => this.handleSubmit(e)}>
+          
+        </form>
+      </div>
+      <button type="submit" onClick={(e) => this.handleSubmit(e)}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        margin: "auto",
+        cursor: "pointer",
+      }}>
             {" "}
             Send OTP{" "}
           </button>
-        </form>
       </div>
     );
   }

@@ -5,7 +5,7 @@ import "./App.css";
 
 
 import AuthService from "./services/auth.service";
-
+import RoleAuth from "./services/RoleAuth";
 import Login from "./components/login.component";
 import Register from "./components/register.component";
 import Home from "./components/home.component";
@@ -15,16 +15,16 @@ import Home from "./components/home.component";
 
 import Application from "./components/pages/ApplicationForm/Application";
 
-
+//import SuperAuth from "./services/SuperAuth";
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
 import ForgotPassword from "./components/pages/ForgotPassword";
 import Verify from "./components/pages/Verify-Change/verify";
-// import Body from "./components/Body";
+
 import Seemore from "./components/pages/Seemore";
-//  import Logindone from "./components/pages/dashboard/logindone.component"; 
-// import Logindone from "./component/pages/dashboard/"
-// import Changepassword from "./components/pages/Verify-Change/Changepassword";
+//import Logindone from "./components/pages/dashboard/Studentdashboard/logindone.component"; 
+//import Logindone from "./component/pages/dashboard/"
+import Changepassword from "./components/pages/Verify-Change/Changepassword";
 import AdminLogin from "./components/pages/dashboard/adminpages/AdminLogin/AdminLogin";
 import Addnotification from "./components/pages/dashboard/adminpages/Notifications/AddNotification/AddNotification";
 import UpdateNotification from "./components/pages/dashboard/adminpages/Notifications/UpdateNotification/UpdateNotification";
@@ -34,8 +34,9 @@ import SearchbyStudentId from "./components/pages/dashboard/adminpages/Applicati
 import GetbyFilter from "./components/pages/dashboard/adminpages/ApplicationForms/GetByFilter/GetbyFilter";
 import SearchbyUserId from "./components/pages/dashboard/adminpages/ApplicationForms/SearchForm/SearchbyUserId";
 import withAuth from "./services/WithAuth";
-import Navigatebar from "./components/pages/Navbar+Sidebar/Navbar";
+import Navigatebar from "./components/pages/Navbar+Sidebar/Navbar2";
 import NewNav from "./newSidebar/NewNav";
+//import VerifyForm from "./components/pages/dashboard/adminpages/ApplicationForms/VerifyForm/Verifyform";
 // const app = require("express");
 // const cors = require("cors")
 // app.use(cors());
@@ -100,17 +101,18 @@ class App extends Component {
             <Route exact path="/application" component={Application} />
             <Route exact path="/ForgotPassword" component={ForgotPassword} />
             <Route exact path="/verify" component={Verify} />
-            {/* <Route exact path="/changepassword" component={Changepassword} /> */}
-            <Route exact path="/adminlogin" component={withAuth(AdminLogin)}/>
-            <Route exact path="/addnotice" component={withAuth(Addnotification)}/>
-            <Route exact path="/updatenotice" component={withAuth(UpdateNotification)}/>
-            <Route exact path="/deletenotice" component={withAuth(DeleteNotification)}/>
-            <Route exact path="/deleteform" component={withAuth(DeleteFormbyId)}/>
-            <Route exact path="/searchformbyid" component={withAuth(SearchbyStudentId)} />
+             <Route exact path="/changepassword" component={Changepassword} /> 
+            <Route exact path="/adminlogin" component={withAuth(RoleAuth(AdminLogin))}/>
+            <Route exact path="/addnotice" component={withAuth(RoleAuth(Addnotification))}/>
+            <Route exact path="/updatenotice" component={withAuth(RoleAuth(UpdateNotification))}/>
+            <Route exact path="/deletenotice" component={withAuth(RoleAuth(DeleteNotification))}/>
+            <Route exact path="/deleteform" component={withAuth(RoleAuth(DeleteFormbyId))}/>
+            <Route exact path="/searchformbyid" component={withAuth(RoleAuth(SearchbyStudentId))} />
             <Route exact path="/searchformbyuid" component={withAuth(SearchbyUserId)} />
             <Route exact path="/searchbyfilter" component={withAuth(GetbyFilter)} />
             <Route exact path="/nav" component={Navigatebar} />
-            <Route exact path="/newnav" component={NewNav} />
+            <Route  path="/newnav" component={NewNav} />
+            {/*<Route  path="/VerifyForm" component={VerifyForm} />*/}
 
           </Switch>
         </div>

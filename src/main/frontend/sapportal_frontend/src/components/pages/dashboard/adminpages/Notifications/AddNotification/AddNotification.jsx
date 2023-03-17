@@ -153,7 +153,7 @@ const Addnotification = () => {
             <input
               type="string"
               value={cdtm}
-              name="createdDateTime"
+              name="DDMMYYYY-HHMM"
               onChange={(e) => handledatetime(e)}
             />
           </label>
@@ -164,7 +164,7 @@ const Addnotification = () => {
             <input
               type="string"
               value={file}
-              name="File"
+              name="File link (if any)"
               onChange={(e) => handlefile(e)}
             />
           </label>
