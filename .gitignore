@@ -1,1 +1,5 @@
 /target/
+target/
+.gitignore
+src/main/frontend/sapportal_frontend/.gitignore
+target/

@@ -21,11 +21,15 @@ import com.SapPortal.models.ApplicationForm;
 import com.SapPortal.models.ApplicationQueryByAdmin;
 import com.SapPortal.models.PlacementDetails;
 import com.SapPortal.models.Status;
+import com.SapPortal.repository.ApplicationFormRepository;
 import com.SapPortal.repository.ApplicationQueryByAdminRepository;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/applicationFrom")
 public class ApplicationQueryByAdminController {
+	
+	@Autowired
+	ApplicationFormRepository applicationFormRepository;
 	
 	@Autowired
 	ApplicationQueryByAdminRepository applicationQueryByAdminRepository;
@@ -48,7 +52,10 @@ public class ApplicationQueryByAdminController {
 			}
 		}
 		ApplicationQueryByAdmin applicationQueryByAdminobj=new ApplicationQueryByAdmin();
+		ApplicationForm applicationForm=applicationFormRepository.findById(applicationId).get();
 		try {
+			applicationForm.setIsQueryInApplication(true);
+			applicationFormRepository.save(applicationForm);
 			applicationQueryByAdminobj.setApplicationId(applicationId);
 			applicationQueryByAdminobj.setContactDetails(applicationQueryByAdmin.getContactDetails());
 			applicationQueryByAdminobj.setQueryDesc(applicationQueryByAdmin.getQueryDesc());

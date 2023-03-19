@@ -86,9 +86,15 @@ public class ApplicationFromController {
 //		return applicationForm;
 //	}
 	
-	@PutMapping("/applicationFormStatusUpdate/{ApplicationId}/{Status}")
-	private ResponseEntity<?> updateApplicationStatus(@PathVariable("ApplicationId") int ApplicationId,@PathVariable("Status") String Status) {
+	@PutMapping("/applicationFormStatusUpdate/{ApplicationId}/{Status}/{isQuery}")
+	private ResponseEntity<?> updateApplicationStatus(@PathVariable("ApplicationId") int ApplicationId,@PathVariable("Status") String Status,@PathVariable("isQuery") Boolean isQuery ) {
 		ApplicationForm applicationForm =applicationFormRepository.findById(ApplicationId).get();
+		if(isQuery==true) {
+			applicationForm.setIsQueryInApplication(true);
+		}else {
+			applicationForm.setIsQueryInApplication(false);
+
+		}
 		applicationForm.setApplicationFromStatus(Status);
 		applicationFromService.saveOrUpdate(applicationForm);
 		return ResponseEntity.ok(new MessageResponse(HttpStatus.OK.value(),"Status Update SuccessFully!"));
