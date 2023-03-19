@@ -93,7 +93,6 @@ public class ApplicationFromController {
 			applicationForm.setIsQueryInApplication(true);
 		}else {
 			applicationForm.setIsQueryInApplication(false);
-
 		}
 		applicationForm.setApplicationFromStatus(Status);
 		applicationFromService.saveOrUpdate(applicationForm);
