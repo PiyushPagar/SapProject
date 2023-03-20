@@ -53,14 +53,22 @@ public class ApplicationFromController {
 		return applicationFromService.getAllApplicationForm();
 	}
 
-	@RequestMapping(value = "/getapplicationformStatus/{UserId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/getapplicationformStatus", method = RequestMethod.GET)
 	@ResponseBody
-	public ApplicationformStatusDto getapplicationformStatus(@RequestParam(name = "UserId") Integer UserId) {
+	public ApplicationformStatusDto getapplicationformStatus(@RequestParam(name = "UserId") int UserId) {
 		ApplicationformStatusDto applicationformStatusDto= new ApplicationformStatusDto();
-		ApplicationForm applicationForm = applicationFormRepository.findApplicationFormByUserId(UserId);
+		List<ApplicationForm> applicationFormList = applicationFormRepository.findApplicationFormByUserId(UserId);
+		if(applicationFormList==null || applicationFormList.isEmpty()){
+		applicationformStatusDto.setApplicationformId(0);
+		applicationformStatusDto.setApplicationformStatus("notfilled");
+		applicationformStatusDto.setUserId(UserId);
+		}
+		else if(!applicationFormList.isEmpty()){
+		ApplicationForm applicationForm=applicationFormList.get(0);
 		applicationformStatusDto.setApplicationformId(applicationForm.getId());
 		applicationformStatusDto.setApplicationformStatus(applicationForm.getApplicationFromStatus());
 		applicationformStatusDto.setUserId(applicationForm.getUserId());
+		}
 		return applicationformStatusDto;
 	}
 
