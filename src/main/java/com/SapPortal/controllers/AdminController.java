@@ -125,8 +125,11 @@ public class AdminController {
 	    	 users.setEmail(signUpRequest.getEmail());
 	    	 users.setMobileNumber(signUpRequest.getMobileNumber());
 	    	 users.setName(signUpRequest.getName());
+	    	 userRepository.save(users);
 	    	 adminDetails.setDepartment(signUpRequest.getDepartment());
 	    	 adminDetails.setPosition(signUpRequest.getPosition());
+	 		 adminDetailsRepository.save(adminDetails);
+
 	     }
 		 return ResponseEntity.ok(new MessageResponse(HttpStatus.OK.value(),"User registered successfully!"));
 	}
