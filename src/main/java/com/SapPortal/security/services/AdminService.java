@@ -35,7 +35,7 @@ public class AdminService {
 	}
 
 
-	public MessageResponse deleteAdminUser(Integer userId) {
+	public MessageResponse deleteAdminUser(Long userId) {
 		MessageResponse messageResponse = null;
 		User user = userRepository.findById(userId).get();
 		if(user==null) {

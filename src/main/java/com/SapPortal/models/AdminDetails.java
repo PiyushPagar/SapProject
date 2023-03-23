@@ -12,6 +12,14 @@ import javax.persistence.Table;
 @Table(name = "adminDetails")
 public class AdminDetails {
 	
+	public AdminDetails(Long id, String department, String position, Long userId) {
+		super();
+		this.id = id;
+		this.department = department;
+		this.position = position;
+		this.userId = userId;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -54,6 +62,11 @@ public class AdminDetails {
 
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+
+	public AdminDetails() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getPosition() {

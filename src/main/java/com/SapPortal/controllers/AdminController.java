@@ -111,14 +111,14 @@ public class AdminController {
 		return adminService.getAllAdminUser(status);
 	}
 	
-	@GetMapping("/deleteAdminUsers/{status}")
-	private MessageResponse getAllAdminUsers(@RequestParam(name = "UserId") Integer UserId) {
+	@GetMapping("/deleteAdminUsers")
+	private MessageResponse getAllAdminUsers(@RequestParam(name = "UserId") Long UserId) {
 		
 		return adminService.deleteAdminUser(UserId);
 	}
 
-	@PostMapping("/updateAdminUser/{userid}")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequestAdmin signUpRequest,@RequestParam(name = "UserId") Integer UserId) {
+	@PostMapping("/updateAdminUser")
+	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequestAdmin signUpRequest,@RequestParam(name = "UserId") Long UserId) {
 		 User users=userRepository.findById(UserId).get();
 		 AdminDetails adminDetails =adminDetailsRepository.findByUserId(UserId).get();
 	     if(users!=null && adminDetails!=null){

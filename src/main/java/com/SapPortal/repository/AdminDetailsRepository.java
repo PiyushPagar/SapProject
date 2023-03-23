@@ -11,6 +11,6 @@ import com.SapPortal.models.User;
 @Repository
 public interface AdminDetailsRepository extends JpaRepository<AdminDetails, Long> {
 
-	Optional<AdminDetails> findByUserId(Integer userId);
+	Optional<AdminDetails> findByUserId(Long userId);
 
 }
