@@ -47,6 +47,6 @@ public class ContactUsController {
 	
 	@GetMapping("/getcontactus")
 	private List<ContactUs> getAllcontactus() {
-		return contactUsRepository.findAll();
+		return contactUsRepository.findAllByOrderByIdAsc();
 	}
 }

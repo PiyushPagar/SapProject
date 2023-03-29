@@ -7,6 +7,7 @@ public class ConstantUtil {
 	public static String OtpSenderpasssword="wsikjhmsjonptlcp";
 	public static String Inactive="inactive";
 	public static String Active="active";
-	
+	public static String Paid="paid";
+	public static String Unpaid="unpaid";
 
 }

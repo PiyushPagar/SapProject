@@ -7,10 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="placement_datails")
@@ -20,7 +17,8 @@ public class PlacementDetails {
 		@Id 
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Long id;
-		private String placementpackage;
+		@Column(name="packages")
+		private Integer packages;
 		private String imageUrl;
 		private String name;
 		private String companyname;
@@ -32,11 +30,15 @@ public class PlacementDetails {
 		public void setId(Long id) {
 			this.id = id;
 		}
-		public String getPlacementpackage() {
-			return placementpackage;
+		
+	
+
+		
+		public Integer getPackages() {
+			return packages;
 		}
-		public void setPlacementpackage(String placementpackage) {
-			this.placementpackage = placementpackage;
+		public void setPackages(Integer packages) {
+			this.packages = packages;
 		}
 		public String getImageUrl() {
 			return imageUrl;
@@ -70,7 +72,7 @@ public class PlacementDetails {
 		}
 		@Override
 		public String toString() {
-			return "PlacementDetails [id=" + id + ", placementpackage=" + placementpackage + ", imageUrl=" + imageUrl
+			return "PlacementDetails [id=" + id + ", placementpackage=" + packages + ", imageUrl=" + imageUrl
 					+ ", name=" + name + ", companyname=" + companyname + ", module=" + module + ", placementYear="
 					+ placementYear + "]";
 		}

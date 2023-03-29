@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,35 +29,61 @@ public class PlacementDetailsController {
 	@Autowired
 	FileService fileService;
 
-	@SuppressWarnings("rawtypes")
 	@GetMapping("/getAllPlacement")
-	public List getAllPlacement() {
-		List<PlacementDetails> getAllPlacement = placementDetailsRepository.findAll();
+	public List<PlacementDetails> getAllPlacement() {
+		List<PlacementDetails> getAllPlacement = placementDetailsRepository.findAllByOrderByPackagesDesc();
 		return getAllPlacement;
 	}
 
 	@RequestMapping(value = "/addNewPlacement", method = RequestMethod.POST)
 	@ResponseBody
 	public Response updateAlertReadStatus(@RequestBody PlacementDetails placementDetails, HttpServletRequest request) {
-		Response response=new Response();
-		PlacementDetails placementDetailsinfo=new PlacementDetails();
+		Response response = new Response();
+		PlacementDetails placementDetailsinfo = new PlacementDetails();
 		try {
-		placementDetailsinfo.setName(placementDetails.getName());
-		placementDetailsinfo.setCompanyname(placementDetails.getCompanyname());
-		placementDetailsinfo.setImageUrl(placementDetails.getImageUrl());
-		placementDetailsinfo.setModule(placementDetails.getModule());
-		placementDetailsinfo.setPlacementYear(placementDetails.getPlacementYear());
-		placementDetailsinfo.setPlacementpackage(placementDetails.getPlacementpackage());
-		placementDetailsRepository.save(placementDetailsinfo);
-		response.setMessage("Placement added sucessful");
-    	response.setStatus(Status.SUCCESS);
-		}catch(Exception e) {
-			response.setMessage("Placement not added"+e.getMessage());
-	    	response.setStatus(Status.FAILED);
-			
+			placementDetailsinfo.setName(placementDetails.getName());
+			placementDetailsinfo.setCompanyname(placementDetails.getCompanyname());
+			placementDetailsinfo.setImageUrl(placementDetails.getImageUrl());
+			placementDetailsinfo.setModule(placementDetails.getModule());
+			placementDetailsinfo.setPlacementYear(placementDetails.getPlacementYear());
+			placementDetailsinfo.setPackages(placementDetails.getPackages());
+			placementDetailsRepository.save(placementDetailsinfo);
+			response.setMessage("Placement added sucessful");
+			response.setStatus(Status.SUCCESS);
+		} catch (Exception e) {
+			response.setMessage("Placement not added" + e.getMessage());
+			response.setStatus(Status.FAILED);
+
 		}
-		
 		return response;
 	}
+	
+	
+	@RequestMapping(value = "/updatePlacement", method = RequestMethod.POST)
+	@ResponseBody
+	public Response updatePlacement(@RequestBody PlacementDetails placementDetails,@RequestParam(name = "Id") Long id, HttpServletRequest request) {
+		Response response = new Response();
+		PlacementDetails placementDetailsinfo = placementDetailsRepository.findById(id).get();
+		try {
+			placementDetailsinfo.setName(placementDetails.getName());
+			placementDetailsinfo.setCompanyname(placementDetails.getCompanyname());
+			placementDetailsinfo.setImageUrl(placementDetails.getImageUrl());
+			placementDetailsinfo.setModule(placementDetails.getModule());
+			placementDetailsinfo.setPlacementYear(placementDetails.getPlacementYear());
+			placementDetailsinfo.setPackages(placementDetails.getPackages());
+			placementDetailsRepository.save(placementDetailsinfo);
+			response.setMessage("Placement added sucessful");
+			response.setStatus(Status.SUCCESS);
+		} catch (Exception e) {
+			response.setMessage("Placement not added" + e.getMessage());
+			response.setStatus(Status.FAILED);
+
+		}
+		return response;
+	}
+	
+	
+	
+	
 
 }

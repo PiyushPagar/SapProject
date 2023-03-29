@@ -30,7 +30,7 @@ public  class CustomRepositoryImpl implements CustomRepository{
                 predicatesList.add(
                         criteriaBuilder.and(
                                 criteriaBuilder.equal(
-                                        root.get("id"), StudentId )));
+                                        root.get("Id"), StudentId )));
             }
             if (email != null && !email.equals("")) {
                 predicatesList.add(
@@ -41,13 +41,13 @@ public  class CustomRepositoryImpl implements CustomRepository{
             if (name != null && !name.equals("") ) {
                 predicatesList.add(
                         criteriaBuilder.and(
-                                criteriaBuilder.equal(
+                                criteriaBuilder.like(
                                         root.get("name"), "%"+name+"%")));
             }
             if (collegeEmail != null && !collegeEmail.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
-                                criteriaBuilder.equal(
+                                criteriaBuilder.like(
                                         root.get("collegeEmail"),  "%"+collegeEmail+"%")));
             }
             if (sapModule != null  && !sapModule.equals("")) {
@@ -59,7 +59,7 @@ public  class CustomRepositoryImpl implements CustomRepository{
             if (contactNumber != null  && !contactNumber.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
-                                criteriaBuilder.equal(
+                                criteriaBuilder.like(
                                         root.get("contactNumber"), "%"+contactNumber+"%")));
             }
             if (passoutYear != null && !passoutYear.equals("")) {
@@ -77,13 +77,13 @@ public  class CustomRepositoryImpl implements CustomRepository{
             if (specialization != null && !specialization.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
-                                criteriaBuilder.equal(
+                                criteriaBuilder.like(
                                         root.get("specialization"),  "%"+specialization+"%")));
             }
             if (adhaarCard != null && !adhaarCard.equals("")) {
                 predicatesList.add(
                         criteriaBuilder.and(
-                                criteriaBuilder.equal(
+                                criteriaBuilder.like(
                                         root.get("adhaarCard"),  "%"+adhaarCard+"%")));
             }
             if (applicationFromStatus != null && !applicationFromStatus.equals("")) {
