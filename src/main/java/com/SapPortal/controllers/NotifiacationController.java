@@ -61,8 +61,8 @@ public class NotifiacationController {
 		return new ResponseEntity<Notifications>(notificationsRepository.save(notification), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "deleteNotificationData/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> deleteProductById(@PathVariable("NotificationDataId") Long id) {
+	@RequestMapping(value = "/deleteNotificationData/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> deleteProductById(@PathVariable("id") Long id) {
 		Notifications notificationData = notificationsRepository.findById(id);
 		if (notificationData != null) {
 			notificationData.setStatus("inactive");

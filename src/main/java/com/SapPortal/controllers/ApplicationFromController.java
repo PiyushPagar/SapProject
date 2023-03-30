@@ -87,6 +87,28 @@ public class ApplicationFromController {
 		applicationFromService.saveOrUpdate(applicationForm);
 		return applicationForm.getId();
 	}
+	
+	
+	@PostMapping("/updateapplicationForm/{userId}")
+	private int updateApplicationFrom(@RequestBody ApplicationForm applicationForm,@PathVariable("userId") int userId) {
+		ApplicationForm applicationFormNew=applicationFormRepository.findByUserid(userId);
+		applicationFormNew.setAdhaarCard(applicationForm.getAdhaarCard());
+		applicationFormNew.setApplicationFromStatus(applicationForm.getApplicationFromStatus());
+		applicationFormNew.setBranch(applicationForm.getBranch());
+		applicationFormNew.setCollegeEmail(applicationForm.getCollegeEmail());
+		applicationFormNew.setContactNumber(applicationForm.getContactNumber());
+		applicationFormNew.setEmail(applicationForm.getEmail());
+		applicationFormNew.setIsQueryInApplication(applicationForm.getIsQueryInApplication());
+		applicationFormNew.setName(applicationForm.getName());
+		applicationFormNew.setPassoutYear(applicationForm.getPassoutYear());
+		applicationFormNew.setSapModule(applicationForm.getSapModule());
+		applicationFormNew.setSpecialization(applicationForm.getSpecialization());
+		applicationFormNew.setStudentType(applicationForm.getStudentType());
+		applicationFormNew.setUploadImage(applicationForm.getUploadImage());
+		applicationFormRepository.save(applicationFormNew);
+		return applicationForm.getId();
+	}
+
 
 //	@PutMapping("/applicationFormupdateStatus")
 //	private ApplicationForm updateApplicationStatus(@RequestBody ApplicationForm applicationForm) {

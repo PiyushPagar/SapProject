@@ -25,4 +25,7 @@ public interface ApplicationFormRepository extends CrudRepository<ApplicationFor
 	List<ApplicationForm> findApplicationFormByUserId(int id);
 
 
+	ApplicationForm findByUserid(int userId);
+
+
 }

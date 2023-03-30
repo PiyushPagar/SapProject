@@ -10,6 +10,6 @@ import com.SapPortal.models.Notifications;
 @Repository
 public interface NotificationsRepository extends CrudRepository<Notifications, Integer> {
 
-	Notifications findById(Long notificationDataId);
+	Notifications findById(Long id);
 
 }
