@@ -4,13 +4,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class Forgotpassword {
-	
-	  @NotBlank
-	    @Size(min = 6, max = 40)
-	    private String password;
-	  
-	  @Size(max = 50)
-	    private String email;
+
+	@NotBlank
+	@Size(min = 6, max = 40)
+	private String password;
+
+	@Size(max = 50)
+	private String email;
 
 	public String getEmail() {
 		return email;

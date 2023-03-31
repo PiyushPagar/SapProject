@@ -22,10 +22,9 @@ public interface ApplicationFormRepository extends CrudRepository<ApplicationFor
 	<T> Page<ApplicationForm> findAll(Specification<T> example, Pageable page);
 	
 	
-	List<ApplicationForm> findApplicationFormByUserId(int id);
+	ApplicationForm findApplicationFormByUserId(int id);
 
 
-	ApplicationForm findByUserid(int userId);
 
 
 }

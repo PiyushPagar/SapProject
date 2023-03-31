@@ -57,17 +57,17 @@ public class ApplicationFromController {
 	@ResponseBody
 	public ApplicationformStatusDto getapplicationformStatus(@RequestParam(name = "UserId") int UserId) {
 		ApplicationformStatusDto applicationformStatusDto= new ApplicationformStatusDto();
-		List<ApplicationForm> applicationFormList = applicationFormRepository.findApplicationFormByUserId(UserId);
-		if(applicationFormList==null || applicationFormList.isEmpty()){
+		ApplicationForm applicationFormList = applicationFormRepository.findApplicationFormByUserId(UserId);
+		if(applicationFormList==null){
 		applicationformStatusDto.setApplicationformId(0);
 		applicationformStatusDto.setApplicationformStatus("notfilled");
 		applicationformStatusDto.setUserId(UserId);
 		}
-		else if(!applicationFormList.isEmpty()){
-		ApplicationForm applicationForm=applicationFormList.get(0);
-		applicationformStatusDto.setApplicationformId(applicationForm.getId());
-		applicationformStatusDto.setApplicationformStatus(applicationForm.getApplicationFromStatus());
-		applicationformStatusDto.setUserId(applicationForm.getUserId());
+		else if(applicationFormList!=null){
+//		ApplicationForm applicationForm=applicationFormList.get(0);
+		applicationformStatusDto.setApplicationformId(applicationFormList.getId());
+		applicationformStatusDto.setApplicationformStatus(applicationFormList.getApplicationFromStatus());
+		applicationformStatusDto.setUserId(applicationFormList.getUserId());
 		}
 		return applicationformStatusDto;
 	}
@@ -91,7 +91,8 @@ public class ApplicationFromController {
 	
 	@PostMapping("/updateapplicationForm/{userId}")
 	private int updateApplicationFrom(@RequestBody ApplicationForm applicationForm,@PathVariable("userId") int userId) {
-		ApplicationForm applicationFormNew=applicationFormRepository.findByUserid(userId);
+		ApplicationForm applicationFormNew=applicationFormRepository.findApplicationFormByUserId(userId);
+//		ApplicationForm applicationFormNew=applicationFormNewList.get(0);
 		applicationFormNew.setAdhaarCard(applicationForm.getAdhaarCard());
 		applicationFormNew.setApplicationFromStatus(applicationForm.getApplicationFromStatus());
 		applicationFormNew.setBranch(applicationForm.getBranch());
