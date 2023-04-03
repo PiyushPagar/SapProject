@@ -3,8 +3,6 @@ package com.SapPortal.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.SapPortal.models.PaymentInstallment;
 import com.SapPortal.payload.response.MessageResponse;
 import com.SapPortal.repository.PaymentInstallmentRepository;
-import com.SapPortal.util.ConstantUtil;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -40,16 +37,20 @@ public class PaymentInstallmentController {
 	}
 
 	@GetMapping("/getPayentInstallment")
-	public List<PaymentInstallment>  getPaymentInstallment(@RequestParam(name = "UserId") Long UserId) {
-		List<PaymentInstallment> paymentInstallmentList=paymentInstallmentRepository.findAllByuserId(UserId);
+	public List<PaymentInstallment>  getPaymentInstallment(@RequestParam(name = "UserId") Integer UserId) {
+		@SuppressWarnings("deprecation")
+		Long userids= new Long(UserId);
+		List<PaymentInstallment> paymentInstallmentList=paymentInstallmentRepository.findAllByuserId(userids);
 		return paymentInstallmentList;
 	}
 	
 	
 	@GetMapping("/getunpaidPayentInstallment")
-	public List<PaymentInstallment>  getunpaidPaymentInstallment(@RequestParam(name = "UserId") Long UserId,
+	public List<PaymentInstallment>  getunpaidPaymentInstallment(@RequestParam(name = "UserId") Integer UserId,
 			@RequestParam(name = "Status") String status) {
-		List<PaymentInstallment> paymentInstallmentList=paymentInstallmentRepository.findAllByuserId(UserId);
+		@SuppressWarnings("deprecation")
+		Long userids= new Long(UserId);
+		List<PaymentInstallment> paymentInstallmentList=paymentInstallmentRepository.findAllByuserId(userids);
 		List<PaymentInstallment> paymentInstallmentListResponse = new ArrayList<PaymentInstallment>();
 		for (PaymentInstallment paymentInstallment : paymentInstallmentList) {
 			if(paymentInstallment.getInstallmentStatus().equalsIgnoreCase(status)) {
