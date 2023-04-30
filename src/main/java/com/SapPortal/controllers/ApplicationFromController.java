@@ -1,9 +1,8 @@
 package com.SapPortal.controllers;
 
-import java.util.Collections;
+
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -42,9 +41,8 @@ public class ApplicationFromController {
 
 	@RequestMapping(value = "/getDetailsByUserid/{UserId}", method = RequestMethod.GET)
 	@ResponseBody
-	public List<ApplicationForm> getOtasbyClient(@RequestParam(name = "UserId") Integer UserId) {
-		List<ApplicationForm> otas = Collections.emptyList();
-		otas = applicationFormRepository.findByUseridLike(UserId);
+	public ApplicationForm getOtasbyClient(@RequestParam(name = "UserId") Integer UserId) {
+		ApplicationForm otas =applicationFormRepository.findByUseridLike(UserId);
 		return otas;
 	}
 
@@ -72,14 +70,14 @@ public class ApplicationFromController {
 		return applicationformStatusDto;
 	}
 
-	@GetMapping("/getapplicationformbyid/{StudentId}")
-	private ApplicationForm getApplicationForm(@PathVariable("StudentId") int StudentId) {
-		return applicationFromService.getApplicationFormById(StudentId);
+	@GetMapping("/getapplicationformbyid/{ApplicationId}")
+	private ApplicationForm getApplicationForm(@PathVariable("ApplicationId") int ApplicationId) {
+		return applicationFromService.getApplicationFormById(ApplicationId);
 	}
 
-	@DeleteMapping("/deleteapplicationform/{StudentId}")
-	private void deleteBook(@PathVariable("StudentId") int StudentId) {
-		applicationFromService.delete(StudentId);
+	@DeleteMapping("/deleteapplicationform/{ApplicationId}")
+	private void deleteBook(@PathVariable("ApplicationId") int ApplicationId) {
+		applicationFromService.delete(ApplicationId);
 	}
 
 	@PostMapping("/applicationForm")

@@ -26,7 +26,7 @@ public class ApplicationForm {
 	private String adhaarCard;
 	private String uploadImage;
 	private String applicationFromStatus;
-	private int userId;
+	private Long userId;
 	private Boolean isQueryInApplication;
 	public Boolean getIsQueryInApplication() {
 		return isQueryInApplication;
@@ -36,14 +36,14 @@ public class ApplicationForm {
 		this.isQueryInApplication = isQueryInApplication;
 	}
 
-	public int getUserId() {
+
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-
 
 	public String getApplicationFromStatus() {
 		return applicationFromStatus;

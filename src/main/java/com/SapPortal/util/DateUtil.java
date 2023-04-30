@@ -1,7 +1,6 @@
 package com.SapPortal.util;
 
 import java.sql.Time;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -218,6 +217,7 @@ public class DateUtil {
 		return null;
 	}
 
+	@SuppressWarnings("deprecation")
 	public static Date setTimeToZero(Date date) {
 		date.setHours(0);
 		date.setMinutes(0);
@@ -225,6 +225,7 @@ public class DateUtil {
 		return date;
 	}
 
+	@SuppressWarnings("deprecation")
 	public static Date setTime(Date date, Integer hour, Integer min, Integer sec) {
 		date.setHours(hour);
 		date.setMinutes(min);

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.SapPortal.models.FeesStructure;
-import com.SapPortal.models.ModulesName;
 import com.SapPortal.payload.response.MessageResponse;
 import com.SapPortal.repository.FeesStructureRepository;
 

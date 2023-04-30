@@ -1,8 +1,6 @@
 package com.SapPortal.controllers;
 
-import java.util.*;
-
-
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.SapPortal.dto.Response;
 import com.SapPortal.models.ApplicationForm;
 import com.SapPortal.models.ApplicationQueryByAdmin;
-import com.SapPortal.models.PlacementDetails;
 import com.SapPortal.models.Status;
 import com.SapPortal.repository.ApplicationFormRepository;
 import com.SapPortal.repository.ApplicationQueryByAdminRepository;
+import com.SapPortal.security.services.EmailSenderService;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/applicationFrom")
@@ -33,6 +31,9 @@ public class ApplicationQueryByAdminController {
 	
 	@Autowired
 	ApplicationQueryByAdminRepository applicationQueryByAdminRepository;
+	
+	@Autowired
+	EmailSenderService emailSenderService;
 	
 	@GetMapping("/getapplicationformbyapplicationId/{ApplicationId}")
 	private ApplicationQueryByAdmin getApplicationForm(@PathVariable("ApplicationId") int applicationId) {
@@ -66,7 +67,8 @@ public class ApplicationQueryByAdminController {
 			applicationQueryByAdminobj.setUserId(applicationQueryByAdmin.getUserId());
 			applicationQueryByAdminobj.setIsActive("active");
 		applicationQueryByAdminRepository.save(applicationQueryByAdminobj);
-		response.setMessage("Placement added sucessful");
+		String responsefromemailService= emailSenderService.sendEmailForQuery(applicationForm.getEmail(),applicationQueryByAdmin);
+		response.setMessage("Placement added sucessful"+responsefromemailService);
     	response.setStatus(Status.SUCCESS);
 		}catch(Exception e) {
 			response.setMessage("Placement not added"+e.getMessage());

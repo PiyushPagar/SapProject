@@ -9,5 +9,12 @@ public class ConstantUtil {
 	public static String Active="active";
 	public static String Paid="paid";
 	public static String Unpaid="unpaid";
+	public static String NotVerified="notVerified";
+	public static String Verified="Verified";
+	public static String Initial="initial";
+	public static String QuerySubject="You Have Query In Your Application From Of SAP Please Check On Portal";
+	public static String NotificationSubject="You Have Notification from Sap Portal ";
+	public static String DateFormat="dd-MM-yyyy hh:mm:ss";
+	
 
 }

@@ -1,6 +1,7 @@
 package com.SapPortal.repository;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -26,5 +27,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
   @Modifying
   @Query(nativeQuery = true)
   List<AdminUserDto> findAllAdminUser(@Param("status") String status);
-  Optional<User> findById(Integer userId);
+  Optional<User> findById(Long id);
 }

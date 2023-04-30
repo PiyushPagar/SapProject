@@ -15,8 +15,7 @@ import com.SapPortal.models.ModulesName;
 import com.SapPortal.payload.response.MessageResponse;
 import com.SapPortal.repository.ModulesNameRepository;
 
-@CrossOrigin("/*")
-@RestController
+@CrossOrigin(origins = "*", maxAge = 3600)@RestController
 public class ModulesNameController {
 	
 	@Autowired
