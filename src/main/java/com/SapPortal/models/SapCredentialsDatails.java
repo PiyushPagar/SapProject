@@ -19,10 +19,10 @@ public class SapCredentialsDatails {
 	private Long userId;
 	
 	@Column(name = "username")
-	private Long sapUsername;
+	private String sapUsername;
 	
 	@Column(name = "password")
-	private Long sapPassword;
+	private String sapPassword;
 
 	public Long getId() {
 		return id;
@@ -40,21 +40,22 @@ public class SapCredentialsDatails {
 		this.userId = userId;
 	}
 
-	public Long getSapUsername() {
+	public String getSapUsername() {
 		return sapUsername;
 	}
 
-	public void setSapUsername(Long sapUsername) {
+	public void setSapUsername(String sapUsername) {
 		this.sapUsername = sapUsername;
 	}
 
-	public Long getSapPassword() {
+	public String getSapPassword() {
 		return sapPassword;
 	}
 
-	public void setSapPassword(Long sapPassword) {
+	public void setSapPassword(String sapPassword) {
 		this.sapPassword = sapPassword;
 	}
+
 	
 	
 
