@@ -24,7 +24,7 @@ public interface ApplicationFormRepository extends CrudRepository<ApplicationFor
 	<T> Page<ApplicationForm> findAll(Specification<T> example, Pageable page);
 	
 	
-	ApplicationForm findApplicationFormByUserId(int id);
+	ApplicationForm findApplicationFormByUserId(Long id);
 
 	
 	@Query(value = "SELECT * FROM sap_portal.application_form where application_from_status in ( :status)", nativeQuery = true)
