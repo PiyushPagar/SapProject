@@ -21,8 +21,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @Configuration
 @EnableSwagger2
-public class SapPortalApplication extends SpringBootServletInitializer{
-
+public class SapPortalApplication{
+//public class SapPortalApplication extends SpringBootServletInitializer{
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SapPortalApplication.class, args);

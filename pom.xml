@@ -14,7 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SapPortal</name>
 	<description>this is a sap portal for sanjivani college of engineering</description>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<properties>
 		<java.version>10</java.version>
 	</properties>
