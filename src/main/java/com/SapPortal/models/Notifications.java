@@ -26,8 +26,7 @@ public class Notifications {
 	private String status;
 	@Column(name = "createdDateTime")
 	private String createdDateTime;
-	@Column(name = "notificationmodule")
-	private String notificationmodule;
+	
 	@Column(name = "file")
 	private String file;
 	@Column(name = "user_id")
@@ -74,12 +73,7 @@ public class Notifications {
 	public void setCreatedDateTime(String createdDateTime) {
 		this.createdDateTime = createdDateTime;
 	}
-	public String getNotificationmodule() {
-		return notificationmodule;
-	}
-	public void setNotificationmodule(String notificationmodule) {
-		this.notificationmodule = notificationmodule;
-	}
+
 	public String getFile() {
 		return file;
 	}

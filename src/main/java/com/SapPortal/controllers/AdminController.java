@@ -34,13 +34,11 @@ import com.SapPortal.security.jwt.JwtUtils;
 import com.SapPortal.security.services.AdminService;
 import com.SapPortal.security.services.EmailSenderService;
 
-
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/admin/auth")
 public class AdminController {
-	
-	
+
 	@Autowired
 	AuthenticationManager authenticationManager;
 	@Autowired
@@ -58,16 +56,17 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 
-	
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequestAdmin signUpRequest) {
 		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-			return ResponseEntity.badRequest().body(new MessageResponse(HttpStatus.BAD_REQUEST.value(),"Error: Email is already in use!"));
+			return ResponseEntity.badRequest()
+					.body(new MessageResponse(HttpStatus.BAD_REQUEST.value(), "Error: Email is already in use!"));
 		}
 		// Create new user's account
 		User user = new User(signUpRequest.getName(), signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()),signUpRequest.getMobileNumber(),signUpRequest.getStatus());
-		
+				encoder.encode(signUpRequest.getPassword()), signUpRequest.getMobileNumber(),
+				signUpRequest.getStatus());
+
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
 		if (strRoles == null) {
@@ -95,47 +94,52 @@ public class AdminController {
 			});
 		}
 		user.setRoles(roles);
-		Long userId=userRepository.save(user).getId();
-		AdminDetails adminDetails =new AdminDetails(signUpRequest.getDepartment(),signUpRequest.getPosition(),userId);
+		Long userId = userRepository.save(user).getId();
+		AdminDetails adminDetails = new AdminDetails(signUpRequest.getDepartment(), signUpRequest.getPosition(),
+				userId);
 		adminDetailsRepository.save(adminDetails);
-		
-		return ResponseEntity.ok(new MessageResponse(HttpStatus.OK.value(),"User registered successfully!"));
+
+		return ResponseEntity.ok(new MessageResponse(HttpStatus.OK.value(), "User registered successfully!"));
 	}
-	
-	
-	
-	
-	@GetMapping("/getAdminUsers/{status}")
+
+	@GetMapping("/getAllAdminUsers/{status}")
 	private List<AdminUserDto> getAllAdminUsers(@RequestParam(name = "status") String status) {
-		
+
 		return adminService.getAllAdminUser(status);
 	}
-	
+
+	@GetMapping("/getAdminUsers/{status}")
+	private AdminDetails getAdminUsers(@RequestParam(name = "id") Integer userId) {
+		Long useriddd = new Long(userId);
+		AdminDetails adminDetails = adminDetailsRepository.findByUserId(useriddd).get();
+		return adminDetails;
+	}
+
 	@GetMapping("/deleteAdminUsers")
-	private MessageResponse getAllAdminUsers(@RequestParam(name = "UserId") Integer UserIdl) {
+	private MessageResponse deleteAdminUsers(@RequestParam(name = "UserId") Integer UserIdl) {
 		@SuppressWarnings("deprecation")
-		Long userid=new Long(UserIdl);
+		Long userid = new Long(UserIdl);
 		return adminService.deleteAdminUser(userid);
 	}
 
 	@PostMapping("/updateAdminUser")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequestAdmin signUpRequest,@RequestParam(name = "UserId") Integer UserIdl) {
+	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequestAdmin signUpRequest,
+			@RequestParam(name = "UserId") Integer UserIdl) {
 		@SuppressWarnings("deprecation")
-		Long UserId=new Long(UserIdl);
-		 User users=userRepository.findById(UserId).get();
-		 AdminDetails adminDetails =adminDetailsRepository.findByUserId(UserId).get();
-	     if(users!=null && adminDetails!=null){
-	    	 users.setEmail(signUpRequest.getEmail());
-	    	 users.setMobileNumber(signUpRequest.getMobileNumber());
-	    	 users.setName(signUpRequest.getName());
-	    	 userRepository.save(users);
-	    	 adminDetails.setDepartment(signUpRequest.getDepartment());
-	    	 adminDetails.setPosition(signUpRequest.getPosition());
-	 		 adminDetailsRepository.save(adminDetails);
+		Long UserId = new Long(UserIdl);
+		User users = userRepository.findById(UserId).get();
+		AdminDetails adminDetails = adminDetailsRepository.findByUserId(UserId).get();
+		if (users != null && adminDetails != null) {
+			users.setEmail(signUpRequest.getEmail());
+			users.setMobileNumber(signUpRequest.getMobileNumber());
+			users.setName(signUpRequest.getName());
+			userRepository.save(users);
+			adminDetails.setDepartment(signUpRequest.getDepartment());
+			adminDetails.setPosition(signUpRequest.getPosition());
+			adminDetailsRepository.save(adminDetails);
 
-	     }
-		 return ResponseEntity.ok(new MessageResponse(HttpStatus.OK.value(),"User registered successfully!"));
+		}
+		return ResponseEntity.ok(new MessageResponse(HttpStatus.OK.value(), "User registered successfully!"));
 	}
-	
 
 }

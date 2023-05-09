@@ -1,5 +1,6 @@
 package com.SapPortal.security.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -30,7 +31,8 @@ public class AdminService {
 	
 	
 	public List<AdminUserDto> getAllAdminUser(String status) {
-		List<AdminUserDto> adminUserDtoList= userRepository.findAllAdminUser(status);
+//		List<AdminUserDto> adminUserDtoList= userRepository.findAllAdminUser(status);
+		List<AdminUserDto> adminUserDtoList= new ArrayList();
 		return adminUserDtoList;
 	}
 

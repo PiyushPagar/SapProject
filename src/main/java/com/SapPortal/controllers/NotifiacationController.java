@@ -62,7 +62,6 @@ public class NotifiacationController {
 		notification.setStatus(notificationData.getStatus());
 		notification.setUserId(notificationData.getUserId());
 		notification.setFile(notificationData.getFile());
-		notification.setNotificationmodule(notificationData.getNotificationmodule());
 		notification.setCreatedDateTime(date.toString());
 		return new ResponseEntity<Notifications>(notificationsRepository.save(notification), HttpStatus.OK);
 	}
@@ -78,7 +77,6 @@ public class NotifiacationController {
 		notification.setStatus(notificationData.getStatus());
 		notification.setUserId(notificationData.getUserId());
 		notification.setFile(notificationData.getFile());
-		notification.setNotificationmodule(notificationData.getNotificationmodule());
 		notification.setCreatedDateTime(new Date(0).toString());
 		return new ResponseEntity<Notifications>(notificationsRepository.save(notification), HttpStatus.OK);
 	}
