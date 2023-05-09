@@ -53,7 +53,7 @@ public class ApplicationFromController {
 
 	@RequestMapping(value = "/getapplicationformStatus", method = RequestMethod.GET)
 	@ResponseBody
-	public ApplicationformStatusDto getapplicationformStatus(@RequestParam(name = "UserId") int UserId) {
+	public ApplicationformStatusDto getapplicationformStatus(@RequestParam(name = "UserId") Long UserId) {
 		ApplicationformStatusDto applicationformStatusDto= new ApplicationformStatusDto();
 		ApplicationForm applicationFormList = applicationFormRepository.findApplicationFormByUserId(UserId);
 		if(applicationFormList==null){
@@ -88,7 +88,7 @@ public class ApplicationFromController {
 	
 	
 	@PostMapping("/updateapplicationForm/{userId}")
-	private int updateApplicationFrom(@RequestBody ApplicationForm applicationForm,@PathVariable("userId") int userId) {
+	private int updateApplicationFrom(@RequestBody ApplicationForm applicationForm,@PathVariable("userId") Long userId) {
 		ApplicationForm applicationFormNew=applicationFormRepository.findApplicationFormByUserId(userId);
 //		ApplicationForm applicationFormNew=applicationFormNewList.get(0);
 		applicationFormNew.setAdhaarCard(applicationForm.getAdhaarCard());
