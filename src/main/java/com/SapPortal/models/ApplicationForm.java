@@ -3,6 +3,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
 @Entity
@@ -11,7 +13,7 @@ public class ApplicationForm {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int StudentId;
+	private int Id;
 	private String email;
 	private String name;
 	private String collegeEmail;
@@ -23,36 +25,43 @@ public class ApplicationForm {
 	private String studentType;
 	private String adhaarCard;
 	private String uploadImage;
-//	public ApplicationForm(int studentId,String email, String name, String collegeEmail, String sapModule, String contactNumber,
-//			String passoutYear, String branch, String specialization, String studentType, String adhaarCard,
-//			String uploadImage) {
-//		super();
-//		StudentId = studentId;
-//		this.email = email;
-//		this.name = name;
-//		this.collegeEmail = collegeEmail;
-//		this.sapModule = sapModule;
-//		this.contactNumber = contactNumber;
-//		this.passoutYear = passoutYear;
-//		this.branch = branch;
-//		this.specialization = specialization;
-//		this.studentType = studentType;
-//		this.adhaarCard = adhaarCard;
-//		this.uploadImage = uploadImage;
-//	}
-//	
-//	public ApplicationForm() {
-//		super();
-//		// TODO Auto-generated constructor stub
-//	}
-
-	public int getStudentId() {
-		return StudentId;
+	private String applicationFromStatus;
+	private Long userId;
+	private Boolean isQueryInApplication;
+	public Boolean getIsQueryInApplication() {
+		return isQueryInApplication;
 	}
 
-	public void setStudentId(int studentId) {
-		StudentId = studentId;
+	public void setIsQueryInApplication(Boolean isQueryInApplication) {
+		this.isQueryInApplication = isQueryInApplication;
 	}
+
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getApplicationFromStatus() {
+		return applicationFromStatus;
+	}
+
+	public void setApplicationFromStatus(String applicationFromStatus) {
+		this.applicationFromStatus = applicationFromStatus;
+	}
+
+	
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+
 	public String getEmail() {
 		return email;
 	}
