@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -18,12 +19,37 @@ public class PlacementDetails {
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Long id;
 		@Column(name="packages")
-		private Integer packages;
-		private String imageUrl;
+		private Float packages;
 		private String name;
 		private String companyname;
 		private String module;
 		private String placementYear;
+	    private String studentfilename;
+	    private String studentfiletype;
+	    @Lob
+	    @Column(name = "imagedata",length = 1000)
+	    private byte[] studentimageData;
+	    
+	    
+
+		public String getStudentfilename() {
+			return studentfilename;
+		}
+		public void setStudentfilename(String studentfilename) {
+			this.studentfilename = studentfilename;
+		}
+		public String getStudentfiletype() {
+			return studentfiletype;
+		}
+		public void setStudentfiletype(String studentfiletype) {
+			this.studentfiletype = studentfiletype;
+		}
+		public byte[] getStudentimageData() {
+			return studentimageData;
+		}
+		public void setStudentimageData(byte[] studentimageData) {
+			this.studentimageData = studentimageData;
+		}
 		public Long getId() {
 			return id;
 		}
@@ -34,17 +60,13 @@ public class PlacementDetails {
 	
 
 		
-		public Integer getPackages() {
+	
+		
+		public Float getPackages() {
 			return packages;
 		}
-		public void setPackages(Integer packages) {
+		public void setPackages(Float packages) {
 			this.packages = packages;
-		}
-		public String getImageUrl() {
-			return imageUrl;
-		}
-		public void setImageUrl(String imageUrl) {
-			this.imageUrl = imageUrl;
 		}
 		public String getName() {
 			return name;
@@ -70,12 +92,7 @@ public class PlacementDetails {
 		public void setPlacementYear(String placementYear) {
 			this.placementYear = placementYear;
 		}
-		@Override
-		public String toString() {
-			return "PlacementDetails [id=" + id + ", placementpackage=" + packages + ", imageUrl=" + imageUrl
-					+ ", name=" + name + ", companyname=" + companyname + ", module=" + module + ", placementYear="
-					+ placementYear + "]";
-		}
+		
 		
 		
 		

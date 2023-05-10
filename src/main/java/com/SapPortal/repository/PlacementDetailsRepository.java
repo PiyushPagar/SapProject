@@ -1,6 +1,7 @@
 package com.SapPortal.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -11,6 +12,8 @@ public interface PlacementDetailsRepository  extends JpaRepository<PlacementDeta
 
 
 	List<PlacementDetails> findAllByOrderByPackagesDesc();
+
+	Optional<PlacementDetails> findByStudentfilename(String fileName);
 
 
 
